@@ -1,11 +1,9 @@
-import { Inria_Serif } from 'next/font/google';
 import Head from 'next/head';
 
 import { Advantages } from '../src/layout/section/advantages/Advantages';
 import { Main } from '../src/layout/section/main/Main';
+import { Services } from '../src/layout/section/services/Services';
 
-
-// const inria = Inria_Serif({ weight: ["300", "400", "700"], subsets: ["latin"] });
 
 export default function Home() {
   return (
@@ -17,6 +15,7 @@ export default function Home() {
       </Head>
       <Main />
       <Advantages />
+      <Services />
     </>
   );
 }

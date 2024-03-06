@@ -17,5 +17,65 @@
         "desc": "On the other hand, socio-economic development requires us to analyze the forms of impact."
       }
     }
+  },
+  "services": {
+    "title": "Services",
+    "services": {
+      "1": {
+        "title": "Subscription service for legal entities",
+        "text": "",
+        "alt": "glasses"
+      },
+      "2": {
+        "title": "Psychological help",
+        "text": "",
+        "alt": "coffee"
+      },
+      "3": {
+        "title": "Opening, liquidation of legal entities, bankruptcy",
+        "text": "",
+        "alt": "notebook"
+      },
+      "4": {
+        "title": "Mediation on debt restructuring issues",
+        "text": "",
+        "alt": "ledger"
+      },
+      "5": {
+        "title": "Statement of claim",
+        "text": "",
+        "alt": "file"
+      },
+      "6": {
+        "title": "Criminal, administrative proceedings related...",
+        "text": "",
+        "alt": "pen"
+      },
+      "7": {
+        "title": "Consulting on issues related to interaction...",
+        "text": "",
+        "alt": "sheet"
+      },
+      "8": {
+        "title": "Complex issues of legalization of migrants",
+        "text": "",
+        "alt": "envelope"
+      },
+      "9": {
+        "title": "",
+        "text": "",
+        "alt": "pencils"
+      },
+      "10": {
+        "title": "",
+        "text": "",
+        "alt": "handcuffs"
+      },
+      "11": {
+        "title": "",
+        "text": "",
+        "alt": "hammer"
+      }
+    }
   }
 }
