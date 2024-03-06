@@ -1,5 +1,6 @@
 import type { AppProps } from "next/app";
 import { NextIntlClientProvider } from 'next-intl';
+import { Inria_Serif } from 'next/font/google';
 import { useRouter } from 'next/router';
 import { ThemeProvider } from 'styled-components';
 
@@ -9,6 +10,8 @@ import ru from '../i18n/ru.json';
 import { GlobalStyle } from '../src/styles/Global.styled';
 import { theme } from '../src/styles/Theme';
 
+
+const inria = Inria_Serif({ weight: ["300", "400", "700"], subsets: ["latin"] });
 
 // const dictionary = {
 //   en: () => import("../i18n/en.json").then((module) => module.default),
@@ -40,8 +43,10 @@ function App({ Component, pageProps }: AppProps) {
   return (
     <NextIntlClientProvider locale={locale} messages={dictionary[locale]}>
       <ThemeProvider theme={theme}>
-        <GlobalStyle />
-        <Component {...pageProps} />
+        <main className={inria.className}>
+          <GlobalStyle />
+          <Component {...pageProps} />
+        </main>
       </ThemeProvider>
     </NextIntlClientProvider>
   );

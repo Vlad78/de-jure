@@ -1,17 +1,18 @@
-import Image from "next/image";
-import React from "react";
-import styled from "styled-components";
+import Image from 'next/image';
+import React from 'react';
+import styled from 'styled-components';
 
-import mainImage from "../../../assets/imgs/main.png";
-import { ButtonReadMore } from "../../../components/ButtonReadMore";
-import { Container } from "../../../components/Container";
-import { FlexWrapper } from "../../../components/FlexWrapper";
-import { IconStripe } from "../../../components/icons/IconStripe";
-import { theme } from "../../../styles/Theme";
+import mainImage from '../../../assets/imgs/main.png';
+import { ButtonReadMore } from '../../../components/ButtonReadMore';
+import { Container } from '../../../components/Container';
+import { FlexWrapper } from '../../../components/FlexWrapper';
+import { IconStripe } from '../../../components/icons/IconStripe';
+import { theme } from '../../../styles/Theme';
 
-export const Main = ({ className }: { className: string }) => {
+
+export const Main = () => {
   return (
-    <StyledMain className={className}>
+    <StyledMain>
       <Container>
         <StyledBackground />
         <IconStripeWrapper>

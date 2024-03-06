@@ -1,10 +1,11 @@
-import { Inria_Serif } from "next/font/google";
-import Head from "next/head";
+import { Inria_Serif } from 'next/font/google';
+import Head from 'next/head';
 
-import { Advantages } from "../src/layout/section/advantages/Advantages";
-import { Main } from "../src/layout/section/main/Main";
+import { Advantages } from '../src/layout/section/advantages/Advantages';
+import { Main } from '../src/layout/section/main/Main';
 
-const inria = Inria_Serif({ weight: ["300", "400", "700"], subsets: ["latin"] });
+
+// const inria = Inria_Serif({ weight: ["300", "400", "700"], subsets: ["latin"] });
 
 export default function Home() {
   return (
@@ -14,7 +15,7 @@ export default function Home() {
         <meta name="description" content="" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Main className={inria.className} />
+      <Main />
       <Advantages />
     </>
   );
