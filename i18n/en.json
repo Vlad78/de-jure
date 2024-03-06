@@ -1,8 +1,21 @@
 {
-  "test": "TEST",
   "header": {},
   "main": {},
   "advantages": {
-    "title": "Advantages"
+    "title": "Advantages",
+    "advantages": {
+      "1": {
+        "title": "We'll keep you in the loop",
+        "desc": "On the other hand, socio-economic development requires us to analyze the forms of impact."
+      },
+      "2": {
+        "title": "Full custody of your legal affairs",
+        "desc": "On the other hand, socio-economic development requires us to analyze the forms of impact."
+      },
+      "3": {
+        "title": "We take the tough cases",
+        "desc": "On the other hand, socio-economic development requires us to analyze the forms of impact."
+      }
+    }
   }
 }

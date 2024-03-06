@@ -6,6 +6,8 @@ export const theme = {
 
     colorPrimeLight: "#F4F0EC",
     colorPrimeMedium: "#FAC88B",
+    colorPrimeDark: "#D3927E",
+    colorAlt: "#7EA3D3",
   },
 
   media: {
