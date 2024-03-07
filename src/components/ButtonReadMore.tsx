@@ -1,13 +1,12 @@
+import { useTranslations } from 'next-intl';
 import styled from 'styled-components';
 
 import { theme } from '../styles/Theme';
 
 
-type ButtonReadMore = {
-  title?: string;
-};
-export const ButtonReadMore = ({ title }: ButtonReadMore) => {
-  return <StyledButton>{title || "Read More"}</StyledButton>;
+export const ButtonReadMore = () => {
+  const t = useTranslations("system");
+  return <StyledButton>{t("readMore")}</StyledButton>;
 };
 
 const StyledButton = styled.button`

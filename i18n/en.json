@@ -1,4 +1,9 @@
 {
+  "system": {
+    "readMore": "Read More",
+    "phoneNumber": "+48 100 100 100",
+    "callCondition": "Weekdays from 10 to 18"
+  },
   "header": {},
   "main": {},
   "advantages": {
@@ -77,5 +82,9 @@
         "alt": "hammer"
       }
     }
+  },
+  "aboutUs": {
+    "title": "About us",
+    "moto": "It is a long established fact that a reader will be distracted by the of readable content of a page when lookings at its layouts the points of using that it has a more-or-less normal."
   }
 }
