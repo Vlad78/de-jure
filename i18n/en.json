@@ -86,5 +86,18 @@
   "aboutUs": {
     "title": "About us",
     "moto": "It is a long established fact that a reader will be distracted by the of readable content of a page when lookings at its layouts the points of using that it has a more-or-less normal."
+  },
+  "stories": {
+    "title": "Stories of our customers",
+    "stories": {
+      "1": {
+        "title": "Solved the migrant issue",
+        "text": ""
+      },
+      "2": {
+        "title": "Legalization is fine",
+        "text": ""
+      }
+    }
   }
 }

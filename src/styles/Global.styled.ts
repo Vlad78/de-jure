@@ -1,6 +1,7 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from 'styled-components';
 
-import { theme } from "./Theme";
+import { theme } from './Theme';
+
 
 export const GlobalStyle = createGlobalStyle`
 
@@ -29,6 +30,13 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: normal;
 }
 
+h3 {
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 48px;
+    margin: 40px;
+}
+
 p {
     margin: 0 0 10px 0;
 }
@@ -48,7 +56,7 @@ ul {
 }
 
 button {
-    background-color: none;
+    background-color: transparent;
     border: none;
     font-family: inherit;
     cursor: pointer;

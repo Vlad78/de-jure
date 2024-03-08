@@ -1,15 +1,23 @@
 import { useTranslations } from 'next-intl';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 import { theme } from '../styles/Theme';
 
 
-export const ButtonReadMore = () => {
-  const t = useTranslations("system");
-  return <StyledButton>{t("readMore")}</StyledButton>;
+type ButtonReadMore = {
+  option?: "transparent";
 };
 
-const StyledButton = styled.button`
+export const ButtonReadMore = ({ option }: ButtonReadMore) => {
+  const t = useTranslations("system");
+  return (
+    <>
+      <StyledButton option={option}>{t("readMore")}</StyledButton>
+    </>
+  );
+};
+
+const StyledButton = styled.button<ButtonReadMore>`
   width: 252px;
   padding: 14px;
   font-size: 28px;
@@ -18,4 +26,16 @@ const StyledButton = styled.button`
   text-align: center;
   border-radius: 10px;
   background-color: ${theme.colors.colorPrimeMedium};
+
+  ${(props) =>
+    props.option === "transparent" &&
+    css`
+      background-color: transparent;
+      border: 3px solid ${theme.colors.colorPrimeMedium};
+      color: ${theme.colors.colorPrimeMedium};
+      &:hover {
+        background-color: ${theme.colors.colorPrimeMedium};
+        color: ${theme.colors.font};
+      }
+    `};
 `;
