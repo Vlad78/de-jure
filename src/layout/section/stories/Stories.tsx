@@ -7,6 +7,7 @@ import { IconStripe } from '../../../assets/IconStripe';
 import { ButtonReadMore } from '../../../components/ButtonReadMore';
 import { Container } from '../../../components/Container';
 import { FlexWrapper } from '../../../components/FlexWrapper';
+import { IconStripeWrapper } from '../../../components/IconWrapper';
 import { TitleSection } from '../../../components/TitleSection';
 import { useMessageTyped } from '../../../hooks/useMessage';
 import { theme } from '../../../styles/Theme';
@@ -76,17 +77,6 @@ const Card = styled.div<{ img: { default: StaticImageData } }>`
   }
   &:nth-child(even) {
     border-radius: 20px 100px 20px 100px;
-  }
-`;
-
-const IconStripeWrapper = styled.div<{ top: string; left: string }>`
-  position: absolute;
-
-  svg {
-    position: absolute;
-    opacity: 0.6;
-    top: ${(props) => props.top};
-    left: ${(props) => props.left};
   }
 `;
 

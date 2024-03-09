@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { IconStripe } from '../../../assets/IconStripe';
 import { Container } from '../../../components/Container';
 import { FlexWrapper } from '../../../components/FlexWrapper';
+import { IconStripeWrapper } from '../../../components/IconWrapper';
 import { TitleSection } from '../../../components/TitleSection';
 import { useMessageTyped } from '../../../hooks/useMessage';
 
@@ -18,7 +19,7 @@ export const Advantages = () => {
     <StyledAdvantages>
       <Container>
         <IconStripeWrapper>
-          <IconStripe iconId="advantagesPluses" />
+          <IconStripe iconId="pluses" />
         </IconStripeWrapper>
         <TitleSection>{t("title")}</TitleSection>
         <FlexWrapper>
@@ -38,16 +39,4 @@ export const Advantages = () => {
 const StyledAdvantages = styled.section`
   margin-top: 100px;
   min-height: 601px;
-`;
-
-const IconStripeWrapper = styled.div`
-  position: absolute;
-  inset: 0 0 0 0;
-
-  svg {
-    position: absolute;
-    opacity: 0.6;
-    top: 74px;
-    left: 44px;
-  }
 `;

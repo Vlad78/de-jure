@@ -7,6 +7,7 @@ import img from '../../../assets/imgs/about.jpeg';
 import { ButtonReadMore } from '../../../components/ButtonReadMore';
 import { Container } from '../../../components/Container';
 import { FlexWrapper } from '../../../components/FlexWrapper';
+import { IconStripeWrapper } from '../../../components/IconWrapper';
 import { TitleSection } from '../../../components/TitleSection';
 import { theme } from '../../../styles/Theme';
 import { AboutContacts } from './AboutContacts';
@@ -18,7 +19,7 @@ export const AboutUs = () => {
     <StyledAboutUs>
       <Container>
         <IconStripeWrapper>
-          <IconStripe iconId="aboutUsPluses" />
+          <IconStripe iconId="pluses" />
         </IconStripeWrapper>
         <FlexWrapper>
           <FlexWrapper direction="column">
@@ -52,14 +53,5 @@ const ImageWrapper = styled.div`
   img {
     object-fit: cover;
     object-position: -45px -150px;
-  }
-`;
-
-const IconStripeWrapper = styled.div`
-  svg {
-    position: absolute;
-    opacity: 0.6;
-    top: 74px;
-    left: 44px;
   }
 `;
