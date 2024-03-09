@@ -5,6 +5,7 @@ import { Advantages } from '../src/layout/section/advantages/Advantages';
 import { Main } from '../src/layout/section/main/Main';
 import { Services } from '../src/layout/section/services/Services';
 import { Stories } from '../src/layout/section/stories/Stories';
+import { Testimonials } from '../src/layout/section/testimonials/Testimonials';
 
 
 export default function Home() {
@@ -20,6 +21,7 @@ export default function Home() {
       <Services />
       <AboutUs />
       <Stories />
+      <Testimonials />
     </>
   );
 }

@@ -2,6 +2,7 @@ export const theme = {
   colors: {
     bgPrimary: "#ffffff",
     bgPlug: "#c4c4c4",
+    bgAlt: "#BDBDD1",
 
     font: "#001A39",
 
@@ -10,6 +11,8 @@ export const theme = {
     colorPrimeDark: "#D3927E",
     colorAlt: "#7EA3D3",
     colorLight: "#ffffff",
+
+    boxShadow: "2px 4px 15px 0px rgba(41, 44, 124, 0.1);",
   },
 
   media: {

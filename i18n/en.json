@@ -99,5 +99,24 @@
         "text": ""
       }
     }
+  },
+  "testimonials": {
+    "title": "Testimonials",
+    "testimonials": {
+      "1": {
+        "text": "Thank you so much for your help. It's exactly what I've been looking for. You won't regret it. It really saves me time and effort. Skilline is exactly what our business has been lacking.",
+        "name": "Gloria Rose",
+        "alt": "photo",
+        "rating": "5",
+        "sourse": "Yelp"
+      },
+      "2": {
+        "text": "Thank you so much for your help. It's exactly what I've been looking for. You won't regret it. It really saves me time and effort. Skilline is exactly what our business has been lacking.",
+        "name": "Viezh Robert",
+        "alt": "photo",
+        "rating": "5",
+        "sourse": "Yelp"
+      }
+    }
   }
 }

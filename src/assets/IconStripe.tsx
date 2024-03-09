@@ -949,6 +949,25 @@ export const IconStripe = ({ iconId, height, width, viewBox, fill, isHovered }: 
         </g>
       </svg>
     );
+  if (iconId === "star")
+    return (
+      <svg
+        height={height || "21.685547"}
+        width={width || "22.801514"}
+        fill="none"
+        viewBox={viewBox || "0 0 22.8015 21.6855"}
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <defs />
+        <path
+          id="Star 1"
+          d="M11.4009 0L7.31421 6.36279L0 8.2832L4.78833 14.1362L4.35474 21.6855L11.4009 18.9404L18.447 21.6855L18.0132 14.1362L22.8015 8.2832L15.4875 6.36279L11.4009 0Z"
+          fill="#FBA333"
+          fillOpacity="1.000000"
+          fillRule="evenodd"
+        />
+      </svg>
+    );
   // if (iconId === "")
   // return (
 

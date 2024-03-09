@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 type FlexWrapper = {
   direction?: string;
-  justify?: "space-between" | string;
+  justify?: "space-between";
   align?: string;
   wrap?: "wrap" | "nowrap";
   gap?: string;
