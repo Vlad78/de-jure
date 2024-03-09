@@ -4,8 +4,8 @@ import { useState } from 'react';
 import styled from 'styled-components';
 
 import { IconStripe } from '../../../assets/IconStripe';
-import { ButtonReadMore } from '../../../components/ButtonReadMore';
 import { Container } from '../../../components/Container';
+import { CustomButton } from '../../../components/CustomButton';
 import { FlexWrapper } from '../../../components/FlexWrapper';
 import { IconStripeWrapper } from '../../../components/IconWrapper';
 import { TitleSection } from '../../../components/TitleSection';
@@ -33,7 +33,7 @@ export const Stories = () => {
           {keys.map((e, i) => (
             <Card img={require(`../../../assets/imgs/stories/${i + 1}.jpeg`)}>
               <h3>{t<any>(`stories.${e}.title`)}</h3>
-              <ButtonReadMore option="transparent" />
+              <CustomButton option="transparent" text="readMore" />
             </Card>
           ))}
         </FlexWrapper>

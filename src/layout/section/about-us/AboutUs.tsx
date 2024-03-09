@@ -4,8 +4,8 @@ import styled from 'styled-components';
 
 import { IconStripe } from '../../../assets/IconStripe';
 import img from '../../../assets/imgs/about.jpeg';
-import { ButtonReadMore } from '../../../components/ButtonReadMore';
 import { Container } from '../../../components/Container';
+// import { CustomButton } from '../../../components/CustomButton';
 import { FlexWrapper } from '../../../components/FlexWrapper';
 import { IconStripeWrapper } from '../../../components/IconWrapper';
 import { TitleSection } from '../../../components/TitleSection';
@@ -26,7 +26,7 @@ export const AboutUs = () => {
             <TitleSection>{t("title")}</TitleSection>
             <StyledMoto>{t("moto")}</StyledMoto>
             <AboutContacts />
-            <ButtonReadMore />
+            {/* <CustomButton text="readMore" /> */}
           </FlexWrapper>
           <ImageWrapper>
             <Image alt="About us" src={img} />

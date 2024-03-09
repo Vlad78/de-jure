@@ -2,11 +2,11 @@ import Image from 'next/image';
 import React from 'react';
 import styled from 'styled-components';
 
+import { IconStripe } from '../../../assets/IconStripe';
 import mainImage from '../../../assets/imgs/main.png';
-import { ButtonReadMore } from '../../../components/ButtonReadMore';
 import { Container } from '../../../components/Container';
+import { CustomButton } from '../../../components/CustomButton';
 import { FlexWrapper } from '../../../components/FlexWrapper';
-import { IconStripe } from '../../../components/icons/IconStripe';
 import { theme } from '../../../styles/Theme';
 
 
@@ -23,7 +23,7 @@ export const Main = () => {
             <IconStripe iconId="logo" width="100px" />
             <StyledHero>Finding Out the Truth, Helping, Arguing and Winning</StyledHero>
             <Description>You trusted lawer in Poland</Description>
-            <ButtonReadMore />
+            <CustomButton text="readMore" />
           </StyledInfo>
           <Image alt="Main image" src={mainImage} />
         </FlexWrapper>
@@ -34,6 +34,7 @@ export const Main = () => {
 
 const StyledMain = styled.section`
   min-height: 900px;
+  overflow: hidden;
 `;
 
 const StyledBackground = styled.div`

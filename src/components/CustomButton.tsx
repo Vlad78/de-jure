@@ -4,20 +4,21 @@ import styled, { css } from 'styled-components';
 import { theme } from '../styles/Theme';
 
 
-type ButtonReadMore = {
+type Button = {
   option?: "transparent";
+  text: "readMore" | "send";
 };
 
-export const ButtonReadMore = ({ option }: ButtonReadMore) => {
+export const CustomButton = ({ option, text }: Button) => {
   const t = useTranslations("system");
   return (
     <>
-      <StyledButton option={option}>{t("readMore")}</StyledButton>
+      <StyledButton option={option}>{t(text)}</StyledButton>
     </>
   );
 };
 
-const StyledButton = styled.button<ButtonReadMore>`
+const StyledButton = styled.button<Omit<Button, "text">>`
   width: 252px;
   padding: 14px;
   font-size: 28px;
