@@ -4,7 +4,7 @@ import styled from 'styled-components';
 type FlexWrapper = {
   direction?: "column" | "row";
   justify?: "space-between";
-  align?: string;
+  align?: "center";
   wrap?: "wrap" | "nowrap";
   gap?: string;
   height?: string;

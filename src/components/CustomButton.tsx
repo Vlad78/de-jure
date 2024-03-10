@@ -6,7 +6,7 @@ import { theme } from '../styles/Theme';
 
 type Button = {
   option?: "transparent";
-  text: "readMore" | "send";
+  text: "readMore" | "send" | "build a route";
 };
 
 export const CustomButton = ({ option, text }: Button) => {

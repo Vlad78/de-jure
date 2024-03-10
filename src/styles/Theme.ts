@@ -2,6 +2,7 @@ export const theme = {
   colors: {
     bgPrimary: "#ffffff",
     bgPlug: "#c4c4c4",
+    bgDark: "#292f36",
     bgAlt: "#BDBDD1",
 
     font: "#001A39",

@@ -2,6 +2,7 @@
   "system": {
     "readMore": "Read More",
     "send": "Send",
+    "build a route": "Build a route",
     "phoneNumber": "+48 100 100 100",
     "callCondition": "Weekdays from 10 to 18"
   },
@@ -125,5 +126,8 @@
     "name": "Name",
     "phone": "Phone",
     "introduction": "Hello Iam Intrested in.."
+  },
+  "map": {
+    "location": "Office"
   }
 }
