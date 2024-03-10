@@ -73,7 +73,7 @@ export const Footer = () => {
           <StyledUl>
             {titles.map((e) => (
               <li key={e}>
-                <Link href={`#${e.toLowerCase}`}>{e}</Link>
+                <a href={`#${e}`}>{e}</a>
               </li>
             ))}
           </StyledUl>

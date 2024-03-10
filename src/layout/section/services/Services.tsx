@@ -10,7 +10,7 @@ import data from './data';
 export const Services = () => {
   const t = useTranslations("services");
   return (
-    <StyledServices>
+    <StyledServices id={t("title")}>
       <Container>
         <TitleSection>{t("title")}</TitleSection>
         <StyledGrid>

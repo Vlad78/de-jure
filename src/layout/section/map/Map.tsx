@@ -1,3 +1,4 @@
+import { useTranslations } from 'next-intl';
 import styled from 'styled-components';
 
 import { Container } from '../../../components/Container';
@@ -7,8 +8,9 @@ import { theme } from '../../../styles/Theme';
 
 
 export const Map = () => {
+  const t = useTranslations("map");
   return (
-    <StyledMap>
+    <StyledMap id={t("title")}>
       <Container>
         <FlexWrapper direction="column" align="center" gap="100px" height="inherit">
           <IframeWrapper>

@@ -16,7 +16,7 @@ import { AboutContacts } from './AboutContacts';
 export const AboutUs = () => {
   const t = useTranslations("aboutUs");
   return (
-    <StyledAboutUs>
+    <StyledAboutUs id={t("title")}>
       <Container>
         <IconStripeWrapper>
           <IconStripe iconId="pluses" />

@@ -16,7 +16,7 @@ export const Advantages = () => {
   const messages = useMessageTyped();
   const keys = Object.keys(messages.advantages.advantages);
   return (
-    <StyledAdvantages>
+    <StyledAdvantages id={t("title")}>
       <Container>
         <IconStripeWrapper>
           <IconStripe iconId="pluses" />

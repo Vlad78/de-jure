@@ -20,7 +20,7 @@ export const Stories = () => {
   const messages = useMessageTyped();
   const keys = Object.keys(messages.stories.stories);
   return (
-    <StyledStories>
+    <StyledStories id={t("title")}>
       <Container>
         <IconStripeWrapper top="74px" left="44px">
           <IconStripe iconId="pluses" />

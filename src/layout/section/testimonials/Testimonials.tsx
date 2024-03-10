@@ -29,7 +29,7 @@ export const Testimonials = () => {
   }, [ref]);
 
   return (
-    <StyledTestimonials>
+    <StyledTestimonials id={t("title")}>
       <Container>
         <TitleSection>{t("title")}</TitleSection>
         <IconStripeWrapper top="-44px" left="544px">

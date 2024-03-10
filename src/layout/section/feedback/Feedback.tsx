@@ -15,7 +15,7 @@ import { theme } from '../../../styles/Theme';
 export const Feedback = () => {
   const t = useTranslations("feedback");
   return (
-    <StyledFeedback>
+    <StyledFeedback id={t("title")}>
       <Container>
         <TitleSection>{t("title")}</TitleSection>
         <IconStripeWrapper>

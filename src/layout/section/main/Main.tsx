@@ -1,3 +1,4 @@
+import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import React from 'react';
 import styled from 'styled-components';
@@ -11,8 +12,9 @@ import { theme } from '../../../styles/Theme';
 
 
 export const Main = () => {
+  const t = useTranslations("main");
   return (
-    <StyledMain>
+    <StyledMain id={t("title")}>
       <Container>
         <StyledBackground />
         <IconStripeWrapper>
