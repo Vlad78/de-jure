@@ -1,6 +1,7 @@
 import Head from 'next/head';
 
 import { Footer } from '../src/layout/footer/Footer';
+import { Header } from '../src/layout/header/Header';
 import { AboutUs } from '../src/layout/section/about-us/AboutUs';
 import { Advantages } from '../src/layout/section/advantages/Advantages';
 import { Feedback } from '../src/layout/section/feedback/Feedback';
@@ -19,6 +20,7 @@ export default function Home() {
         <meta name="description" content="" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <Header />
       <Main />
       <Advantages />
       <Services />
