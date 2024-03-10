@@ -2,6 +2,7 @@ import Head from 'next/head';
 
 import { AboutUs } from '../src/layout/section/about-us/AboutUs';
 import { Advantages } from '../src/layout/section/advantages/Advantages';
+import { Feedback } from '../src/layout/section/feedback/Feedback';
 import { Main } from '../src/layout/section/main/Main';
 import { Services } from '../src/layout/section/services/Services';
 import { Stories } from '../src/layout/section/stories/Stories';
@@ -22,6 +23,7 @@ export default function Home() {
       <AboutUs />
       <Stories />
       <Testimonials />
+      <Feedback />
     </>
   );
 }

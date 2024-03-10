@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 
 type FlexWrapper = {
-  direction?: string;
+  direction?: "column" | "row";
   justify?: "space-between";
   align?: string;
   wrap?: "wrap" | "nowrap";

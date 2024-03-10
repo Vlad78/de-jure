@@ -1,6 +1,7 @@
 {
   "system": {
     "readMore": "Read More",
+    "send": "Send",
     "phoneNumber": "+48 100 100 100",
     "callCondition": "Weekdays from 10 to 18"
   },
@@ -118,5 +119,11 @@
         "sourse": "Yelp"
       }
     }
+  },
+  "feedback": {
+    "title": "Feedback",
+    "name": "Name",
+    "phone": "Phone",
+    "introduction": "Hello Iam Intrested in.."
   }
 }
