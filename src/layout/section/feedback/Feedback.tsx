@@ -24,15 +24,15 @@ export const Feedback = () => {
         <FlexWrapper justify="space-between">
           <StyledCreds>
             <div>
-              <IconStripe iconId="email" height="52px" width="52px" />
+              <IconStripe iconId="email-circle" height="52px" width="52px" />
               {creds.email}
             </div>
             <div>
-              <IconStripe iconId="phone" height="52px" width="52px" />
+              <IconStripe iconId="phone-circle" height="52px" width="52px" />
               {creds.phone}
             </div>
             <div>
-              <IconStripe iconId="address" height="52px" width="52px" />
+              <IconStripe iconId="address-circle" height="52px" width="52px" />
               {creds.address}
             </div>
             <FlexWrapper>

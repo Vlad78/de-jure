@@ -6,6 +6,7 @@ export const theme = {
     bgAlt: "#BDBDD1",
 
     font: "#001A39",
+    fontShaddy: "#4D5053",
 
     colorPrimeLight: "#F4F0EC",
     colorPrimeMedium: "#FAC88B",

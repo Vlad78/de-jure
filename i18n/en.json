@@ -3,11 +3,13 @@
     "readMore": "Read More",
     "send": "Send",
     "build a route": "Build a route",
-    "phoneNumber": "+48 100 100 100",
-    "callCondition": "Weekdays from 10 to 18"
+    "callCondition": "Weekdays from 10 to 18",
+    "working hours": "from 10:00 to 17:00"
   },
   "header": {},
-  "main": {},
+  "main": {
+    "title": "Main"
+  },
   "advantages": {
     "title": "Advantages",
     "advantages": {
@@ -128,6 +130,16 @@
     "introduction": "Hello Iam Intrested in.."
   },
   "map": {
+    "title": "Map",
     "location": "Office"
+  },
+  "footer": {
+    "general information": "General information",
+    "we are in messengers": "We are in messengers",
+    "we are available": "We are available during business hours",
+    "interested in a job?": "Interested in a job? Connect with us",
+    "navigation": "Navigation",
+    "general terms and conditions": "General terms and conditions for the provision of legal services",
+    "copyright": "© Copyright"
   }
 }

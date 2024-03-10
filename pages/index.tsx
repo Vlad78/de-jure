@@ -1,5 +1,6 @@
 import Head from 'next/head';
 
+import { Footer } from '../src/layout/footer/Footer';
 import { AboutUs } from '../src/layout/section/about-us/AboutUs';
 import { Advantages } from '../src/layout/section/advantages/Advantages';
 import { Feedback } from '../src/layout/section/feedback/Feedback';
@@ -26,6 +27,7 @@ export default function Home() {
       <Testimonials />
       <Feedback />
       <Map />
+      <Footer />
     </>
   );
 }
