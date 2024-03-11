@@ -8,6 +8,7 @@ import { Container } from '../../../components/Container';
 import { CustomButton } from '../../../components/CustomButton';
 import { FlexWrapper } from '../../../components/FlexWrapper';
 import { IconStripeWrapper } from '../../../components/IconWrapper';
+import { Menu } from '../../../components/Menu';
 import { TitleSection } from '../../../components/TitleSection';
 import { theme } from '../../../styles/Theme';
 
@@ -23,18 +24,7 @@ export const Feedback = () => {
         </IconStripeWrapper>
         <FlexWrapper justify="space-between">
           <StyledCreds>
-            <div>
-              <IconStripe iconId="email-circle" height="52px" width="52px" />
-              {creds.email}
-            </div>
-            <div>
-              <IconStripe iconId="phone-circle" height="52px" width="52px" />
-              {creds.phone}
-            </div>
-            <div>
-              <IconStripe iconId="address-circle" height="52px" width="52px" />
-              {creds.address}
-            </div>
+            <Menu icons="circle" />
             <FlexWrapper>
               <Link href={creds.fb}>
                 <IconStripe iconId="fb" height="30px" width="30px" />

@@ -6,6 +6,7 @@ import creds from '../../assets/data/creds';
 import { IconStripe } from '../../assets/IconStripe';
 import { Container } from '../../components/Container';
 import { FlexWrapper } from '../../components/FlexWrapper';
+import { Menu } from '../../components/Menu';
 import { useMessageTyped } from '../../hooks/useMessage';
 import { theme } from '../../styles/Theme';
 
@@ -30,23 +31,7 @@ export const Footer = () => {
           <div>{creds.company}</div>
           <h4>{t("general information")}</h4>
           <FlexWrapper>
-            <div>
-              <IconStripe iconId="email" height="21px" width="21px" />
-              {creds.email}
-            </div>
-            <div>
-              <IconStripe iconId="phone" height="21px" width="21px" />
-              {creds.phone}
-            </div>
-            <div>
-              <IconStripe
-                iconId="address"
-                height="21px"
-                width="21px"
-                fill={theme.colors.fontShaddy}
-              />
-              {creds.address}
-            </div>
+            <Menu icons="gray" />
           </FlexWrapper>
           <h4>{t("we are in messengers")}</h4>
           <FlexWrapper>
