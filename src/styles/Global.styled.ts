@@ -1,7 +1,6 @@
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle } from "styled-components";
 
-import { theme } from './Theme';
-
+import { theme } from "./Theme";
 
 export const GlobalStyle = createGlobalStyle`
 
@@ -28,6 +27,14 @@ body {
 h1, h2, h3, h4, h5, h6 {
     margin: 0 0 10px 0;
     font-weight: normal;
+}
+
+h2 {
+font-size: 64px;
+font-weight: 700;
+line-height: 136.15%;
+letter-spacing: 0%;
+text-align: left;
 }
 
 h3 {

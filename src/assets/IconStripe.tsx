@@ -6,6 +6,7 @@ export type SVGprops = {
   fill?: string;
   stroke?: string;
   isHovered?: boolean;
+  transform?: string;
 };
 
 export const IconStripe = ({
@@ -16,6 +17,7 @@ export const IconStripe = ({
   fill,
   isHovered,
   stroke,
+  transform,
 }: SVGprops) => {
   if (iconId === "logo")
     return (
@@ -101,6 +103,7 @@ export const IconStripe = ({
         viewBox={viewBox || "0 0 2458.62 2330.28"}
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
+        transform={transform}
       >
         <defs />
         <g opacity="0.600000">
