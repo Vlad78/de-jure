@@ -18,7 +18,13 @@ export const Main = () => {
             <IconStripe iconId="BGLines" width="1661.44px" height="1932px" transform="scale(1.8)" />
           </IconStripeWrapper>
         </StyledBackground>
-        <FlexWrapper z={10} position="absolute" gap="44px" justify="space-between">
+        <FlexWrapper
+          z={10}
+          position="absolute"
+          gap="44px"
+          justify="space-between"
+          margin="30px 0 0 0"
+        >
           <StyledInfo>
             <IconStripe iconId="logo" width="74px" />
             {/* <StyledHero>Finding Out the Truth, Helping, Arguing and Winning</StyledHero> */}
