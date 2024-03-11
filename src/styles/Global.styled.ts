@@ -32,7 +32,7 @@ h1, h2, h3, h4, h5, h6 {
 h2 {
 font-size: 64px;
 font-weight: 700;
-line-height: 136.15%;
+line-height: 180%;
 letter-spacing: 0%;
 text-align: left;
 }
@@ -46,6 +46,9 @@ h3 {
 
 p {
     margin: 0 0 10px 0;
+    font-size: 20px;
+font-weight: 400;
+line-height: 136.15%;
 }
 
 a {

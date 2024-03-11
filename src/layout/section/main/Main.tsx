@@ -63,6 +63,7 @@ const StyledInfo = styled.div`
 
 const StyledHero = styled.h2`
   margin-top: 45px;
+  line-height: 136.15%;
 `;
 
 const Description = styled.h1`
