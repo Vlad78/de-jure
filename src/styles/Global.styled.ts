@@ -1,5 +1,6 @@
 import { createGlobalStyle } from "styled-components";
 
+import { font } from "./FontSize";
 import { theme } from "./Theme";
 
 export const GlobalStyle = createGlobalStyle`
@@ -45,9 +46,10 @@ h3 {
 
 p {
     margin: 0 0 10px 0;
-    font-size: 20px;
+    font-size: ${font(14, 20)};
 font-weight: 400;
 line-height: 136.15%;
+color: ${theme.colors.fontShaddy};
 }
 
 a {
@@ -74,6 +76,7 @@ button {
 img {
     max-width: 100%;
     min-height: auto;
+    height: auto;
 }
 
 `;
