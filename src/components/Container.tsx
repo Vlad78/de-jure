@@ -6,7 +6,7 @@ export const Container = styled.div`
   min-height: inherit;
   height: inherit;
   max-height: inherit;
-  padding: 0 147px;
+  padding: 0 150px;
   margin: 0 auto;
   position: relative;
 `;

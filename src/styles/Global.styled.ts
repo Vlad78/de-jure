@@ -13,7 +13,7 @@ export const GlobalStyle = createGlobalStyle`
 html,
 body {
   max-width: 100vw;
-  min-width: 320px;
+  min-width: 480px;
   overflow-x: hidden;
   color: ${theme.colors.font};
   background-color: ${theme.colors.bgPrimary};
@@ -41,7 +41,6 @@ h3 {
     font-size: 40px;
     font-weight: 700;
     line-height: 48px;
-    margin: 40px;
 }
 
 p {

@@ -33,57 +33,101 @@
       "1": {
         "title": "Subscription service for legal entities",
         "text": "",
-        "alt": "glasses"
+        "alt": "glasses",
+        "left": "51px",
+        "bottom": "261px",
+        "right": "56px",
+        "position": "center"
       },
       "2": {
         "title": "Psychological help",
         "text": "",
-        "alt": "coffee"
+        "alt": "coffee",
+        "left": "0px",
+        "bottom": "0px",
+        "right": "0px",
+        "position": "bottom"
       },
       "3": {
         "title": "Opening, liquidation of legal entities, bankruptcy",
         "text": "",
-        "alt": "notebook"
+        "alt": "notebook",
+        "left": "0px",
+        "bottom": "0px",
+        "right": "0px",
+        "position": ""
       },
       "4": {
         "title": "Mediation on debt restructuring issues",
         "text": "",
-        "alt": "ledger"
+        "alt": "ledger",
+        "left": "0px",
+        "bottom": "0px",
+        "right": "0px",
+        "position": ""
       },
       "5": {
         "title": "Statement of claim",
         "text": "",
-        "alt": "file"
+        "alt": "file",
+        "left": "0px",
+        "bottom": "0px",
+        "right": "0px",
+        "position": "bottom"
       },
       "6": {
         "title": "Criminal, administrative proceedings related...",
         "text": "",
-        "alt": "pen"
+        "alt": "pen",
+        "left": "0px",
+        "bottom": "0px",
+        "right": "40px",
+        "position": ""
       },
       "7": {
         "title": "Consulting on issues related to interaction...",
         "text": "",
-        "alt": "sheet"
+        "alt": "sheet",
+        "left": "0px",
+        "bottom": "0px",
+        "right": "0px",
+        "position": ""
       },
       "8": {
         "title": "Complex issues of legalization of migrants",
         "text": "",
-        "alt": "envelope"
+        "alt": "envelope",
+        "left": "0px",
+        "bottom": "0px",
+        "right": "0px",
+        "position": ""
       },
       "9": {
         "title": "",
         "text": "",
-        "alt": "pencils"
+        "alt": "pencils",
+        "left": "0px",
+        "bottom": "0px",
+        "right": "0px",
+        "position": ""
       },
       "10": {
         "title": "",
         "text": "",
-        "alt": "handcuffs"
+        "alt": "handcuffs",
+        "left": "0px",
+        "bottom": "0px",
+        "right": "0px",
+        "position": ""
       },
       "11": {
         "title": "",
         "text": "",
-        "alt": "hammer"
+        "alt": "hammer",
+        "left": "0px",
+        "bottom": "0px",
+        "right": "0px",
+        "position": ""
       }
     }
   },
