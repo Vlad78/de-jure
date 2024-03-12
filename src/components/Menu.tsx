@@ -1,8 +1,10 @@
-import creds from '../assets/data/creds';
-import { IconStripe } from '../assets/IconStripe';
-import { theme } from '../styles/Theme';
-import { FlexWrapper } from './FlexWrapper';
+import styled from "styled-components";
 
+import creds from "../assets/data/creds";
+import { IconStripe } from "../assets/IconStripe";
+import { font } from "../styles/FontSize";
+import { theme } from "../styles/Theme";
+import { FlexWrapper } from "./FlexWrapper";
 
 type Menu = {
   icons: "no" | "gray" | "circle";
@@ -12,7 +14,7 @@ export const Menu = ({ icons }: Menu) => {
   const size = icons === "gray" ? "21px" : "52px";
   return (
     <>
-      <div>
+      <FlexWrapper align="center" height="unset">
         {icons === "no" ? (
           ""
         ) : (
@@ -22,9 +24,9 @@ export const Menu = ({ icons }: Menu) => {
             width={size}
           />
         )}
-        {creds.email}
-      </div>
-      <div>
+        <StyledText>{creds.email}</StyledText>
+      </FlexWrapper>
+      <FlexWrapper align="center" height="unset">
         {icons === "no" ? (
           ""
         ) : (
@@ -34,9 +36,9 @@ export const Menu = ({ icons }: Menu) => {
             width={size}
           />
         )}
-        {creds.phone}
-      </div>
-      <div>
+        <StyledText>{creds.phone}</StyledText>
+      </FlexWrapper>
+      <FlexWrapper align="center" height="unset">
         {icons === "no" ? (
           ""
         ) : (
@@ -47,8 +49,17 @@ export const Menu = ({ icons }: Menu) => {
             fill={theme.colors.fontShaddy}
           />
         )}
-        {creds.address}
-      </div>
+        <StyledText>{creds.address}</StyledText>
+      </FlexWrapper>
     </>
   );
 };
+
+const StyledText = styled.div`
+  margin-left: 15px;
+  font-size: ${font(14, 20)};
+  font-weight: 400;
+  line-height: 150%;
+  letter-spacing: 1%;
+  text-align: left;
+`;

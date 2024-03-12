@@ -1,8 +1,7 @@
-import { useTranslations } from 'next-intl';
-import styled, { css } from 'styled-components';
+import { useTranslations } from "next-intl";
+import styled, { css } from "styled-components";
 
-import { theme } from '../styles/Theme';
-
+import { theme } from "../styles/Theme";
 
 type Button = {
   option?: "transparent";
@@ -11,11 +10,7 @@ type Button = {
 
 export const CustomButton = ({ option, text }: Button) => {
   const t = useTranslations("system");
-  return (
-    <>
-      <StyledButton option={option}>{t(text)}</StyledButton>
-    </>
-  );
+  return <StyledButton option={option}>{t(text)}</StyledButton>;
 };
 
 const StyledButton = styled.button<Omit<Button, "text">>`

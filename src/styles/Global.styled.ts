@@ -79,4 +79,13 @@ img {
     height: auto;
 }
 
+input, textarea {
+    font-family: inherit;
+    border: none;
+
+    &:focus-visible {
+      border-color: ${theme.colors.font};
+    }
+}
+
 `;

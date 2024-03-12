@@ -1,10 +1,9 @@
-import styled from 'styled-components';
-
+import styled from "styled-components";
 
 type FlexWrapper = {
   direction?: "column" | "row";
-  justify?: "space-between";
-  align?: "center";
+  justify?: "space-between" | "end";
+  align?: "center" | "start";
   wrap?: "wrap" | "nowrap";
   gap?: string;
   height?: string;
