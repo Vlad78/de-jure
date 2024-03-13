@@ -1,5 +1,6 @@
 /** @type {import('next').NextConfig} */
-const defaultLocale = /** @type {"en" | "pl" | "ru"} */ "en";
+// const defaultLocale = /** @type {"en" | "pl" | "ru"} */ "en";
+const defaultLocale = "en";
 const locales = /** @type {(typeof defaultLocale)[]} */ ["ru", "pl", "en"];
 
 const nextConfig = {

@@ -1,17 +1,18 @@
 import type { AppProps } from "next/app";
-import { NextIntlClientProvider } from "next-intl";
-import { Inria_Serif } from "next/font/google";
-import { useRouter } from "next/router";
-import { relative } from "path";
-import { ThemeProvider } from "styled-components";
+import { NextIntlClientProvider } from 'next-intl';
+import { Inria_Serif, Spectral } from 'next/font/google';
+import { useRouter } from 'next/router';
+import { ThemeProvider } from 'styled-components';
 
-import en from "../i18n/en.json";
-import pl from "../i18n/pl.json";
-import ru from "../i18n/ru.json";
-import { GlobalStyle } from "../src/styles/Global.styled";
-import { theme } from "../src/styles/Theme";
+import en from '../i18n/en.json';
+import pl from '../i18n/pl.json';
+import ru from '../i18n/ru.json';
+import { GlobalStyle } from '../src/styles/Global.styled';
+import { theme } from '../src/styles/Theme';
+
 
 const inria = Inria_Serif({ weight: ["300", "400", "700"], subsets: ["latin"] });
+const spect = Spectral({ weight: ["300", "400", "600"], subsets: ["cyrillic"] });
 
 // const dictionary = {
 //   en: () => import("../i18n/en.json").then((module) => module.default),
@@ -29,7 +30,7 @@ const dictionary = {
 
 function App({ Component, pageProps }: AppProps) {
   const route = useRouter();
-  const locale = route.locale as unknown as keyof typeof dictionary;
+  const locale = route.locale;
   // const [messages, setMessages] = useState<Localization | undefined>();
 
   // useEffect(() => {
@@ -43,7 +44,10 @@ function App({ Component, pageProps }: AppProps) {
   return (
     <NextIntlClientProvider locale={locale} messages={dictionary[locale]}>
       <ThemeProvider theme={theme}>
-        <main className={inria.className} style={{ position: "relative" }}>
+        <main
+          className={locale === "ru" ? spect.className : inria.className}
+          style={{ position: "relative" }}
+        >
           <GlobalStyle />
           <Component {...pageProps} />
         </main>
