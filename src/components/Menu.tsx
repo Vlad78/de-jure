@@ -32,28 +32,32 @@ export const Menu = ({ icons }: Menu) => {
   return (
     <>
       <FlexWrapper align="center" height="unset">
-        <a href={`mailto:${renderIconStripe("email")}`}>
+        <StyledA href={`mailto:${renderIconStripe("email")}`}>
           {renderIconStripe("email")}
           <StyledText>{email}</StyledText>
-        </a>
+        </StyledA>
       </FlexWrapper>
 
       <FlexWrapper align="center" height="unset">
-        <a href={`tel:${renderIconStripe("phone")}`}>
+        <StyledA href={`tel:${renderIconStripe("phone")}`}>
           {renderIconStripe("phone")}
           <StyledText>{phone}</StyledText>
-        </a>
+        </StyledA>
       </FlexWrapper>
 
       <FlexWrapper align="center" height="unset">
-        <a href={googleMap} target="_blank" rel="noreferrer noopener">
+        <StyledA href={googleMap} target="_blank" rel="noreferrer noopener">
           {renderIconStripe("address")}
           <StyledText>{address}</StyledText>
-        </a>
+        </StyledA>
       </FlexWrapper>
     </>
   );
 };
+
+const StyledA = styled.a`
+  display: contents;
+`;
 
 const StyledText = styled.div`
   margin-left: 15px;

@@ -1,3 +1,5 @@
+"use client";
+
 import { useTranslations } from 'next-intl';
 import styled from 'styled-components';
 
@@ -9,14 +11,18 @@ import { FlexWrapper } from '../../../components/FlexWrapper';
 import { IconStripeWrapper } from '../../../components/IconWrapper';
 import { Menu } from '../../../components/Menu';
 import { TitleSection } from '../../../components/TitleSection';
+import { useMyStore } from '../../../store/store';
 import { font } from '../../../styles/FontSize';
 import { theme } from '../../../styles/Theme';
 
 
 export const Feedback = () => {
   const t = useTranslations("feedback");
+
+  const { message, name, phone, setMessage, setName, setPhone } = useMyStore();
+
   return (
-    <StyledFeedback id={t("title")}>
+    <StyledFeedback id="Feedback">
       <Container>
         <IconStripeWrapper top="490px" left="404px">
           <IconStripe iconId="pluses" />
@@ -40,22 +46,33 @@ export const Feedback = () => {
           </StyledCreds>
 
           <StyledFrom>
-            <FlexWrapper
-              direction="row"
-              wrap="wrap"
-              gap="40px"
-              align="start"
-              justify="end"
-              height="unset"
-            >
-              <input type="text" placeholder={t("name")} name="Name" id="name" />
-              <input type="text" placeholder={t("phone")} name="Phone" id="phone" />
+            <FlexWrapper wrap="wrap" gap="40px" align="start" justify="end" height="unset">
+              <input
+                type="text"
+                placeholder={t("name")}
+                name="Name"
+                id="name"
+                value={name}
+                autoComplete="name"
+                onChange={(e) => setName(e.target.value)}
+              />
+              <input
+                type="tel"
+                placeholder={t("phone")}
+                name="Phone"
+                id="phone"
+                value={phone}
+                autoComplete="tel"
+                onChange={(e) => setPhone(e.target.value)}
+              />
               <textarea
                 placeholder={t("introduction")}
                 autoComplete="false"
                 draggable="false"
                 name="Message"
                 id="message"
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
               />
               <CustomButton text="send" />
             </FlexWrapper>
