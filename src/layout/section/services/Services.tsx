@@ -11,15 +11,16 @@ import data from './data';
 
 export const Services = () => {
   const t = useTranslations("services");
+
   return (
     <StyledServices id="Services">
       <Container>
         <TitleSection>{t("title")}</TitleSection>
         <StyledGrid>
-          {data().map((e, i) => {
-            if (i > 7) return;
-            return (
-              <Tile key={e.id}>
+          {data()
+            .slice(0, 8)
+            .map((e) => (
+              <Tile key={e.id} href="#">
                 <ImgWrapperStyles
                   style={{
                     margin: `${0} ${e.right} ${0} ${e.left}`,
@@ -39,8 +40,7 @@ export const Services = () => {
                 </ImgWrapperStyles>
                 <h3>{e.title}</h3>
               </Tile>
-            );
-          })}
+            ))}
         </StyledGrid>
       </Container>
     </StyledServices>
@@ -71,7 +71,7 @@ const StyledGrid = styled.div`
   aspect-ratio: 1300 / 1404;
 `;
 
-const Tile = styled.div`
+const Tile = styled.a`
   position: relative;
   border-radius: 20px 20px 20px 20px;
   box-shadow: 0px 0px 30px 0px rgba(38, 45, 118, 0.15);
@@ -81,6 +81,14 @@ const Tile = styled.div`
   overflow: hidden;
   background-color: ${theme.colors.colorLight};
   z-index: 2;
+  transition: 0.3s;
+
+  &:hover {
+    text-decoration: none;
+    transform: scale(0.99);
+    transition: 0.25s;
+    box-shadow: 0px 0px 30px 0px rgba(38, 45, 118, 0.25);
+  }
 
   h3 {
     line-height: 160%;
