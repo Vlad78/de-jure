@@ -1,15 +1,18 @@
-import Image from "next/image";
-import React from "react";
-import styled from "styled-components";
+import { useTranslations } from 'next-intl';
+import Image from 'next/image';
+import React from 'react';
+import styled from 'styled-components';
 
-import { IconStripe } from "../../../assets/IconStripe";
-import mainImage from "../../../assets/imgs/main.png";
-import { Container } from "../../../components/Container";
-import { CustomButton } from "../../../components/CustomButton";
-import { FlexWrapper } from "../../../components/FlexWrapper";
-import { theme } from "../../../styles/Theme";
+import { IconStripe } from '../../../assets/IconStripe';
+import mainImage from '../../../assets/imgs/main.png';
+import { Container } from '../../../components/Container';
+import { CustomButton } from '../../../components/CustomButton';
+import { FlexWrapper } from '../../../components/FlexWrapper';
+import { theme } from '../../../styles/Theme';
+
 
 export const Main = () => {
+  const t = useTranslations("main");
   return (
     <StyledMain id="Main">
       <Container>
@@ -18,18 +21,12 @@ export const Main = () => {
             <IconStripe iconId="BGLines" width="1661.44px" height="1932px" transform="scale(1.8)" />
           </IconStripeWrapper>
         </StyledBackground>
-        <FlexWrapper
-          z={10}
-          position="absolute"
-          gap="44px"
-          justify="space-between"
-          margin="30px 0 0 0"
-        >
+        <FlexWrapper z={10} position="absolute" justify="space-between" margin="30px 0 0 0">
           <StyledInfo>
             <IconStripe iconId="logo" width="74px" />
             {/* <StyledHero>Finding Out the Truth, Helping, Arguing and Winning</StyledHero> */}
-            <StyledHero>Finding Out the Truth, Arguing and Winning</StyledHero>
-            <Description>You trusted lawer in Poland</Description>
+            <StyledHero>{t("hero")}</StyledHero>
+            <Description>{t("description")}</Description>
             {/* <CustomButton text="readMore" /> */}
           </StyledInfo>
           <Image
