@@ -11,10 +11,13 @@ export default function LanguageSwitcher() {
     <StyledSwitcher>
       <select
         onChange={(e) => router.push({}, undefined, { locale: e.target.value, scroll: false })}
+        name="Language"
+        id="language"
+        value={router.locale}
       >
         <option value="en">En</option>
         <option value="ru">Ru</option>
-        <option value="pl">Po</option>
+        <option value="pl">Pl</option>
       </select>
     </StyledSwitcher>
   );
