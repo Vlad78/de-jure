@@ -1,18 +1,19 @@
-import { useTranslations } from "next-intl";
-import Image from "next/image";
-import Link from "next/link";
-import { RefObject, useEffect, useRef, useState } from "react";
-import { useSpringCarousel } from "react-spring-carousel";
-import styled from "styled-components";
+import { useTranslations } from 'next-intl';
+import Image from 'next/image';
+import Link from 'next/link';
+import { RefObject, useEffect, useRef, useState } from 'react';
+import { useSpringCarousel } from 'react-spring-carousel';
+import styled from 'styled-components';
 
-import { IconStripe } from "../../../assets/IconStripe";
-import { Container } from "../../../components/Container";
-import { FlexWrapper } from "../../../components/FlexWrapper";
-import { IconStripeWrapper } from "../../../components/IconWrapper";
-import { TitleSection } from "../../../components/TitleSection";
-import { useMessageTyped } from "../../../hooks/useMessage";
-import { font, gutters } from "../../../styles/FontSize";
-import { theme } from "../../../styles/Theme";
+import { IconStripe } from '../../../assets/IconStripe';
+import { Container } from '../../../components/Container';
+import { FlexWrapper } from '../../../components/FlexWrapper';
+import { IconStripeWrapper } from '../../../components/IconWrapper';
+import { TitleSection } from '../../../components/TitleSection';
+import { useMessageTyped } from '../../../hooks/useMessage';
+import { font, gutters } from '../../../styles/FontSize';
+import { theme } from '../../../styles/Theme';
+
 
 export const Testimonials = () => {
   const [firstBtn, setFirstBtn] = useState(false);
@@ -84,14 +85,20 @@ export const Testimonials = () => {
   });
 
   return (
-    <StyledTestimonials id={t("title")} index={index}>
+    <StyledTestimonials id="Testimonials" index={index}>
       <Container>
         <IconStripeWrapper top="421px" left="413px">
           <IconStripe iconId="pluses" />
         </IconStripeWrapper>
         <TitleSection>{t("title")}</TitleSection>
         <CarouselWrapper>{carouselFragment}</CarouselWrapper>
-        <FlexWrapper justify="space-between" margin="40px 0 0 0" align="center">
+        <FlexWrapper
+          justify="space-between"
+          margin="40px 0 0 0"
+          align="center"
+          position="relative"
+          z={2}
+        >
           {thumbsFragment}
           <ButtonsBlock>
             <button
@@ -140,6 +147,11 @@ const ReviewText = styled.p<{ ref: RefObject<HTMLDivElement>; height: number }>`
 const StyledTestimonials = styled.section<{ index: number }>`
   margin-top: 215px;
   min-height: 604px;
+
+  .use-spring-carousel-main-wrapper {
+    position: relative;
+    z-index: 2;
+  }
 
   .use-spring-carousel-item {
     overflow: hidden;

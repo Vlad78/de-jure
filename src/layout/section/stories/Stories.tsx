@@ -1,18 +1,19 @@
-import { useTranslations } from "next-intl";
-import { StaticImageData } from "next/image";
-import { useEffect, useState } from "react";
-import { useSpringCarousel } from "react-spring-carousel";
-import styled from "styled-components";
+import { useTranslations } from 'next-intl';
+import { StaticImageData } from 'next/image';
+import { useEffect, useState } from 'react';
+import { useSpringCarousel } from 'react-spring-carousel';
+import styled from 'styled-components';
 
-import { IconStripe } from "../../../assets/IconStripe";
-import { Container } from "../../../components/Container";
-import { CustomButton } from "../../../components/CustomButton";
-import { FlexWrapper } from "../../../components/FlexWrapper";
-import { IconStripeWrapper } from "../../../components/IconWrapper";
-import { TitleSection } from "../../../components/TitleSection";
-import { useMessageTyped } from "../../../hooks/useMessage";
-import { gutters } from "../../../styles/FontSize";
-import { theme } from "../../../styles/Theme";
+import { IconStripe } from '../../../assets/IconStripe';
+import { Container } from '../../../components/Container';
+import { CustomButton } from '../../../components/CustomButton';
+import { FlexWrapper } from '../../../components/FlexWrapper';
+import { IconStripeWrapper } from '../../../components/IconWrapper';
+import { TitleSection } from '../../../components/TitleSection';
+import { useMessageTyped } from '../../../hooks/useMessage';
+import { gutters } from '../../../styles/FontSize';
+import { theme } from '../../../styles/Theme';
+
 
 export const Stories = () => {
   const [firstBtn, setFirstBtn] = useState(false);
@@ -70,7 +71,13 @@ export const Stories = () => {
 
         {carouselFragment}
 
-        <FlexWrapper justify="space-between" margin="60px 0 0 0" align="center">
+        <FlexWrapper
+          justify="space-between"
+          margin="60px 0 0 0"
+          align="center"
+          position="relative"
+          z={2}
+        >
           {thumbsFragment}
           <ButtonsBlock>
             <button
@@ -100,6 +107,8 @@ const StyledStories = styled.section<{ index: number }>`
 
   .use-spring-carousel-main-wrapper {
     overflow: hidden;
+    position: relative;
+    z-index: 2;
   }
 
   .use-spring-carousel-item {

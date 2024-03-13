@@ -1,13 +1,14 @@
-import { useTranslations } from "next-intl";
-import styled from "styled-components";
+import { useTranslations } from 'next-intl';
+import styled from 'styled-components';
 
-import { IconStripe } from "../../../assets/IconStripe";
-import { Container } from "../../../components/Container";
-import { FlexWrapper } from "../../../components/FlexWrapper";
-import { IconStripeWrapper } from "../../../components/IconWrapper";
-import { TitleSection } from "../../../components/TitleSection";
-import { useMessageTyped } from "../../../hooks/useMessage";
-import { theme } from "../../../styles/Theme";
+import { IconStripe } from '../../../assets/IconStripe';
+import { Container } from '../../../components/Container';
+import { FlexWrapper } from '../../../components/FlexWrapper';
+import { IconStripeWrapper } from '../../../components/IconWrapper';
+import { TitleSection } from '../../../components/TitleSection';
+import { useMessageTyped } from '../../../hooks/useMessage';
+import { theme } from '../../../styles/Theme';
+
 
 const iconColors = ["#D3927E", "#FAC88B", "#7EA3D3"];
 
@@ -16,13 +17,13 @@ export const Advantages = () => {
   const messages = useMessageTyped();
   const keys = Object.keys(messages.advantages.advantages);
   return (
-    <StyledAdvantages id={t("title")}>
+    <StyledAdvantages id="Advantages">
       <Container>
         <IconStripeWrapper top="74px" left="-102px">
           <IconStripe iconId="pluses" />
         </IconStripeWrapper>
         <TitleSection>{t("title")}</TitleSection>
-        <FlexWrapper margin="49px 0 0 0" justify="space-between" position="relative">
+        <FlexWrapper margin="49px 0 0 0" justify="space-between" position="relative" z={2}>
           {keys.map((key, i) => (
             <Card key={key}>
               <IconStripe iconId="advantageIcon" fill={iconColors[i]} />

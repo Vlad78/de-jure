@@ -1,15 +1,16 @@
-import { useTranslations } from "next-intl";
-import Link from "next/link";
-import styled from "styled-components";
+import { useTranslations } from 'next-intl';
+import Link from 'next/link';
+import styled from 'styled-components';
 
-import creds from "../../assets/data/creds";
-import { IconStripe } from "../../assets/IconStripe";
-import { Container } from "../../components/Container";
-import { FlexWrapper } from "../../components/FlexWrapper";
-import { Menu } from "../../components/Menu";
-import { useMessageTyped } from "../../hooks/useMessage";
-import { font } from "../../styles/FontSize";
-import { theme } from "../../styles/Theme";
+import creds from '../../assets/data/creds';
+import { IconStripe } from '../../assets/IconStripe';
+import { Container } from '../../components/Container';
+import { FlexWrapper } from '../../components/FlexWrapper';
+import { Menu } from '../../components/Menu';
+import { useMessageTyped } from '../../hooks/useMessage';
+import { font } from '../../styles/FontSize';
+import { theme } from '../../styles/Theme';
+
 
 export const Footer = () => {
   const t = useTranslations("footer");
@@ -78,9 +79,11 @@ export const Footer = () => {
 const StyledFooter = styled.footer`
   margin-top: 200px;
   min-height: 500px;
+  position: relative;
   background-color: ${theme.colors.colorPrimeMedium};
   color: ${theme.colors.fontShaddy};
   border: 1px solid #fff0;
+  z-index: 1;
 
   .company {
     margin-top: 10px;

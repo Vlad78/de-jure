@@ -1,16 +1,18 @@
-import { useTranslations } from "next-intl";
-import Image from "next/image";
-import styled from "styled-components";
+import { useTranslations } from 'next-intl';
+import Image from 'next/image';
+import styled from 'styled-components';
 
-import { Container } from "../../../components/Container";
-import { TitleSection } from "../../../components/TitleSection";
-import { font } from "../../../styles/FontSize";
-import data from "./data";
+import { Container } from '../../../components/Container';
+import { TitleSection } from '../../../components/TitleSection';
+import { font } from '../../../styles/FontSize';
+import { theme } from '../../../styles/Theme';
+import data from './data';
+
 
 export const Services = () => {
   const t = useTranslations("services");
   return (
-    <StyledServices id={t("title")}>
+    <StyledServices id="Services">
       <Container>
         <TitleSection>{t("title")}</TitleSection>
         <StyledGrid>
@@ -77,6 +79,8 @@ const Tile = styled.div`
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  background-color: ${theme.colors.colorLight};
+  z-index: 2;
 
   h3 {
     line-height: 160%;
