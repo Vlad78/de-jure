@@ -13,6 +13,15 @@ import { theme } from '../../../styles/Theme';
 
 export const Main = () => {
   const t = useTranslations("main");
+
+  const imageStyle = {
+    flexGrow: 1,
+    flexBasis: "60%",
+    maxWidth: "60%",
+    objectFit: "cover",
+    objectPosition: "left",
+  } as React.CSSProperties;
+
   return (
     <StyledMain id="Main">
       <Container>
@@ -29,13 +38,7 @@ export const Main = () => {
             <Description>{t("description")}</Description>
             {/* <CustomButton text="readMore" /> */}
           </StyledInfo>
-          <Image
-            alt="Main image"
-            width={833}
-            src={mainImage}
-            quality={100}
-            style={{ objectPosition: "60px 0" }}
-          />
+          <Image alt="Main image" width={833} src={mainImage} quality={100} style={imageStyle} />
         </FlexWrapper>
       </Container>
     </StyledMain>
@@ -51,7 +54,7 @@ const StyledMain = styled.section`
 
 const StyledInfo = styled.div`
   margin-top: 102px;
-  flex-basis: 548px;
+  flex-basis: 40%;
   flex-grow: 1;
 
   display: flex;
