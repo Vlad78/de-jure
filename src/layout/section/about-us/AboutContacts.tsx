@@ -34,6 +34,15 @@ const StyledAboutContacts = styled.a`
   svg {
     grid-area: i;
     margin-right: 15px;
+    border-radius: 50%;
+    box-shadow: 0 0 0 0 ${theme.colors.colorPrimeLight}80;
+    animation: pulse 1.5s infinite;
+
+    &:hover {
+      animation: none;
+      transform: scale(1.02);
+      transition: 0.2s;
+    }
   }
 
   div:nth-of-type(1) {
@@ -52,5 +61,16 @@ const StyledAboutContacts = styled.a`
     font-weight: 400;
     line-height: 150%;
     letter-spacing: 0.01em;
+  }
+
+  @keyframes pulse {
+    0% {
+    }
+    70% {
+      box-shadow: 0 0 0 10px ${theme.colors.colorPrimeLight}00;
+    }
+    100% {
+      box-shadow: 0 0 0 0 ${theme.colors.colorPrimeLight}00;
+    }
   }
 `;
