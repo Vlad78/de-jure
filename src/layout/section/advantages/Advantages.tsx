@@ -65,7 +65,7 @@ const Card = styled.div`
     margin: 0;
     font-weight: 400;
     line-height: 38px;
-    letter-spacing: 0%;
+    letter-spacing: 0;
     text-align: center;
   }
 

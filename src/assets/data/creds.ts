@@ -7,7 +7,8 @@ const creds = {
   linkedin: "#",
   whatsapp: "#",
   tg: "#",
-  address: "Cybernetiki 10/3071, Warszawa, 270-10",
+  address: "Cybernetyki 10/3071, Warszawa, 270-10",
+  googleMap: "https://maps.app.goo.gl/LqzdvnbKcrd5Zngs7",
   company: "MCP DEJURE Sp. z o.o",
 };
 

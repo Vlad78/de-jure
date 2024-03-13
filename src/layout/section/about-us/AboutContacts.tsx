@@ -1,10 +1,11 @@
-import { useTranslations } from "next-intl";
-import styled from "styled-components";
+import { useTranslations } from 'next-intl';
+import styled from 'styled-components';
 
-import creds from "../../../assets/data/creds";
-import { IconStripe } from "../../../assets/IconStripe";
-import { font } from "../../../styles/FontSize";
-import { theme } from "../../../styles/Theme";
+import creds from '../../../assets/data/creds';
+import { IconStripe } from '../../../assets/IconStripe';
+import { font } from '../../../styles/FontSize';
+import { theme } from '../../../styles/Theme';
+
 
 export const AboutContacts = () => {
   const t = useTranslations("system");
@@ -41,7 +42,7 @@ const StyledAboutContacts = styled.a`
     font-size: ${font(16, 24)};
     font-weight: 700;
     line-height: 150%;
-    letter-spacing: 1%;
+    letter-spacing: 0.01em;
   }
 
   div:nth-of-type(2) {
@@ -50,6 +51,6 @@ const StyledAboutContacts = styled.a`
     font-size: ${font(14, 22)};
     font-weight: 400;
     line-height: 150%;
-    letter-spacing: 1%;
+    letter-spacing: 0.01em;
   }
 `;

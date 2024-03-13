@@ -1,16 +1,17 @@
-import { useTranslations } from "next-intl";
-import styled from "styled-components";
+import { useTranslations } from 'next-intl';
+import styled from 'styled-components';
 
-import creds from "../../../assets/data/creds";
-import { IconStripe } from "../../../assets/IconStripe";
-import { Container } from "../../../components/Container";
-import { CustomButton } from "../../../components/CustomButton";
-import { FlexWrapper } from "../../../components/FlexWrapper";
-import { IconStripeWrapper } from "../../../components/IconWrapper";
-import { Menu } from "../../../components/Menu";
-import { TitleSection } from "../../../components/TitleSection";
-import { font } from "../../../styles/FontSize";
-import { theme } from "../../../styles/Theme";
+import creds from '../../../assets/data/creds';
+import { IconStripe } from '../../../assets/IconStripe';
+import { Container } from '../../../components/Container';
+import { CustomButton } from '../../../components/CustomButton';
+import { FlexWrapper } from '../../../components/FlexWrapper';
+import { IconStripeWrapper } from '../../../components/IconWrapper';
+import { Menu } from '../../../components/Menu';
+import { TitleSection } from '../../../components/TitleSection';
+import { font } from '../../../styles/FontSize';
+import { theme } from '../../../styles/Theme';
+
 
 export const Feedback = () => {
   const t = useTranslations("feedback");
@@ -99,7 +100,7 @@ const StyledFrom = styled.form`
     font-size: ${font(14, 22)};
     font-weight: 400;
     line-height: 150%;
-    letter-spacing: 1%;
+    letter-spacing: 0.01em;
     text-align: left;
   }
 

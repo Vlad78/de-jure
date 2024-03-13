@@ -94,7 +94,7 @@ const StyledFooter = styled.footer`
     font-size: ${font(16, 24)};
     font-weight: 700;
     line-height: 150%;
-    letter-spacing: 1%;
+    letter-spacing: 0.01em;
   }
 
   .business-hours {
@@ -103,7 +103,7 @@ const StyledFooter = styled.footer`
     font-size: ${font(16, 24)};
     font-weight: 400;
     line-height: 150%;
-    letter-spacing: 1%;
+    letter-spacing: 0.01em;
   }
 
   .job {

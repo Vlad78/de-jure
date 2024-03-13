@@ -1,11 +1,12 @@
-import { useEffect, useState } from "react";
-import styled from "styled-components";
+import { useEffect, useState } from 'react';
+import styled from 'styled-components';
 
-import { IconStripe } from "../../assets/IconStripe";
-import { Container } from "../../components/Container";
-import { FlexWrapper } from "../../components/FlexWrapper";
-import { Menu } from "../../components/Menu";
-import { theme } from "../../styles/Theme";
+import { IconStripe } from '../../assets/IconStripe';
+import { Container } from '../../components/Container';
+import { FlexWrapper } from '../../components/FlexWrapper';
+import { Menu } from '../../components/Menu';
+import { theme } from '../../styles/Theme';
+
 
 export const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -39,7 +40,7 @@ const StyledHeader = styled.header<{ isScrolled: boolean }>`
   font-size: 20px;
   font-weight: 400;
   line-height: 150%;
-  letter-spacing: 1%;
+  letter-spacing: 0.01em;
   text-align: left;
   z-index: 100;
 

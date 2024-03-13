@@ -1,7 +1,8 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from 'styled-components';
 
-import { font } from "./FontSize";
-import { theme } from "./Theme";
+import { font } from './FontSize';
+import { theme } from './Theme';
+
 
 export const GlobalStyle = createGlobalStyle`
 
@@ -34,7 +35,7 @@ h2 {
 font-size: 64px;
 font-weight: 700;
 line-height: 180%;
-letter-spacing: 0%;
+letter-spacing: 0;
 text-align: left;
 }
 
@@ -59,6 +60,7 @@ a {
 
     &:hover {
         text-decoration: underline;
+        color: inherit;
     }
 }
 
