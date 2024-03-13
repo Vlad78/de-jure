@@ -1,6 +1,8 @@
 import { useTranslations } from 'next-intl';
+import { MouseEvent } from 'react';
 import styled from 'styled-components';
 
+import creds from '../../../assets/data/creds';
 import { Container } from '../../../components/Container';
 import { CustomButton } from '../../../components/CustomButton';
 import { FlexWrapper } from '../../../components/FlexWrapper';
@@ -9,6 +11,12 @@ import { theme } from '../../../styles/Theme';
 
 export const Map = () => {
   const t = useTranslations("map");
+
+  const onClickHandler = (e: MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    window.open(creds.googleMap, "_blank", "noopener, noreferrer")?.focus();
+  };
+
   return (
     <StyledMap id={t("title")}>
       <Container>
@@ -21,7 +29,7 @@ export const Map = () => {
               loading="eager"
             ></iframe>
           </IframeWrapper>
-          <CustomButton text="build a route" />
+          <CustomButton text="build a route" onClick={onClickHandler} />
         </FlexWrapper>
       </Container>
     </StyledMap>

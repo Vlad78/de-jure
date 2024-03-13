@@ -1,16 +1,23 @@
-import { useTranslations } from "next-intl";
-import styled, { css } from "styled-components";
+import { useTranslations } from 'next-intl';
+import { MouseEvent } from 'react';
+import styled, { css } from 'styled-components';
 
-import { theme } from "../styles/Theme";
+import { theme } from '../styles/Theme';
+
 
 type Button = {
   option?: "transparent";
   text: "readMore" | "send" | "build a route";
+  onClick?: (e: MouseEvent<HTMLButtonElement>) => void;
 };
 
-export const CustomButton = ({ option, text }: Button) => {
+export const CustomButton = ({ option, text, onClick }: Button) => {
   const t = useTranslations("system");
-  return <StyledButton option={option}>{t(text)}</StyledButton>;
+  return (
+    <StyledButton option={option} onClick={onClick}>
+      {t(text)}
+    </StyledButton>
+  );
 };
 
 const StyledButton = styled.button<Omit<Button, "text">>`
