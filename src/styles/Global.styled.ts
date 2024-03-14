@@ -28,21 +28,23 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
     margin: 0 0 10px 0;
-    font-weight: normal;
+    font-weight: 400;
+    color: ${theme.colors.font};
 }
 
 h2 {
-font-size: 64px;
-font-weight: 700;
-line-height: 180%;
-letter-spacing: 0;
-text-align: left;
+    font-size: ${font(36, 64)};
+    font-weight: 700;
+    line-height: 180%;
+    letter-spacing: 0;
+    text-align: left;
 }
 
 h3 {
-    font-size: 40px;
+    font-size: ${font(20, 40)};
     font-weight: 700;
-    line-height: 48px;
+    line-height: 150%;
+    letter-spacing: 0.01em;
 }
 
 p {

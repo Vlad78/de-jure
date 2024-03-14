@@ -1,5 +1,6 @@
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
+import Link from 'next/link';
 import styled from 'styled-components';
 
 import { Container } from '../../../components/Container';
@@ -13,37 +14,45 @@ export const Services = () => {
   const t = useTranslations("services");
 
   return (
-    <StyledServices id="Services">
-      <Container>
-        <TitleSection>{t("title")}</TitleSection>
-        <StyledGrid>
-          {data()
-            .slice(0, 8)
-            .map((e) => (
-              <Tile key={e.id} href="#">
-                <ImgWrapperStyles
-                  style={{
-                    margin: `${0} ${e.right} ${0} ${e.left}`,
-                  }}
+    <>
+      <StyledServices id="Services">
+        <Container>
+          <TitleSection>{t("title")}</TitleSection>
+          <StyledGrid>
+            {data()
+              .slice(0, 8)
+              .map((e) => (
+                <Link
+                  href={`/?modal=true&section=services&id=${e.id}`}
+                  style={{ display: "contents" }}
+                  scroll={false}
                 >
-                  <Image
-                    alt={e.alt}
-                    src={e.img}
-                    quality={100}
-                    style={{
-                      objectFit: "contain",
-                      objectPosition: e.position || "top",
-                      height: "100%",
-                      width: "auto",
-                    }}
-                  />
-                </ImgWrapperStyles>
-                <h3>{e.title}</h3>
-              </Tile>
-            ))}
-        </StyledGrid>
-      </Container>
-    </StyledServices>
+                  <div key={e.id}>
+                    <ImgWrapperStyles
+                      style={{
+                        margin: `${0} ${e.right} ${0} ${e.left}`,
+                      }}
+                    >
+                      <Image
+                        alt={e.alt}
+                        src={e.img}
+                        quality={100}
+                        style={{
+                          objectFit: "contain",
+                          objectPosition: e.position || "top",
+                          height: "100%",
+                          width: "auto",
+                        }}
+                      />
+                    </ImgWrapperStyles>
+                    <h3>{e.title}</h3>
+                  </div>
+                </Link>
+              ))}
+          </StyledGrid>
+        </Container>
+      </StyledServices>
+    </>
   );
 };
 
@@ -69,34 +78,34 @@ const StyledGrid = styled.div`
   grid-template-rows: repeat(4, minmax(165px, 330px));
   grid-gap: 28px;
   aspect-ratio: 1300 / 1404;
-`;
 
-const Tile = styled.a`
-  position: relative;
-  border-radius: 20px 20px 20px 20px;
-  box-shadow: 0px 0px 30px 0px rgba(38, 45, 118, 0.15);
-  aspect-ratio: 304 / 330;
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-  background-color: ${theme.colors.colorLight};
-  z-index: 2;
-  transition: 0.3s;
+  a > div {
+    position: relative;
+    border-radius: 20px 20px 20px 20px;
+    box-shadow: 0px 0px 30px 0px rgba(38, 45, 118, 0.15);
+    aspect-ratio: 304 / 330;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background-color: ${theme.colors.colorLight};
+    z-index: 2;
+    transition: 0.3s;
 
-  &:hover {
-    text-decoration: none;
-    transform: scale(0.99);
-    transition: 0.25s;
-    box-shadow: 0px 0px 30px 0px rgba(38, 45, 118, 0.25);
+    &:hover {
+      text-decoration: none;
+      transform: scale(0.99);
+      transition: 0.25s;
+      box-shadow: 0px 0px 30px 0px rgba(38, 45, 118, 0.25);
+    }
+
+    h3 {
+      line-height: 160%;
+      font-size: ${font(10, 20)};
+      margin: 0 30px 46px 35px;
+    }
   }
 
-  h3 {
-    line-height: 160%;
-    font-size: ${font(10, 20)};
-    margin: 0 30px 46px 35px;
-  }
-
-  &:nth-child(1) {
+  a:nth-of-type(1) > div {
     border-radius: 150px 20px 20px 20px;
     grid-column: auto / span 2;
     grid-row: auto / span 2;
@@ -107,7 +116,8 @@ const Tile = styled.a`
       margin: 0 60px 61px 61px;
     }
   }
-  &:nth-child(2) {
+
+  a:nth-of-type(2) > div {
     grid-column: auto / span 2;
     grid-row: auto / span 1;
     aspect-ratio: 636 / 330;
@@ -121,7 +131,8 @@ const Tile = styled.a`
       margin-bottom: 32px;
     }
   }
-  &:nth-child(5) {
+
+  a:nth-of-type(5) > div {
     grid-column: auto / span 2;
     grid-row: auto / span 1;
     aspect-ratio: 636 / 330;
@@ -141,7 +152,8 @@ const Tile = styled.a`
       z-index: 1;
     }
   }
-  &:nth-child(6) {
+
+  a:nth-of-type(6) > div {
     border-radius: 20px 20px 150px 20px;
     grid-column: auto / span 2;
     grid-row: auto / span 2;

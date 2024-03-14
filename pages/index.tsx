@@ -1,6 +1,7 @@
 import Head from 'next/head';
 
 import { Lines } from '../src/components/Lines';
+import { Modal } from '../src/components/Modal';
 import { Footer } from '../src/layout/footer/Footer';
 import { Header } from '../src/layout/header/Header';
 import { AboutUs } from '../src/layout/section/about-us/AboutUs';
@@ -32,6 +33,7 @@ export default function Home() {
       <Feedback />
       <Map />
       <Footer />
+      <Modal />
     </>
   );
 }

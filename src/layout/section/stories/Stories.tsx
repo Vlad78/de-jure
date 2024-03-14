@@ -1,5 +1,6 @@
 import { useTranslations } from 'next-intl';
 import { StaticImageData } from 'next/image';
+import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { useSpringCarousel } from 'react-spring-carousel';
 import styled from 'styled-components';
@@ -45,7 +46,13 @@ export const Stories = () => {
       renderItem: (
         <Card img={require(`../../../assets/imgs/stories/${i + 1}.jpeg`)} key={e}>
           <h3>{t<any>(`stories.${e}.title`)}</h3>
-          <CustomButton option="transparent" text="readMore" />
+          <Link
+            href={`/?modal=true&section=stories&id=${e}`}
+            style={{ display: "contents" }}
+            scroll={false}
+          >
+            <CustomButton option="transparent" text="readMore" />
+          </Link>
         </Card>
       ),
       renderThumb: <SliderDot onClick={() => slideToItem(e)} />,
@@ -148,6 +155,7 @@ const Card = styled.div<{ img: { default: StaticImageData } }>`
 
   h3 {
     margin: 0 40px 40px 40px;
+    color: ${theme.colors.colorLight};
   }
 `;
 

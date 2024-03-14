@@ -1301,6 +1301,23 @@ export const IconStripe = ({
         />
       </svg>
     );
+  if (iconId === "cross")
+    return (
+      <svg
+        height={height || "21.000000"}
+        width={width || "21.000000"}
+        fill={fill || "none"}
+        viewBox={viewBox || "0 0 21 21"}
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <defs />
+        <path
+          d="M2 19L10.5 10.5M19 2L10.5 10.5M10.5 10.5L2 2M10.5 10.5L19 19"
+          stroke="#FAC88B"
+          strokeWidth="3"
+        />
+      </svg>
+    );
   // if (iconId === "")
   // return (
 
