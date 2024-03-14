@@ -8,6 +8,7 @@ import mainImage from '../../../assets/imgs/main.png';
 import { Container } from '../../../components/Container';
 import { CustomButton } from '../../../components/CustomButton';
 import { FlexWrapper } from '../../../components/FlexWrapper';
+import { font } from '../../../styles/FontSize';
 import { theme } from '../../../styles/Theme';
 
 
@@ -38,7 +39,7 @@ export const Main = () => {
             <Description>{t("description")}</Description>
             {/* <CustomButton text="readMore" /> */}
           </StyledInfo>
-          <Image alt="Main image" width={833} src={mainImage} quality={100} style={imageStyle} />
+          <Image alt="Main image" width={833} src={mainImage} quality={100} className="main-img" />
         </FlexWrapper>
       </Container>
     </StyledMain>
@@ -46,16 +47,33 @@ export const Main = () => {
 };
 
 const StyledMain = styled.section`
-  min-height: 715px;
+  min-height: 600px;
   height: 100vh;
   max-height: 890px;
   overflow: hidden;
+
+  .main-img {
+    flex-grow: 1;
+    flex-basis: 60%;
+    max-width: 60%;
+    object-fit: cover;
+    object-position: left;
+
+    @media ${theme.media.tablet} {
+      max-width: 53%;
+      flex-basis: 53%;
+    }
+  }
 `;
 
 const StyledInfo = styled.div`
   margin-top: 102px;
   flex-basis: 40%;
   flex-grow: 1;
+
+  @media ${theme.media.tablet} {
+    margin-top: 23px;
+  }
 
   display: flex;
   flex-direction: column;
@@ -68,7 +86,7 @@ const StyledHero = styled.h2`
 
 const Description = styled.h1`
   margin-top: 20px;
-  font-size: 24px;
+  font-size: ${font(14, 24)};
   font-weight: 700;
   line-height: 136.15%;
 `;
@@ -82,6 +100,10 @@ const StyledBackground = styled.div`
   background-color: ${theme.colors.colorPrimeLight};
   border-radius: 0px 400px 0px 300px;
   overflow: hidden;
+
+  @media ${theme.media.tablet} {
+    border-radius: 0px 200px 0px 100px;
+  }
 `;
 
 const IconStripeWrapper = styled.div`
