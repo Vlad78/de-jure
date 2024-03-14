@@ -29,6 +29,12 @@ export const Menu = ({ icons }: Menu) => {
 
   const { email, phone, address, googleMap } = creds;
 
+  let width;
+
+  if (typeof window !== "undefined") {
+    width = window.innerWidth;
+  }
+
   return (
     <>
       <FlexWrapper align="center" height="unset">
@@ -45,12 +51,14 @@ export const Menu = ({ icons }: Menu) => {
         </StyledA>
       </FlexWrapper>
 
-      <FlexWrapper align="center" height="unset">
-        <StyledA href={googleMap} target="_blank" rel="noreferrer noopener">
-          {renderIconStripe("address")}
-          <StyledText>{address}</StyledText>
-        </StyledA>
-      </FlexWrapper>
+      {width !== undefined && width > 900 && (
+        <FlexWrapper align="center" height="unset">
+          <StyledA href={googleMap} target="_blank" rel="noreferrer noopener">
+            {renderIconStripe("address")}
+            <StyledText>{address}</StyledText>
+          </StyledA>
+        </FlexWrapper>
+      )}
     </>
   );
 };
