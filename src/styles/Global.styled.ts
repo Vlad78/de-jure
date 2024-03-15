@@ -1,8 +1,7 @@
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle } from "styled-components";
 
-import { font } from './FontSize';
-import { theme } from './Theme';
-
+import { font } from "./FontSize";
+import { theme } from "./Theme";
 
 export const GlobalStyle = createGlobalStyle`
 
@@ -49,7 +48,7 @@ h3 {
 
 p {
     margin: 0 0 10px 0;
-    font-size: ${font(14, 20)};
+    font-size: ${font(16, 20)};
 font-weight: 400;
 line-height: 136.15%;
 color: ${theme.colors.fontShaddy};
