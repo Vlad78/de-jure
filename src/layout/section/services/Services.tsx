@@ -1,14 +1,13 @@
-import { useTranslations } from 'next-intl';
-import Image from 'next/image';
-import Link from 'next/link';
-import styled from 'styled-components';
+import { useTranslations } from "next-intl";
+import Image from "next/image";
+import Link from "next/link";
+import styled from "styled-components";
 
-import { Container } from '../../../components/Container';
-import { TitleSection } from '../../../components/TitleSection';
-import { font } from '../../../styles/FontSize';
-import { theme } from '../../../styles/Theme';
-import data from './data';
-
+import { Container } from "../../../components/Container";
+import { TitleSection } from "../../../components/TitleSection";
+import { font } from "../../../styles/FontSize";
+import { theme } from "../../../styles/Theme";
+import data from "./data";
 
 export const Services = () => {
   const t = useTranslations("services");
@@ -59,11 +58,19 @@ export const Services = () => {
 const StyledServices = styled.section`
   margin-top: 200px;
   min-height: 933px;
+
+  @media ${theme.media.tablet} {
+    margin-top: 100px;
+  }
 `;
 
 const ImgWrapperStyles = styled.div`
   display: flex;
   flex-grow: 1;
+
+  @media screen and (max-width: 850px) {
+    width: 74%;
+  }
 `;
 
 const StyledGrid = styled.div`
@@ -71,11 +78,12 @@ const StyledGrid = styled.div`
   height: 1404px;
   width: 1300px;
   e height: 330px;
-  e width: 304px; */
+  e width: 304px;
+  */
 
   display: grid;
-  grid-template-columns: repeat(4, minmax(152px, 304px));
-  grid-template-rows: repeat(4, minmax(165px, 330px));
+  grid-template-columns: repeat(4, minmax(auto, 304px));
+  grid-template-rows: repeat(4, minmax(auto, 330px));
   grid-gap: 28px;
   aspect-ratio: 1300 / 1404;
 
@@ -86,6 +94,7 @@ const StyledGrid = styled.div`
     aspect-ratio: 304 / 330;
     display: flex;
     flex-direction: column;
+    justify-content: flex-end;
     overflow: hidden;
     background-color: ${theme.colors.colorLight};
     z-index: 2;
@@ -112,7 +121,7 @@ const StyledGrid = styled.div`
     aspect-ratio: 636 / 688;
 
     h3 {
-      font-size: ${font(15, 40)};
+      font-size: ${font(14, 40)};
       margin: 0 60px 61px 61px;
     }
   }
@@ -124,7 +133,7 @@ const StyledGrid = styled.div`
     flex-direction: row;
 
     h3 {
-      font-size: ${font(15, 30)};
+      font-size: ${font(14, 30)};
       flex-grow: 1;
       align-self: flex-end;
       margin-right: 45px;
@@ -143,7 +152,7 @@ const StyledGrid = styled.div`
     }
 
     h3 {
-      font-size: ${font(15, 30)};
+      font-size: ${font(14, 30)};
       flex-grow: 1;
       margin: 0 30px 46px 0px;
       align-self: flex-end;
@@ -160,8 +169,69 @@ const StyledGrid = styled.div`
     aspect-ratio: 636 / 688;
 
     h3 {
-      font-size: ${font(15, 40)};
+      font-size: ${font(14, 40)};
       margin: 0 60px 61px 61px;
+    }
+  }
+
+  @media ${theme.media.desktop} {
+    a > div {
+      h3 {
+        line-height: 150%;
+        font-size: 12px;
+        margin: 0 15px 15px 15px;
+      }
+    }
+    a:nth-of-type(1) > div {
+      h3 {
+        margin: 0 30px 50px 30px;
+      }
+    }
+
+    a:nth-of-type(6) > div {
+      h3 {
+        margin: 0 30px 50px 30px;
+      }
+    }
+  }
+
+  @media screen and (max-width: 850px) {
+    grid-gap: 14px;
+
+    a > div {
+      h3 {
+        line-height: 120%;
+        font-size: ${font(10, 12)};
+      }
+    }
+  }
+
+  @media ${theme.media.mobile} {
+    grid-template-columns: repeat(2, minmax(auto, 304px));
+    grid-template-rows: repeat(6, minmax(auto, 330px));
+    aspect-ratio: 426 / 1404;
+
+    a:nth-of-type(1) > div {
+      border-radius: 20px 20px 20px 20px;
+      grid-column: auto / span 2;
+      grid-row: auto / span 1;
+      aspect-ratio: 636 / 330;
+
+      h3 {
+        font-size: ${font(14, 40)};
+        margin: 0 60px 61px 61px;
+      }
+    }
+    a:nth-of-type(6) > div {
+      border-radius: 20px 20px 20px 20px;
+      grid-column: auto / span 2;
+      grid-row: auto / span 1;
+      aspect-ratio: 636 / 330;
+
+      h3 {
+        font-size: ${font(14, 40)};
+        margin: 0 60px 61px 61px;
+      }
     }
   }
 `;
