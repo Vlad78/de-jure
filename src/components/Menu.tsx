@@ -1,11 +1,10 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
-import creds from '../assets/data/creds';
-import { IconStripe } from '../assets/IconStripe';
-import { font } from '../styles/FontSize';
-import { theme } from '../styles/Theme';
-import { FlexWrapper } from './FlexWrapper';
-
+import creds from "../assets/data/creds";
+import { IconStripe } from "../assets/IconStripe";
+import { font } from "../styles/FontSize";
+import { theme } from "../styles/Theme";
+import { FlexWrapper } from "./FlexWrapper";
 
 type Menu = {
   icons: "no" | "gray" | "circle";
@@ -29,14 +28,8 @@ export const Menu = ({ icons }: Menu) => {
 
   const { email, phone, address, googleMap } = creds;
 
-  let width;
-
-  if (typeof window !== "undefined") {
-    width = window.innerWidth;
-  }
-
   return (
-    <>
+    <StyledMenu>
       <FlexWrapper align="center" height="unset">
         <StyledA href={`mailto:${renderIconStripe("email")}`}>
           {renderIconStripe("email")}
@@ -51,17 +44,25 @@ export const Menu = ({ icons }: Menu) => {
         </StyledA>
       </FlexWrapper>
 
-      {width !== undefined && width > 900 && (
-        <FlexWrapper align="center" height="unset">
-          <StyledA href={googleMap} target="_blank" rel="noreferrer noopener">
-            {renderIconStripe("address")}
-            <StyledText>{address}</StyledText>
-          </StyledA>
-        </FlexWrapper>
-      )}
-    </>
+      <FlexWrapper align="center" height="unset">
+        <StyledA href={googleMap} target="_blank" rel="noreferrer noopener">
+          {renderIconStripe("address")}
+          <StyledText>{address}</StyledText>
+        </StyledA>
+      </FlexWrapper>
+    </StyledMenu>
   );
 };
+
+const StyledMenu = styled.div`
+  display: contents;
+
+  @media screen and (max-width: 1200px) {
+    div:nth-of-type(3) {
+      display: none;
+    }
+  }
+`;
 
 const StyledA = styled.a`
   display: contents;

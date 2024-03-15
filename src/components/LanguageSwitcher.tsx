@@ -1,6 +1,7 @@
 import { useRouter } from 'next/router';
 import styled from 'styled-components';
 
+import { font } from '../styles/FontSize';
 import { theme } from '../styles/Theme';
 
 
@@ -25,6 +26,13 @@ export default function LanguageSwitcher() {
 
 const StyledSwitcher = styled.div`
   display: flex;
+
+  font-size: ${font(14, 20)};
+  font-weight: 400;
+  line-height: 150%;
+  letter-spacing: 0.01em;
+  text-align: left;
+  color: inherit;
 
   select {
     position: relative;

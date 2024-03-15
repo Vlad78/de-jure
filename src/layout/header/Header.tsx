@@ -1,13 +1,12 @@
-import { useEffect, useState } from 'react';
-import styled from 'styled-components';
+import { useEffect, useState } from "react";
+import styled from "styled-components";
 
-import { IconStripe } from '../../assets/IconStripe';
-import { Container } from '../../components/Container';
-import { FlexWrapper } from '../../components/FlexWrapper';
-import LanguageSwitcher from '../../components/LanguageSwitcher';
-import { Menu } from '../../components/Menu';
-import { theme } from '../../styles/Theme';
-
+import { IconStripe } from "../../assets/IconStripe";
+import { Container } from "../../components/Container";
+import { FlexWrapper } from "../../components/FlexWrapper";
+import LanguageSwitcher from "../../components/LanguageSwitcher";
+import { Menu } from "../../components/Menu";
+import { theme } from "../../styles/Theme";
 
 export const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -15,6 +14,7 @@ export const Header = () => {
   useEffect(() => {
     if (typeof window !== "undefined") {
       window.addEventListener("scroll", () => setIsScrolled(window.scrollY > 50));
+      setIsScrolled(window.scrollY > 50);
     }
 
     return window.removeEventListener("scroll", () => setIsScrolled(window.scrollY > 50));
@@ -25,11 +25,11 @@ export const Header = () => {
       <Container>
         <OverflowWrapper>
           <FlexWrapper justify="space-between" align="center">
-            <IconStripe iconId="logo" height="67px" fill={theme.colors.fontShaddy} />
-            <FlexWrapper justify="space-between">
+            <IconStripe iconId="logo" height="47px" fill={theme.colors.fontShaddy} />
+            <MenuWrapper>
               <Menu icons="no" />
               <LanguageSwitcher />
-            </FlexWrapper>
+            </MenuWrapper>
           </FlexWrapper>
         </OverflowWrapper>
       </Container>
@@ -43,7 +43,6 @@ const OverflowWrapper = styled.div`
 
 const StyledHeader = styled.header<{ isScrolled: boolean }>`
   position: fixed;
-  min-height: 100px;
   width: 100%;
   color: ${(props) => (props.isScrolled ? theme.colors.fontShaddy : theme.colors.font)};
   font-size: 20px;
@@ -55,7 +54,7 @@ const StyledHeader = styled.header<{ isScrolled: boolean }>`
   z-index: 100;
 
   ${Container} {
-    background-color: ${(props) => (props.isScrolled ? theme.colors.colorPrimeMedium : "#fff00")};
+    background-color: ${(props) => (props.isScrolled ? theme.colors.colorPrimeMedium : "#fff0")};
     border-radius: 0px 0px 30px 30px;
     overflow: hidden;
     transition: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
@@ -66,10 +65,6 @@ const StyledHeader = styled.header<{ isScrolled: boolean }>`
     transition: 0.1s ease-in-out;
     margin: 17px;
     justify-content: space-between;
-
-    & > ${FlexWrapper}:nth-child(2) {
-      flex-basis: 950px;
-    }
   }
 
   svg {
@@ -77,5 +72,16 @@ const StyledHeader = styled.header<{ isScrolled: boolean }>`
     transition: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
     flex-shrink: 0;
     margin-right: 15px;
+  }
+`;
+
+const MenuWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  flex-basis: 950px;
+
+  @media ${theme.media.tablet} {
+    justify-content: flex-end;
+    gap: 40px;
   }
 `;
