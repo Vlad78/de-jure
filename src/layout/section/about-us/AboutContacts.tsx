@@ -35,8 +35,8 @@ const StyledAboutContacts = styled.a`
     grid-area: i;
     margin-right: 15px;
     border-radius: 50%;
-    box-shadow: 0 0 0 0 ${theme.colors.colorPrimeLight}80;
-    animation: pulse 1.5s infinite;
+    box-shadow: 0 0 0 0 ${theme.colors.colorPrimeLight}A0;
+    animation: pulse 1.35s infinite;
 
     &:hover {
       animation: none;
@@ -67,7 +67,7 @@ const StyledAboutContacts = styled.a`
     0% {
     }
     70% {
-      box-shadow: 0 0 0 10px ${theme.colors.colorPrimeLight}00;
+      box-shadow: 0 0 0 20px ${theme.colors.colorPrimeLight}00;
     }
     100% {
       box-shadow: 0 0 0 0 ${theme.colors.colorPrimeLight}00;
