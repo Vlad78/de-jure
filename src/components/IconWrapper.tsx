@@ -18,6 +18,7 @@ export const IconStripeWrapper = ({ children, top, left, opacity }: IconStripeWr
 
 const IconWrapper = styled.div<Omit<IconStripeWrapper, "children">>`
   position: absolute;
+  overflow: hidden;
 
   svg {
     position: absolute;

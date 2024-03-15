@@ -1,9 +1,10 @@
 "use client";
 
-import { NamespaceKeys, useTranslations } from 'next-intl';
+import disableScroll from 'disable-scroll';
+import { useTranslations } from 'next-intl';
 import Link from 'next/link';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
-import { MouseEventHandler } from 'react';
+import { MouseEventHandler, useEffect } from 'react';
 import styled from 'styled-components';
 
 import { IconStripe } from '../assets/IconStripe';
@@ -16,9 +17,6 @@ export const Modal = () => {
   const modal = searchParams.get("modal");
   const section = searchParams.get("section") as keyof IntlMessages;
   const id = searchParams.get("id");
-  console.log("modal:", modal);
-  console.log("modal:", section);
-  console.log("modal:", id);
 
   const pathname = usePathname();
   const router = useRouter();
@@ -26,6 +24,15 @@ export const Modal = () => {
   const layoutOnClickHandler: MouseEventHandler<HTMLDialogElement> = (e) => {
     e.currentTarget === e.target && router.push(pathname, { scroll: false });
   };
+
+  useEffect(() => {
+    if (modal) {
+      disableScroll.on();
+    }
+    return () => {
+      disableScroll.off();
+    };
+  }, [modal]);
 
   const t = useTranslations(section);
 

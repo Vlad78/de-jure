@@ -7,6 +7,7 @@
   },
   "dependencies": {
     "@types/styled-components": "^5.1.34",
+    "disable-scroll": "^0.6.0",
     "next": "latest",
     "next-i18next": "12.0.1",
     "next-intl": "^3.9.2",
