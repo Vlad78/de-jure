@@ -1,27 +1,18 @@
-import { useTranslations } from 'next-intl';
-import Image from 'next/image';
-import React from 'react';
-import styled from 'styled-components';
+import { useTranslations } from "next-intl";
+import Image from "next/image";
+import React from "react";
+import styled from "styled-components";
 
-import { IconStripe } from '../../../assets/IconStripe';
-import mainImage from '../../../assets/imgs/main.png';
-import { Container } from '../../../components/Container';
-import { CustomButton } from '../../../components/CustomButton';
-import { FlexWrapper } from '../../../components/FlexWrapper';
-import { font } from '../../../styles/FontSize';
-import { theme } from '../../../styles/Theme';
-
+import { IconStripe } from "../../../assets/IconStripe";
+import mainImage from "../../../assets/imgs/main.png";
+import { Container } from "../../../components/Container";
+import { CustomButton } from "../../../components/CustomButton";
+import { FlexWrapper } from "../../../components/FlexWrapper";
+import { font } from "../../../styles/FontSize";
+import { theme } from "../../../styles/Theme";
 
 export const Main = () => {
   const t = useTranslations("main");
-
-  const imageStyle = {
-    flexGrow: 1,
-    flexBasis: "60%",
-    maxWidth: "60%",
-    objectFit: "cover",
-    objectPosition: "left",
-  } as React.CSSProperties;
 
   return (
     <StyledMain id="Main">
@@ -34,7 +25,6 @@ export const Main = () => {
         <FlexWrapper z={10} position="absolute" justify="space-between" margin="30px 0 0 0">
           <StyledInfo>
             <IconStripe iconId="logo" width="74px" />
-            {/* <StyledHero>Finding Out the Truth, Helping, Arguing and Winning</StyledHero> */}
             <StyledHero>{t("hero")}</StyledHero>
             <Description>{t("description")}</Description>
             {/* <CustomButton text="readMore" /> */}
@@ -60,8 +50,10 @@ const StyledMain = styled.section`
     object-position: left;
 
     @media ${theme.media.tablet} {
-      max-width: 53%;
-      flex-basis: 53%;
+      max-width: 55%;
+      flex-basis: 55%;
+      transform: translateX(-30px);
+      overflow: visible;
     }
   }
 `;
@@ -112,8 +104,12 @@ const IconStripeWrapper = styled.div`
 
   svg {
     position: absolute;
-    opacity: 0.08;
+    opacity: 0.1;
     top: -340.16px;
-    left: 170px;
+    left: 120px;
+
+    @media ${theme.media.tablet} {
+      left: -360px;
+    }
   }
 `;
