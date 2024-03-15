@@ -2,6 +2,7 @@ import { useTranslations } from 'next-intl';
 import { MouseEvent } from 'react';
 import styled, { css } from 'styled-components';
 
+import { font } from '../styles/FontSize';
 import { theme } from '../styles/Theme';
 
 
@@ -23,7 +24,7 @@ export const CustomButton = ({ option, text, onClick }: Button) => {
 const StyledButton = styled.button<Omit<Button, "text">>`
   width: 252px;
   padding: 14px;
-  font-size: 28px;
+  font-size: ${font(14, 28)};
   font-weight: 700;
   line-height: 136.15%;
   text-align: center;
@@ -40,5 +41,12 @@ const StyledButton = styled.button<Omit<Button, "text">>`
         background-color: ${theme.colors.colorPrimeMedium};
         color: ${theme.colors.font};
       }
+      @media ${theme.media.desktop} {
+        border-width: 2px;
+      }
     `};
+
+  @media ${theme.media.desktop} {
+    width: 196px;
+  }
 `;

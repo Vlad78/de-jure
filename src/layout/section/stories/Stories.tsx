@@ -1,24 +1,21 @@
 import { useTranslations } from 'next-intl';
-import { StaticImageData } from 'next/image';
-import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { useSpringCarousel } from 'react-spring-carousel';
 import styled from 'styled-components';
 
 import { IconStripe } from '../../../assets/IconStripe';
+import { CarouselButtons } from '../../../components/Carousel/CarouselButtons';
 import { Container } from '../../../components/Container';
-import { CustomButton } from '../../../components/CustomButton';
 import { FlexWrapper } from '../../../components/FlexWrapper';
 import { IconStripeWrapper } from '../../../components/IconWrapper';
 import { TitleSection } from '../../../components/TitleSection';
 import { useMessageTyped } from '../../../hooks/useMessage';
 import { gutters } from '../../../styles/FontSize';
 import { theme } from '../../../styles/Theme';
+import { Card } from './Card';
 
 
 export const Stories = () => {
-  const [firstBtn, setFirstBtn] = useState(false);
-  const [secondBtn, setSecondBtn] = useState(false);
   const t = useTranslations("stories");
   const messages = useMessageTyped();
   const keys = Object.keys(messages.stories.stories);
@@ -43,18 +40,7 @@ export const Stories = () => {
     gutter: gutters(20, 100, width),
     items: keys.map((e, i) => ({
       id: e,
-      renderItem: (
-        <Card img={require(`../../../assets/imgs/stories/${i + 1}.jpeg`)} key={e}>
-          <h3>{t<any>(`stories.${e}.title`)}</h3>
-          <Link
-            href={`/?modal=true&section=stories&id=${e}`}
-            style={{ display: "contents" }}
-            scroll={false}
-          >
-            <CustomButton option="transparent" text="readMore" />
-          </Link>
-        </Card>
-      ),
+      renderItem: <Card e={e} i={i} />,
       renderThumb: <SliderDot onClick={() => slideToItem(e)} />,
     })),
   });
@@ -78,30 +64,9 @@ export const Stories = () => {
 
         {carouselFragment}
 
-        <FlexWrapper
-          justify="space-between"
-          margin="60px 0 0 0"
-          align="center"
-          position="relative"
-          z={2}
-        >
+        <FlexWrapper justify="space-between" align="center" position="relative" z={2}>
           {thumbsFragment}
-          <ButtonsBlock>
-            <button
-              onMouseOver={() => setFirstBtn(true)}
-              onMouseOut={() => setFirstBtn(false)}
-              onClick={slideToPrevItem}
-            >
-              <IconStripe iconId="arrowRight" isHovered={firstBtn} width="60px" height="60px" />
-            </button>
-            <button
-              onMouseOver={() => setSecondBtn(true)}
-              onMouseOut={() => setSecondBtn(false)}
-              onClick={slideToNextItem}
-            >
-              <IconStripe iconId="arrowRight" isHovered={secondBtn} width="60px" height="60px" />
-            </button>
-          </ButtonsBlock>
+          <CarouselButtons slideToNextItem={slideToNextItem} slideToPrevItem={slideToPrevItem} />
         </FlexWrapper>
       </Container>
     </StyledStories>
@@ -110,7 +75,11 @@ export const Stories = () => {
 
 const StyledStories = styled.section<{ index: number }>`
   margin-top: 300px;
-  min-height: 685px;
+  min-height: 410px;
+
+  @media ${theme.media.desktop} {
+    margin-top: 172px;
+  }
 
   .use-spring-carousel-main-wrapper {
     overflow: hidden;
@@ -137,38 +106,27 @@ const StyledStories = styled.section<{ index: number }>`
   #thumb-${(props) => props.index} {
     background-color: ${theme.colors.colorPrimeMedium};
   }
-`;
 
-const Card = styled.div<{ img: { default: StaticImageData } }>`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  ${FlexWrapper} {
+    margin-top: 60px;
+  }
 
-  flex-basis: 650px;
-  height: 400px;
-  color: ${theme.colors.colorLight};
-  background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-    url(${(props) => props.img.default.src || "check"});
-  background-size: cover;
-  background-repeat: no-repeat;
-
-  h3 {
-    margin: 0 40px 40px 40px;
-    color: ${theme.colors.colorLight};
+  @media ${theme.media.tablet} {
+    .use-spring-carousel-item {
+      &:nth-child(odd) {
+        border-radius: 70px 10px 70px 10px;
+      }
+      &:nth-child(even) {
+        border-radius: 10px 70px 10px 70px;
+      }
+    }
+    ${FlexWrapper} {
+      margin-top: 50px;
+    }
   }
 `;
 
 const SliderDot = styled.div`
   width: 15px;
   height: 15px;
-`;
-
-const ButtonsBlock = styled.div`
-  display: flex;
-  gap: 20px;
-
-  button:nth-child(1) > svg {
-    transform: rotate(180deg);
-  }
 `;
