@@ -1,12 +1,13 @@
-import { useEffect, useState } from "react";
-import styled from "styled-components";
+import { useEffect, useState } from 'react';
+import styled from 'styled-components';
 
-import { IconStripe } from "../../assets/IconStripe";
-import { Container } from "../../components/Container";
-import { FlexWrapper } from "../../components/FlexWrapper";
-import LanguageSwitcher from "../../components/LanguageSwitcher";
-import { Menu } from "../../components/Menu";
-import { theme } from "../../styles/Theme";
+import { IconStripe } from '../../assets/IconStripe';
+import { Container } from '../../components/Container';
+import { FlexWrapper } from '../../components/FlexWrapper';
+import LanguageSwitcher from '../../components/LanguageSwitcher';
+import { Menu } from '../../components/Menu';
+import { theme } from '../../styles/Theme';
+
 
 export const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -79,6 +80,12 @@ const MenuWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   flex-basis: 950px;
+
+  @media ${theme.media.desktop} {
+    div:nth-child(3) {
+      display: none;
+    }
+  }
 
   @media ${theme.media.tablet} {
     justify-content: flex-end;

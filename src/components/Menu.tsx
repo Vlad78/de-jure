@@ -1,10 +1,11 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
-import creds from "../assets/data/creds";
-import { IconStripe } from "../assets/IconStripe";
-import { font } from "../styles/FontSize";
-import { theme } from "../styles/Theme";
-import { FlexWrapper } from "./FlexWrapper";
+import creds from '../assets/data/creds';
+import { IconStripe } from '../assets/IconStripe';
+import { font } from '../styles/FontSize';
+import { theme } from '../styles/Theme';
+import { FlexWrapper } from './FlexWrapper';
+
 
 type Menu = {
   icons: "no" | "gray" | "circle";
@@ -56,12 +57,6 @@ export const Menu = ({ icons }: Menu) => {
 
 const StyledMenu = styled.div`
   display: contents;
-
-  @media screen and (max-width: 1200px) {
-    div:nth-of-type(3) {
-      display: none;
-    }
-  }
 `;
 
 const StyledA = styled.a`
