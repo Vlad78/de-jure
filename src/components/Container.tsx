@@ -16,4 +16,7 @@ export const Container = styled.div`
   @media ${theme.media.tablet} {
     padding: 0 70px;
   }
+  @media ${theme.media.mobile} {
+    padding: 0 10px;
+  }
 `;

@@ -1,15 +1,16 @@
-import { useTranslations } from "next-intl";
-import Image from "next/image";
-import React from "react";
-import styled from "styled-components";
+import { useTranslations } from 'next-intl';
+import Image from 'next/image';
+import React from 'react';
+import styled from 'styled-components';
 
-import { IconStripe } from "../../../assets/IconStripe";
-import mainImage from "../../../assets/imgs/main.png";
-import { Container } from "../../../components/Container";
-import { CustomButton } from "../../../components/CustomButton";
-import { FlexWrapper } from "../../../components/FlexWrapper";
-import { font } from "../../../styles/FontSize";
-import { theme } from "../../../styles/Theme";
+import { IconStripe } from '../../../assets/IconStripe';
+import mainImage from '../../../assets/imgs/main.png';
+import { Container } from '../../../components/Container';
+import { CustomButton } from '../../../components/CustomButton';
+import { FlexWrapper } from '../../../components/FlexWrapper';
+import { font } from '../../../styles/FontSize';
+import { theme } from '../../../styles/Theme';
+
 
 export const Main = () => {
   const t = useTranslations("main");
@@ -55,6 +56,12 @@ const StyledMain = styled.section`
       transform: translateX(-30px);
       overflow: visible;
     }
+    @media screen and (max-width: 762px) {
+      object-position: -65px;
+    }
+    @media ${theme.media.mobile} {
+      display: none;
+    }
   }
 `;
 
@@ -69,18 +76,34 @@ const StyledInfo = styled.div`
 
   display: flex;
   flex-direction: column;
+
+  @media ${theme.media.mobile} {
+    margin-top: 35px;
+    align-items: center;
+    gap: 30px;
+  }
 `;
 
 const StyledHero = styled.h2`
   margin-top: 45px;
   line-height: 136.15%;
+
+  @media ${theme.media.mobile} {
+    margin-top: unset;
+    text-align: center;
+  }
 `;
 
 const Description = styled.h1`
   margin-top: 20px;
-  font-size: ${font(14, 24)};
+  font-size: ${font(16, 24)};
   font-weight: 700;
   line-height: 136.15%;
+
+  @media ${theme.media.mobile} {
+    margin-top: unset;
+    text-align: center;
+  }
 `;
 
 const StyledBackground = styled.div`
@@ -96,6 +119,10 @@ const StyledBackground = styled.div`
   @media ${theme.media.tablet} {
     border-radius: 0px 200px 0px 100px;
   }
+
+  @media ${theme.media.mobile} {
+    border-radius: unset;
+  }
 `;
 
 const IconStripeWrapper = styled.div`
@@ -110,6 +137,9 @@ const IconStripeWrapper = styled.div`
 
     @media ${theme.media.tablet} {
       left: -360px;
+    }
+    @media ${theme.media.tablet} {
+      top: -630px;
     }
   }
 `;
