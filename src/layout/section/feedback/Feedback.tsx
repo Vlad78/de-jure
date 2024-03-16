@@ -6,20 +6,17 @@ import styled from 'styled-components';
 import creds from '../../../assets/data/creds';
 import { IconStripe } from '../../../assets/IconStripe';
 import { Container } from '../../../components/Container';
-import { CustomButton } from '../../../components/CustomButton';
 import { FlexWrapper } from '../../../components/FlexWrapper';
 import { IconStripeWrapper } from '../../../components/IconWrapper';
 import { Menu } from '../../../components/Menu';
 import { TitleSection } from '../../../components/TitleSection';
-import { useMyStore } from '../../../store/store';
 import { font } from '../../../styles/FontSize';
 import { theme } from '../../../styles/Theme';
+import { Form } from './Form';
 
 
 export const Feedback = () => {
   const t = useTranslations("feedback");
-
-  const { message, name, phone, setMessage, setName, setPhone } = useMyStore();
 
   return (
     <StyledFeedback id="Feedback">
@@ -29,9 +26,11 @@ export const Feedback = () => {
         </IconStripeWrapper>
         <TitleSection>{t("title")}</TitleSection>
 
-        <FlexWrapper justify="space-between" gap="5%" align="start" position="relative" z={1}>
+        <Wrapper>
           <StyledCreds>
-            <Menu icons="circle" />
+            <FlexWrapper direction="column" justify="space-between" gap="5%" align="start">
+              <Menu icons="circle" />
+            </FlexWrapper>
             <FlexWrapper margin="17px 0 0 0" height="unset" gap="35px">
               <a href={creds.fb}>
                 <IconStripe iconId="fb" height="22px" width="30px" />
@@ -45,39 +44,8 @@ export const Feedback = () => {
             </FlexWrapper>
           </StyledCreds>
 
-          <StyledFrom>
-            <FlexWrapper wrap="wrap" gap="40px" align="start" justify="end" height="unset">
-              <input
-                type="text"
-                placeholder={t("name")}
-                name="Name"
-                id="name"
-                value={name}
-                autoComplete="name"
-                onChange={(e) => setName(e.target.value)}
-              />
-              <input
-                type="tel"
-                placeholder={t("phone")}
-                name="Phone"
-                id="phone"
-                value={phone}
-                autoComplete="tel"
-                onChange={(e) => setPhone(e.target.value)}
-              />
-              <textarea
-                placeholder={t("introduction")}
-                autoComplete="false"
-                draggable="false"
-                name="Message"
-                id="message"
-                value={message}
-                onChange={(e) => setMessage(e.target.value)}
-              />
-              <CustomButton text="send" />
-            </FlexWrapper>
-          </StyledFrom>
-        </FlexWrapper>
+          <Form />
+        </Wrapper>
       </Container>
     </StyledFeedback>
   );
@@ -86,6 +54,25 @@ export const Feedback = () => {
 const StyledFeedback = styled.section`
   margin-top: 237px;
   min-height: 691px;
+
+  @media ${theme.media.desktop} {
+    margin-top: 150px;
+  }
+`;
+
+const Wrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  gap: 5%;
+  align-items: start;
+  position: relative;
+  z-index: 1;
+  flex-wrap: nowrap;
+
+  @media screen and (max-width: 900px) {
+    flex-wrap: wrap;
+    gap: 100px;
+  }
 `;
 
 const StyledCreds = styled.div`
@@ -99,44 +86,32 @@ const StyledCreds = styled.div`
   border-radius: 50px;
   gap: 30px;
 
+  & > ${FlexWrapper}:nth-child(1) {
+    flex-grow: 1;
+  }
+
   svg {
     flex-shrink: 0;
   }
-`;
 
-const StyledFrom = styled.form`
-  flex-grow: 1;
-  flex-basis: 57%;
-
-  input,
-  textarea {
-    min-width: 200px;
-    border-bottom: 1px solid ${theme.colors.font};
-    background-color: transparent;
-
-    font-size: ${font(14, 22)};
-    font-weight: 400;
-    line-height: 150%;
-    letter-spacing: 0.01em;
-    text-align: left;
-  }
-
-  input#name {
-    flex-grow: 1;
-    height: 45px;
-  }
-  input#phone {
-    flex-grow: 1;
-    height: 45px;
-  }
-  textarea {
+  @media screen and (max-width: 900px) {
     flex-basis: 100%;
-    flex-grow: 1;
-    height: 175px;
-    resize: none;
-  }
+    flex-direction: row;
+    min-height: unset;
+    padding: 32px 58px;
+    font-size: ${font(14, 20)};
+    justify-content: space-between;
 
-  button {
-    margin-top: 110px;
+    & > ${FlexWrapper}:nth-child(1) {
+      flex-grow: 1;
+      gap: 40px;
+    }
+
+    & > ${FlexWrapper}:nth-child(2) {
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 40px;
+      margin: 16px 0;
+    }
   }
 `;
