@@ -1,36 +1,30 @@
 import { useTranslations } from 'next-intl';
-import Image from 'next/image';
-import Link from 'next/link';
-import { RefObject, useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useSpringCarousel } from 'react-spring-carousel';
 import styled from 'styled-components';
 
 import { IconStripe } from '../../../assets/IconStripe';
+import { CarouselButtons } from '../../../components/Carousel/CarouselButtons';
 import { Container } from '../../../components/Container';
 import { FlexWrapper } from '../../../components/FlexWrapper';
 import { IconStripeWrapper } from '../../../components/IconWrapper';
 import { TitleSection } from '../../../components/TitleSection';
 import { useMessageTyped } from '../../../hooks/useMessage';
-import { font, gutters } from '../../../styles/FontSize';
+import { gutters } from '../../../styles/FontSize';
 import { theme } from '../../../styles/Theme';
+import { Card, ReviewText } from './Card';
 
 
 export const Testimonials = () => {
-  const [firstBtn, setFirstBtn] = useState(false);
-  const [secondBtn, setSecondBtn] = useState(false);
-
   const t = useTranslations("testimonials");
   const messages = useMessageTyped();
   const keys = Object.keys(messages.testimonials.testimonials);
 
-  const ref = useRef<HTMLDivElement>(null);
-  const [height, setHeight] = useState(20);
   const [width, setWidth] = useState(1600);
 
   useEffect(() => {
-    setHeight(ref.current?.offsetHeight! + 3);
-    setWidth(window.innerWidth);
-  }, [ref]);
+    if (typeof window !== "undefined") setWidth(window.innerWidth);
+  }, []);
 
   const [index, setIndex] = useState(1);
 
@@ -48,32 +42,7 @@ export const Testimonials = () => {
     gutter: gutters(20, 142, width),
     items: keys.map((e) => ({
       id: e,
-      renderItem: (
-        <Card key={e}>
-          <ReviewText ref={ref} height={height}>
-            {t<any>(`testimonials.${e}.text`)}
-          </ReviewText>
-          <FlexWrapper align="center" gap="21px">
-            <Image
-              alt={t<any>(`testimonials.${e}.alt`)}
-              src={require(`../../../assets/imgs/reviews-photos/${e}.jpeg`)}
-            />
-            <span>{t<any>(`testimonials.${e}.name`)}</span>
-          </FlexWrapper>
-          <div>
-            <div>
-              {[...Array(parseInt(t<any>(`testimonials.${e}.rating`)))].map((_, i) => (
-                <span key={i}>
-                  <IconStripe iconId="star" />
-                </span>
-              ))}
-            </div>
-            <div>
-              <Link href="#">12 reviews at {t<any>(`testimonials.${e}.sourse`)}</Link>
-            </div>
-          </div>
-        </Card>
-      ),
+      renderItem: <Card e={e} />,
       renderThumb: <SliderDot onClick={() => slideToItem(e)} />,
     })),
   });
@@ -100,53 +69,24 @@ export const Testimonials = () => {
           z={2}
         >
           {thumbsFragment}
-          <ButtonsBlock>
-            <button
-              onMouseOver={() => setFirstBtn(true)}
-              onMouseOut={() => setFirstBtn(false)}
-              onClick={slideToPrevItem}
-            >
-              <IconStripe iconId="arrowRight" isHovered={firstBtn} width="60px" height="60px" />
-            </button>
-            <button
-              onMouseOver={() => setSecondBtn(true)}
-              onMouseOut={() => setSecondBtn(false)}
-              onClick={slideToNextItem}
-            >
-              <IconStripe iconId="arrowRight" isHovered={secondBtn} width="60px" height="60px" />
-            </button>
-          </ButtonsBlock>
+          <CarouselButtons slideToNextItem={slideToNextItem} slideToPrevItem={slideToPrevItem} />
         </FlexWrapper>
       </Container>
     </StyledTestimonials>
   );
 };
 
-const CarouselWrapper = styled.div`
-  display: flex;
-  justify-content: center;
-  width: calc(100% + 40px);
-  padding: 20px;
-  position: relative;
-  left: -20px;
-  overflow: hidden;
-`;
-
-const ReviewText = styled.p<{ ref: RefObject<HTMLDivElement>; height: number }>`
-  position: relative;
-  display: block;
-  &::before {
-    content: "";
-    position: absolute;
-    width: 1px;
-    height: ${(props) => props.height}px;
-    background-color: ${theme.colors.bgAlt};
-  }
-`;
-
 const StyledTestimonials = styled.section<{ index: number }>`
   margin-top: 215px;
-  min-height: 604px;
+  min-height: 377px;
+
+  @media ${theme.media.desktop} {
+    margin-top: 150px;
+  }
+
+  ${TitleSection} {
+    margin-bottom: calc(1em - 20px);
+  }
 
   .use-spring-carousel-main-wrapper {
     position: relative;
@@ -160,9 +100,10 @@ const StyledTestimonials = styled.section<{ index: number }>`
 
     &:nth-child(odd) {
       border-radius: 20px 100px 20px 20px;
-      padding: 41px 26px 28px 87px;
+      padding: 41px 26px 29px 86px;
 
       ${ReviewText} {
+        text-align: left;
         &::before {
           left: -32.5px;
         }
@@ -176,16 +117,16 @@ const StyledTestimonials = styled.section<{ index: number }>`
         width: 14px;
         height: calc(100% + 20px);
         background-color: ${theme.colors.colorPrimeMedium};
-        border-radius: 20px 0px 0px 20px;
       }
     }
     &:nth-child(even) {
       border-radius: 100px 20px 20px 20px;
-      padding: 41px 54.5px 28px 34px;
+      padding: 41px 86px 29px 34px;
 
       ${ReviewText} {
+        text-align: right;
         &::before {
-          right: -24.5px;
+          right: -32.5px;
         }
       }
 
@@ -197,7 +138,29 @@ const StyledTestimonials = styled.section<{ index: number }>`
         width: 14px;
         height: calc(100% + 20px);
         background-color: ${theme.colors.colorPrimeMedium};
-        border-radius: 0px 20px 20px 0px;
+      }
+    }
+
+    @media ${theme.media.desktop} {
+      &:nth-child(odd) {
+        border-radius: 8px 100px 20px 8px;
+        padding: 29px 58px 29px 39px;
+
+        ${ReviewText} {
+          &::before {
+            left: -11.5px;
+          }
+        }
+      }
+      &:nth-child(even) {
+        border-radius: 100px 8px 8px 20px;
+        padding: 29px 39px 29px 34px;
+
+        ${ReviewText} {
+          &::before {
+            right: -11.5px;
+          }
+        }
       }
     }
   }
@@ -213,39 +176,17 @@ const StyledTestimonials = styled.section<{ index: number }>`
   }
 `;
 
-const Card = styled.div`
-  max-width: 456px;
-  min-height: 260px;
-
+const CarouselWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  width: calc(100% + 40px);
+  padding: 20px;
   position: relative;
-  display: grid;
-  grid-template-columns: auto 164px;
-  grid-template-rows: auto auto;
-  align-content: space-between;
-
-  p {
-    grid-column: auto / span 2;
-    line-height: 180%;
-    margin-bottom: 40px;
-  }
-
-  span {
-    font-size: ${font(14, 24)};
-    font-weight: 700;
-    line-height: 180%;
-  }
+  left: -20px;
+  overflow: hidden;
 `;
 
 const SliderDot = styled.div`
   width: 15px;
   height: 15px;
-`;
-
-const ButtonsBlock = styled.div`
-  display: flex;
-  gap: 20px;
-
-  button:nth-child(1) > svg {
-    transform: rotate(180deg);
-  }
 `;

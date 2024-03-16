@@ -14,6 +14,7 @@ export const theme = {
     colorPrimeDark: "#D3927E",
     colorAlt: "#7EA3D3",
     colorAltDark: "#5F5F7E",
+    colorAltNotSoDark: "#80819A",
     colorLight: "#ffffff",
 
     boxShadow: "2px 4px 15px 0px rgba(41, 44, 124, 0.1);",
