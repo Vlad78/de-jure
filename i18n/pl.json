@@ -1,8 +1,191 @@
 {
-  "test": "TESTpl",
+  "system": {
+    "readMore": "Read More",
+    "send": "Send",
+    "build a route": "Build a route",
+    "callCondition": "Weekdays from 10 to 18",
+    "working hours": "from 10:00 to 17:00"
+  },
   "header": {},
-  "main": {},
+  "main": {
+    "title": "Main",
+    "hero": "Odkrywanie prawdy, spieranie się i wygrywanie",
+    "description": "Zaufany prawnik w Polsce"
+  },
   "advantages": {
-    "title": "Zalety"
+    "title": "Advantages",
+    "advantages": {
+      "1": {
+        "title": "We'll keep you in the loop",
+        "desc": "On the other hand, socio-economic development requires us to analyze the forms of impact."
+      },
+      "2": {
+        "title": "Full custody of your legal affairs",
+        "desc": "On the other hand, socio-economic development requires us to analyze the forms of impact."
+      },
+      "3": {
+        "title": "We take the tough cases",
+        "desc": "On the other hand, socio-economic development requires us to analyze the forms of impact."
+      }
+    }
+  },
+  "services": {
+    "title": "Services",
+    "services": {
+      "1": {
+        "title": "Subscription service for legal entities",
+        "text": "",
+        "alt": "glasses",
+        "left": "51px",
+        "bottom": "261px",
+        "right": "56px",
+        "position": "center"
+      },
+      "2": {
+        "title": "Psychological help",
+        "text": "",
+        "alt": "coffee",
+        "left": "0px",
+        "bottom": "0px",
+        "right": "0px",
+        "position": "bottom"
+      },
+      "3": {
+        "title": "Opening, liquidation of legal entities, bankruptcy",
+        "text": "",
+        "alt": "notebook",
+        "left": "0px",
+        "bottom": "0px",
+        "right": "0px",
+        "position": ""
+      },
+      "4": {
+        "title": "Mediation on debt restructuring issues",
+        "text": "",
+        "alt": "ledger",
+        "left": "0px",
+        "bottom": "0px",
+        "right": "0px",
+        "position": ""
+      },
+      "5": {
+        "title": "Statement of claim",
+        "text": "",
+        "alt": "file",
+        "left": "0px",
+        "bottom": "0px",
+        "right": "0px",
+        "position": "bottom"
+      },
+      "6": {
+        "title": "Criminal, administrative proceedings related...",
+        "text": "",
+        "alt": "pen",
+        "left": "0px",
+        "bottom": "0px",
+        "right": "40px",
+        "position": ""
+      },
+      "7": {
+        "title": "Consulting on issues related to interaction...",
+        "text": "",
+        "alt": "sheet",
+        "left": "0px",
+        "bottom": "0px",
+        "right": "0px",
+        "position": ""
+      },
+      "8": {
+        "title": "Complex issues of legalization of migrants",
+        "text": "",
+        "alt": "envelope",
+        "left": "0px",
+        "bottom": "0px",
+        "right": "0px",
+        "position": ""
+      },
+      "9": {
+        "title": "",
+        "text": "",
+        "alt": "pencils",
+        "left": "0px",
+        "bottom": "0px",
+        "right": "0px",
+        "position": ""
+      },
+      "10": {
+        "title": "",
+        "text": "",
+        "alt": "handcuffs",
+        "left": "0px",
+        "bottom": "0px",
+        "right": "0px",
+        "position": ""
+      },
+      "11": {
+        "title": "",
+        "text": "",
+        "alt": "hammer",
+        "left": "0px",
+        "bottom": "0px",
+        "right": "0px",
+        "position": ""
+      }
+    }
+  },
+  "aboutUs": {
+    "title": "About us",
+    "moto": "It is a long established fact that a reader will be distracted by the of readable content of a page when lookings at its layouts the points of using that it has a more-or-less normal."
+  },
+  "stories": {
+    "title": "Stories of our customers",
+    "stories": {
+      "1": {
+        "title": "Solved migrant issues",
+        "text": ""
+      },
+      "2": {
+        "title": "Legalization is fine",
+        "text": ""
+      }
+    }
+  },
+  "testimonials": {
+    "title": "Testimonials",
+    "testimonials": {
+      "1": {
+        "text": "Thank you so much for your help. It's exactly what I've been looking for. You won't regret it. It really saves me time and effort. Skilline is exactly what our business has been lacking.",
+        "name": "Gloria Rose",
+        "alt": "photo",
+        "rating": "5",
+        "sourse": "Yelp"
+      },
+      "2": {
+        "text": "Thank you so much for your help. It's exactly what I've been looking for. You won't regret it. It really saves me time and effort. Skilline is exactly what our business has been lacking.",
+        "name": "Viezh Robert",
+        "alt": "photo",
+        "rating": "5",
+        "sourse": "Yelp"
+      }
+    }
+  },
+  "feedback": {
+    "title": "Feedback",
+    "name": "Name",
+    "phone": "Phone",
+    "introduction": "Hello I am Intrested in.."
+  },
+  "map": {
+    "title": "Map",
+    "location": "Office"
+  },
+  "footer": {
+    "general information": "General information",
+    "we are in messengers": "We are in messengers",
+    "we are available": "We are available during business hours",
+    "interested in a job?": "Interested in a job? Connect with us",
+    "navigation": "Navigation",
+    "general terms and conditions": "General terms and conditions for the provision of legal services",
+    "copyright": "© Copyright"
   }
 }

@@ -1,0 +1,192 @@
+import { useTranslations } from 'next-intl';
+import { useEffect, useState } from 'react';
+import { useSpringCarousel } from 'react-spring-carousel';
+import styled from 'styled-components';
+
+import { IconStripe } from '../../../assets/IconStripe';
+import { CarouselButtons } from '../../../components/Carousel/CarouselButtons';
+import { Container } from '../../../components/Container';
+import { FlexWrapper } from '../../../components/FlexWrapper';
+import { IconStripeWrapper } from '../../../components/IconWrapper';
+import { TitleSection } from '../../../components/TitleSection';
+import { useMessageTyped } from '../../../hooks/useMessage';
+import { gutters } from '../../../styles/FontSize';
+import { theme } from '../../../styles/Theme';
+import { Card, ReviewText } from './Card';
+
+
+export const Testimonials = () => {
+  const t = useTranslations("testimonials");
+  const messages = useMessageTyped();
+  const keys = Object.keys(messages.testimonials.testimonials);
+
+  const [width, setWidth] = useState(1600);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") setWidth(window.innerWidth);
+  }, []);
+
+  const [index, setIndex] = useState(1);
+
+  const {
+    carouselFragment,
+    slideToPrevItem,
+    slideToNextItem,
+    thumbsFragment,
+    slideToItem,
+    useListenToCustomEvent,
+  } = useSpringCarousel({
+    itemsPerSlide: 2,
+    withLoop: true,
+    withThumbs: true,
+    gutter: gutters(20, 142, width),
+    items: keys.map((e) => ({
+      id: e,
+      renderItem: <Card e={e} />,
+      renderThumb: <SliderDot onClick={() => slideToItem(e)} />,
+    })),
+  });
+
+  useListenToCustomEvent((e: any) => {
+    if (e.eventName === "onSlideChange") {
+      setIndex(e.currentItem.id);
+    }
+  });
+
+  return (
+    <StyledTestimonials id="Testimonials" index={index}>
+      <Container>
+        <IconStripeWrapper top="421px" left="413px">
+          <IconStripe iconId="pluses" />
+        </IconStripeWrapper>
+        <TitleSection>{t("title")}</TitleSection>
+        <CarouselWrapper>{carouselFragment}</CarouselWrapper>
+        <FlexWrapper
+          justify="space-between"
+          margin="40px 0 0 0"
+          align="center"
+          position="relative"
+          z={2}
+        >
+          {thumbsFragment}
+          <CarouselButtons slideToNextItem={slideToNextItem} slideToPrevItem={slideToPrevItem} />
+        </FlexWrapper>
+      </Container>
+    </StyledTestimonials>
+  );
+};
+
+const StyledTestimonials = styled.section<{ index: number }>`
+  margin-top: 215px;
+  min-height: 377px;
+
+  @media ${theme.media.desktop} {
+    margin-top: 150px;
+  }
+
+  ${TitleSection} {
+    margin-bottom: calc(1em - 20px);
+  }
+
+  .use-spring-carousel-main-wrapper {
+    position: relative;
+    z-index: 2;
+  }
+
+  .use-spring-carousel-item {
+    overflow: hidden;
+    box-shadow: ${theme.colors.boxShadow};
+    background: ${theme.colors.colorLight};
+
+    &:nth-child(odd) {
+      border-radius: 20px 100px 20px 20px;
+      padding: 41px 26px 29px 86px;
+
+      ${ReviewText} {
+        text-align: left;
+        &::before {
+          left: -32.5px;
+        }
+      }
+
+      &::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: -20px;
+        width: 14px;
+        height: calc(100% + 20px);
+        background-color: ${theme.colors.colorPrimeMedium};
+      }
+    }
+    &:nth-child(even) {
+      border-radius: 100px 20px 20px 20px;
+      padding: 41px 86px 29px 34px;
+
+      ${ReviewText} {
+        text-align: right;
+        &::before {
+          right: -32.5px;
+        }
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        right: 0;
+        top: -20px;
+        width: 14px;
+        height: calc(100% + 20px);
+        background-color: ${theme.colors.colorPrimeMedium};
+      }
+    }
+
+    @media ${theme.media.desktop} {
+      &:nth-child(odd) {
+        border-radius: 8px 100px 20px 8px;
+        padding: 29px 58px 29px 39px;
+
+        ${ReviewText} {
+          &::before {
+            left: -11.5px;
+          }
+        }
+      }
+      &:nth-child(even) {
+        border-radius: 100px 8px 8px 20px;
+        padding: 29px 39px 29px 34px;
+
+        ${ReviewText} {
+          &::before {
+            right: -11.5px;
+          }
+        }
+      }
+    }
+  }
+
+  .thumb-item {
+    margin-right: 15px;
+    background-color: ${theme.colors.bgPlug};
+    border-radius: 50%;
+  }
+
+  #thumb-${(props) => props.index} {
+    background-color: ${theme.colors.colorPrimeMedium};
+  }
+`;
+
+const CarouselWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  width: calc(100% + 40px);
+  padding: 20px;
+  position: relative;
+  left: -20px;
+  overflow: hidden;
+`;
+
+const SliderDot = styled.div`
+  width: 15px;
+  height: 15px;
+`;
