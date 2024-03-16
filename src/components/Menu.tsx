@@ -34,21 +34,21 @@ export const Menu = ({ icons }: Menu) => {
       <FlexWrapper align="center" height="unset">
         <StyledA href={`mailto:${renderIconStripe("email")}`}>
           {renderIconStripe("email")}
-          <StyledText>{email}</StyledText>
+          <StyledText noForward={icons === "gray"}>{email}</StyledText>
         </StyledA>
       </FlexWrapper>
 
       <FlexWrapper align="center" height="unset">
         <StyledA href={`tel:${renderIconStripe("phone")}`}>
           {renderIconStripe("phone")}
-          <StyledText>{phone}</StyledText>
+          <StyledText noForward={icons === "gray"}>{phone}</StyledText>
         </StyledA>
       </FlexWrapper>
 
       <FlexWrapper align="center" height="unset">
         <StyledA href={googleMap} target="_blank" rel="noreferrer noopener">
           {renderIconStripe("address")}
-          <StyledText>{address}</StyledText>
+          <StyledText noForward={icons === "gray"}>{address}</StyledText>
         </StyledA>
       </FlexWrapper>
     </StyledMenu>
@@ -63,11 +63,12 @@ const StyledA = styled.a`
   display: contents;
 `;
 
-const StyledText = styled.div`
+const StyledText = styled.div<{ noForward: boolean }>`
   margin-left: 15px;
   font-size: ${font(14, 20)};
   font-weight: 400;
   line-height: 150%;
   letter-spacing: 0.01em;
   text-align: left;
+  white-space: ${(props) => (props.noForward ? "nowrap" : "unset")};
 `;
