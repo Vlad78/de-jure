@@ -9,6 +9,7 @@ import { FlexWrapper } from '../../../components/FlexWrapper';
 import { theme } from '../../../styles/Theme';
 
 
+// https://snazzymaps.com/build-a-map/edit/584628
 export const Map = () => {
   const t = useTranslations("map");
 
@@ -37,8 +38,16 @@ export const Map = () => {
 };
 
 const StyledMap = styled.section`
-  min-height: 518px;
+  min-height: 391px;
   margin-top: 231px;
+
+  @media ${theme.media.desktop} {
+    margin-top: 142px;
+
+    ${FlexWrapper} {
+      gap: 82px;
+    }
+  }
 `;
 
 const IframeWrapper = styled.div`
@@ -51,5 +60,12 @@ const IframeWrapper = styled.div`
   iframe {
     min-height: inherit;
     border: none;
+    height: 561px;
+  }
+
+  @media ${theme.media.desktop} {
+    iframe {
+      height: 390px;
+    }
   }
 `;
