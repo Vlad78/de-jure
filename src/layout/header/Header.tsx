@@ -13,7 +13,7 @@ import { theme } from '../../styles/Theme';
 export const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
 
-  const [width, setWidth] = useState(1600);
+  const [width, setWidth] = useState(0);
 
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -27,6 +27,7 @@ export const Header = () => {
   return (
     <StyledHeader isScrolled={isScrolled}>
       <Container>
+        {width === 0 && <div></div>}
         {width > 576 && (
           <OverflowWrapper>
             <FlexWrapper justify="space-between" align="center">
