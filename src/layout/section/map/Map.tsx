@@ -23,12 +23,7 @@ export const Map = () => {
       <Container>
         <FlexWrapper direction="column" align="center" gap="100px" height="inherit">
           <IframeWrapper>
-            <iframe
-              src="https://snazzymaps.com/embed/584628"
-              width="100%"
-              height="100%"
-              loading="eager"
-            ></iframe>
+            <iframe src="https://snazzymaps.com/embed/584628" loading="eager"></iframe>
           </IframeWrapper>
           <CustomButton text="build a route" onClick={onClickHandler} />
         </FlexWrapper>
@@ -73,6 +68,7 @@ const IframeWrapper = styled.div`
     min-height: inherit;
     border: none;
     height: 561px;
+    width: 100%;
   }
 
   @media ${theme.media.desktop} {

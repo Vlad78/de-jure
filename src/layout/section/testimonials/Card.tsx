@@ -36,7 +36,7 @@ export const Card = ({ e }: { e: string }) => {
       <Link href="#">
         <Rating>
           {[...Array(parseInt(t<any>(`testimonials.${e}.rating`)))].map((_, i) => (
-            <IconStripe iconId="star" key={i} />
+            <IconStripe iconId="star" key={i} id={"star_" + i} />
           ))}
         </Rating>
         <div>12 reviews at {t<any>(`testimonials.${e}.sourse`)}</div>
@@ -45,7 +45,9 @@ export const Card = ({ e }: { e: string }) => {
   );
 };
 
-export const ReviewText = styled.p<{ ref: RefObject<HTMLDivElement>; height: number }>`
+export const ReviewText = styled.p.withConfig({
+  shouldForwardProp: (props) => !["height"].includes(props),
+})<{ ref: RefObject<HTMLDivElement>; height: number }>`
   position: relative;
 
   &::before {

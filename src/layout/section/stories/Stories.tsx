@@ -49,7 +49,7 @@ export const Stories = () => {
   });
 
   return (
-    <StyledStories id={t("title")} index={index}>
+    <StyledStories id={t("title").replaceAll(" ", "_")} index={index}>
       <Container>
         <IconStripeWrapper top="376px" left="-167px">
           <IconStripe iconId="pluses" />
@@ -129,9 +129,6 @@ const StyledStories = styled.section.withConfig({
     .use-spring-carousel-item:nth-child(even) {
       border-radius: 70px 70px 10px 10px;
     }
-    /* ${FlexWrapper} {
-      margin-top: 50px;
-    } */
   }
 `;
 

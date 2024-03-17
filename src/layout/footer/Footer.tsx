@@ -1,5 +1,4 @@
 import { useTranslations } from 'next-intl';
-import Link from 'next/link';
 import styled from 'styled-components';
 
 import creds from '../../assets/data/creds';
@@ -62,7 +61,7 @@ export const Footer = () => {
           <StyledUl>
             {titles.map((e) => (
               <li key={e}>
-                <a href={`#${e}`}>{e}</a>
+                <a href={`#${e.replaceAll(" ", "_")}`}>{e}</a>
               </li>
             ))}
           </StyledUl>
@@ -179,7 +178,7 @@ const StyledFooter = styled.footer`
         ${FlexWrapper} {
           justify-content: center;
           div {
-            white-space: wrap;
+            white-space: normal;
           }
         }
       }

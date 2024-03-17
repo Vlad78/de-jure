@@ -21,14 +21,14 @@ export const CarouselButtons = ({
         onMouseOut={() => setFirstBtn(false)}
         onClick={slideToPrevItem}
       >
-        <IconStripe iconId="arrowRight" isHovered={firstBtn} />
+        <IconStripe iconId="arrowRight" isHovered={firstBtn} id={"arrowR_1"} />
       </button>
       <button
         onMouseOver={() => setSecondBtn(true)}
         onMouseOut={() => setSecondBtn(false)}
         onClick={slideToNextItem}
       >
-        <IconStripe iconId="arrowRight" isHovered={secondBtn} />
+        <IconStripe iconId="arrowRight" isHovered={secondBtn} id={"arrowR_2"} />
       </button>
     </StyledCarouselButtons>
   );
@@ -48,7 +48,7 @@ const StyledCarouselButtons = styled.div`
 
     @media ${theme.media.tablet} {
       width: 45.5px;
-      height: 45, 5px;
+      height: 45.5px;
     }
   }
 `;
