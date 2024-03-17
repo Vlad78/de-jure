@@ -33,7 +33,6 @@ export const Form = () => {
         />
         <textarea
           placeholder={t("introduction")}
-          autoComplete="false"
           draggable="false"
           name="Message"
           id="message"

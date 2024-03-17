@@ -20,7 +20,7 @@ export const Main = () => {
       <Container>
         <StyledBackground>
           <IconStripeWrapper>
-            <IconStripe iconId="BGLines" width="1661.44px" height="1932px" transform="scale(1.8)" />
+            <IconStripe iconId="BGLines" width="1661.44px" height="1932px" />
           </IconStripeWrapper>
         </StyledBackground>
         <FlexWrapper z={10} position="absolute" justify="space-between" margin="30px 0 0 0">
@@ -135,6 +135,7 @@ const StyledBackground = styled.div`
 const IconStripeWrapper = styled.div`
   position: absolute;
   inset: 0 0 0 0;
+  transform: scale(1.8);
 
   svg {
     position: absolute;

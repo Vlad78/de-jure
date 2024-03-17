@@ -21,7 +21,9 @@ export const CustomButton = ({ option, text, onClick }: Button) => {
   );
 };
 
-const StyledButton = styled.button<Omit<Button, "text">>`
+const StyledButton = styled.button.withConfig({
+  shouldForwardProp: (props) => !["option", "text"].includes(props),
+})<Omit<Button, "text">>`
   width: 252px;
   padding: 14px;
   font-size: ${font(14, 28)};

@@ -29,7 +29,7 @@ export const Advantages = () => {
       id: e,
       renderItem: (
         <Card key={e}>
-          <IconStripe iconId="advantageIcon" fill={iconColors[i]} />
+          <IconStripe iconId="advantageIcon" fill={iconColors[i]} id={"advantageIcon_" + e} />
           <h3>{t<any>(`advantages.${e}.title`)}</h3>
           <p>{t<any>(`advantages.${e}.desc`)}</p>
         </Card>

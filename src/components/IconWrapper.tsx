@@ -20,7 +20,6 @@ const IconWrapper = styled.div.withConfig({
   shouldForwardProp: (props) => !["top", "left", "opacity"].includes(props),
 })<Omit<IconStripeWrapper, "children">>`
   position: absolute;
-  overflow: hidden;
 
   svg {
     position: absolute;

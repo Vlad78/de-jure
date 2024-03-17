@@ -32,14 +32,14 @@ export const Menu = ({ icons }: Menu) => {
   return (
     <StyledMenu>
       <FlexWrapper align="center" height="unset">
-        <StyledLink href={`mailto:${renderIconStripe("email")}`}>
+        <StyledLink href={`mailto:${email}`}>
           {renderIconStripe("email")}
           <StyledText $noForward={icons === "gray"}>{email}</StyledText>
         </StyledLink>
       </FlexWrapper>
 
       <FlexWrapper align="center" height="unset">
-        <StyledLink href={`tel:${renderIconStripe("phone")}`}>
+        <StyledLink href={`tel:${phone}`}>
           {renderIconStripe("phone")}
           <StyledText $noForward={icons === "gray"}>{phone}</StyledText>
         </StyledLink>

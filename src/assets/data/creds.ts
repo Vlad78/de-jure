@@ -1,6 +1,6 @@
 const creds = {
   email: "email@creds.email",
-  phone: "+48 100 100 100",
+  phone: "+48100100100", // no spaces
   insta: "#",
   fb: "#",
   x: "#",

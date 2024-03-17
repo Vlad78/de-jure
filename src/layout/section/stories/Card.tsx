@@ -1,6 +1,6 @@
 import { useTranslations } from 'next-intl';
 import { StaticImageData } from 'next/image';
-import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import styled from 'styled-components';
 
 import { CustomButton } from '../../../components/CustomButton';
@@ -10,16 +10,16 @@ import { theme } from '../../../styles/Theme';
 
 export const Card = ({ i, e }: { i: number; e: string }) => {
   const t = useTranslations("stories");
+  const router = useRouter();
+
+  const handleClick = () => {
+    router.push(`/?modal=true&section=stories&id=${e}`, { scroll: false });
+  };
+
   return (
     <StyledCard img={require(`../../../assets/imgs/stories/${i + 1}.jpeg`)} key={e}>
       <h3>{t<any>(`stories.${e}.title`)}</h3>
-      <Link
-        href={`/?modal=true&section=stories&id=${e}`}
-        style={{ display: "contents" }}
-        scroll={false}
-      >
-        <CustomButton option="transparent" text="readMore" />
-      </Link>
+      <CustomButton option="transparent" text="readMore" onClick={handleClick} />
     </StyledCard>
   );
 };
