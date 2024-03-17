@@ -5,6 +5,8 @@ import { Inria_Serif, Spectral } from 'next/font/google';
 import { useRouter } from 'next/router';
 import { ThemeProvider } from 'styled-components';
 
+import { SpeedInsights } from '@vercel/speed-insights/next';
+
 import en from '../i18n/en.json';
 import pl from '../i18n/pl.json';
 import ru from '../i18n/ru.json';
@@ -57,6 +59,7 @@ function App({ Component, pageProps }: AppProps) {
           <GlobalStyle />
           <Component {...pageProps} />
         </main>
+        <SpeedInsights />
       </ThemeProvider>
     </NextIntlClientProvider>
   );
