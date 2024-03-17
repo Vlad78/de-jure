@@ -78,9 +78,14 @@ const StyledInfo = styled.div`
   flex-direction: column;
 
   @media ${theme.media.mobile} {
-    margin-top: 35px;
+    margin-top: 100px;
     align-items: center;
     gap: 30px;
+
+    svg {
+      height: 200px;
+      width: 120px;
+    }
   }
 `;
 
@@ -91,6 +96,7 @@ const StyledHero = styled.h2`
   @media ${theme.media.mobile} {
     margin-top: unset;
     text-align: center;
+    font-size: ${font(36, 110)};
   }
 `;
 
@@ -103,6 +109,7 @@ const Description = styled.h1`
   @media ${theme.media.mobile} {
     margin-top: unset;
     text-align: center;
+    font-size: ${font(16, 64)};
   }
 `;
 

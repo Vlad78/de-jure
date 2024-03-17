@@ -102,6 +102,12 @@ const StyledHeader = styled.header<{ $isScrolled: boolean }>`
     flex-shrink: 0;
     margin-right: 15px;
   }
+
+  @media ${theme.media.mobile} {
+    ${Container} {
+      border-radius: 0px;
+    }
+  }
 `;
 
 const MenuWrapper = styled.div`
