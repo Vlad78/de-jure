@@ -1,3 +1,4 @@
+import { motion, useMotionValueEvent, useScroll } from 'framer-motion';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
@@ -12,38 +13,40 @@ import { theme } from '../../styles/Theme';
 
 export const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
-
+  const [isHidden, setIsHidden] = useState(false);
+  const { scrollY } = useScroll();
   const [width, setWidth] = useState(0);
 
-  // TODO why it doesn't work?
-  // const scrollAction = () => {
-  //   setIsScrolled(window.scrollY > 50);
-  //   setWidth(window.innerWidth);
-  // };
+  useMotionValueEvent(scrollY, "change", (latest) => {
+    const previous = scrollY.getPrevious();
+    setIsHidden(previous !== undefined && latest > previous && latest > 350);
+
+    setIsScrolled(latest > 50);
+
+    if (typeof window !== "undefined") {
+      setWidth(window.innerWidth);
+    }
+  });
 
   useEffect(() => {
     if (typeof window !== "undefined") {
-      window.addEventListener("scroll", () => {
-        setIsScrolled(window.scrollY > 50);
-        setWidth(window.innerWidth);
-      });
-      setIsScrolled(window.scrollY > 50);
       setWidth(window.innerWidth);
     }
-
-    return window.removeEventListener("scroll", () => {
-      setIsScrolled(window.scrollY > 50);
-      setWidth(window.innerWidth);
-    });
   }, []);
 
   return (
-    <StyledHeader $isScrolled={isScrolled}>
+    <StyledHeader
+      $isScrolled={isScrolled}
+      variants={{ visible: { y: 0 }, hidden: { y: "-100%" } }}
+      animate={isHidden ? "hidden" : "visible"}
+      transition={{ duration: 0.15, ease: "easeInOut" }}
+    >
       <Container>
         {width === 0 && <div></div>}
         {width <= 576 && width !== 0 && (
-          <FlexWrapper justify="end">
-            <Link href={"/?modal=true&section=menu"} scroll={false}>
+          <FlexWrapper justify="space-between" margin="10px 25px">
+            <Link href={"/?modal=true&section=menu"} scroll={false} style={{ display: "contents" }}>
+              <IconStripe iconId="logo" height="47px" fill={theme.colors.fontShaddy} />
               <Burger>
                 <div></div>
               </Burger>
@@ -70,7 +73,7 @@ const OverflowWrapper = styled.div`
   overflow: hidden;
 `;
 
-const StyledHeader = styled.header<{ $isScrolled: boolean }>`
+const StyledHeader = styled(motion.header)<{ $isScrolled: boolean }>`
   position: fixed;
   width: 100%;
   color: ${(props) => (props.$isScrolled ? theme.colors.fontShaddy : theme.colors.font)};
@@ -123,20 +126,18 @@ const MenuWrapper = styled.div`
 
   @media ${theme.media.tablet} {
     justify-content: flex-end;
-    gap: 40px;
+    gap: 6%;
   }
 `;
 
 const Burger = styled.button`
   width: 35px;
-  height: 35px;
-  margin: 12px 20px;
   background-color: transparent;
 
   div {
     width: 36px;
     height: 2.5px;
-    background-color: ${theme.colors.font};
+    background-color: ${theme.colors.fontShaddy};
     position: absolute;
 
     &::before {
