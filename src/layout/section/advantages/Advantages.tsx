@@ -20,10 +20,11 @@ export const Advantages = () => {
   const keys = Object.keys(messages.advantages.advantages);
 
   const { carouselFragment } = useSpringCarousel({
-    slideType: "fluid",
+    slideType: "fixed",
+    itemsPerSlide: 1.5,
     gutter: 40,
     enableFreeScrollDrag: true,
-    // draggingSlideTreshold: 15,
+    draggingSlideTreshold: 100,
     items: keys.map((e, i) => ({
       id: e,
       renderItem: (
@@ -57,6 +58,8 @@ const StyledAdvantages = styled.section`
   }
 
   .use-spring-carousel-item {
+    flex: unset !important;
+
     &:last-child {
       margin-right: 0 !important;
     }
@@ -135,5 +138,11 @@ const Card = styled.div`
       margin-top: 20px;
       font-size: 16px;
     }
+  }
+
+  @media ${theme.media.tablet} {
+    max-width: unset;
+    min-width: unset;
+    width: 200px;
   }
 `;
