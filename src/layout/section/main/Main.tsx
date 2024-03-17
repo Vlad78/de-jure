@@ -138,7 +138,7 @@ const IconStripeWrapper = styled.div`
     @media ${theme.media.tablet} {
       left: -360px;
     }
-    @media ${theme.media.tablet} {
+    @media ${theme.media.mobile} {
       top: -630px;
     }
   }
