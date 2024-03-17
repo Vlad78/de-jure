@@ -65,6 +65,10 @@ const StyledAdvantages = styled.section`
     }
   }
 
+  .use-spring-carousel-track-wrapper {
+    justify-content: space-between;
+  }
+
   @media ${theme.media.tablet} {
     .use-spring-carousel-main-wrapper {
       margin-top: 91px;
@@ -142,7 +146,6 @@ const Card = styled.div`
 
   @media ${theme.media.tablet} {
     max-width: unset;
-    min-width: unset;
-    width: 200px;
+    min-width: 200px;
   }
 `;
