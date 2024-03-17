@@ -38,7 +38,7 @@ export const Header = () => {
   }, []);
 
   return (
-    <StyledHeader isScrolled={isScrolled}>
+    <StyledHeader $isScrolled={isScrolled}>
       <Container>
         {width === 0 && <div></div>}
         {width <= 576 && width !== 0 && (
@@ -70,10 +70,10 @@ const OverflowWrapper = styled.div`
   overflow: hidden;
 `;
 
-const StyledHeader = styled.header<{ isScrolled: boolean }>`
+const StyledHeader = styled.header<{ $isScrolled: boolean }>`
   position: fixed;
   width: 100%;
-  color: ${(props) => (props.isScrolled ? theme.colors.fontShaddy : theme.colors.font)};
+  color: ${(props) => (props.$isScrolled ? theme.colors.fontShaddy : theme.colors.font)};
   font-size: 20px;
   font-weight: 400;
   line-height: 150%;
@@ -83,21 +83,21 @@ const StyledHeader = styled.header<{ isScrolled: boolean }>`
   z-index: 100;
 
   ${Container} {
-    background-color: ${(props) => (props.isScrolled ? theme.colors.colorPrimeMedium : "#fff0")};
+    background-color: ${(props) => (props.$isScrolled ? theme.colors.colorPrimeMedium : "#fff0")};
     border-radius: 0px 0px 30px 30px;
     overflow: hidden;
     transition: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   ${OverflowWrapper} > ${FlexWrapper}:nth-child(1) {
-    transform: ${(props) => (props.isScrolled ? "translateX(0)" : "translateX(-80px)")};
+    transform: ${(props) => (props.$isScrolled ? "translateX(0)" : "translateX(-80px)")};
     transition: 0.1s ease-in-out;
     margin: 17px;
     justify-content: space-between;
   }
 
   svg {
-    opacity: ${(props) => (props.isScrolled ? "1" : "0")};
+    opacity: ${(props) => (props.$isScrolled ? "1" : "0")};
     transition: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
     flex-shrink: 0;
     margin-right: 15px;

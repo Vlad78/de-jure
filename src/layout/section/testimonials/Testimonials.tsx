@@ -71,7 +71,9 @@ export const Testimonials = () => {
   );
 };
 
-const StyledTestimonials = styled.section<{ index: number }>`
+const StyledTestimonials = styled.section.withConfig({
+  shouldForwardProp: (props) => !["index"].includes(props),
+})<{ index: number }>`
   margin-top: 215px;
   min-height: 377px;
 

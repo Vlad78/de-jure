@@ -34,21 +34,21 @@ export const Menu = ({ icons }: Menu) => {
       <FlexWrapper align="center" height="unset">
         <StyledLink href={`mailto:${renderIconStripe("email")}`}>
           {renderIconStripe("email")}
-          <StyledText noForward={icons === "gray"}>{email}</StyledText>
+          <StyledText $noForward={icons === "gray"}>{email}</StyledText>
         </StyledLink>
       </FlexWrapper>
 
       <FlexWrapper align="center" height="unset">
         <StyledLink href={`tel:${renderIconStripe("phone")}`}>
           {renderIconStripe("phone")}
-          <StyledText noForward={icons === "gray"}>{phone}</StyledText>
+          <StyledText $noForward={icons === "gray"}>{phone}</StyledText>
         </StyledLink>
       </FlexWrapper>
 
       <FlexWrapper align="center" height="unset">
         <StyledLink href={googleMap} target="_blank" rel="noreferrer noopener">
           {renderIconStripe("address")}
-          <StyledText noForward={icons === "gray"}>{address}</StyledText>
+          <StyledText $noForward={icons === "gray"}>{address}</StyledText>
         </StyledLink>
       </FlexWrapper>
     </StyledMenu>
@@ -67,12 +67,12 @@ const StyledLink = styled.a`
   }
 `;
 
-const StyledText = styled.div<{ noForward: boolean }>`
+const StyledText = styled.div<{ $noForward: boolean }>`
   margin-left: 15px;
   font-size: ${font(14, 20)};
   font-weight: 400;
   line-height: 150%;
   letter-spacing: 0.01em;
   text-align: left;
-  white-space: ${(props) => (props.noForward ? "nowrap" : "unset")};
+  white-space: ${(props) => (props.$noForward ? "nowrap" : "unset")};
 `;

@@ -70,7 +70,9 @@ export const Stories = () => {
   );
 };
 
-const StyledStories = styled.section<{ index: number }>`
+const StyledStories = styled.section.withConfig({
+  shouldForwardProp: (props) => !["index"].includes(props),
+})<{ index: number }>`
   margin-top: 300px;
   min-height: 410px;
 

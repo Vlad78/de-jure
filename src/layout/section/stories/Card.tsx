@@ -24,7 +24,9 @@ export const Card = ({ i, e }: { i: number; e: string }) => {
   );
 };
 
-const StyledCard = styled.div<{ img: { default: StaticImageData } }>`
+const StyledCard = styled.div.withConfig({
+  shouldForwardProp: (props) => !["img"].includes(props),
+})<{ img: { default: StaticImageData } }>`
   display: flex;
   flex-direction: column;
   align-items: center;

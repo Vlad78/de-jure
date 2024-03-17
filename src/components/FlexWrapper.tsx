@@ -15,7 +15,22 @@ type FlexWrapper = {
   z?: number;
 };
 
-export const FlexWrapper = styled.div<FlexWrapper>`
+export const FlexWrapper = styled.div.withConfig({
+  shouldForwardProp: (props) =>
+    ![
+      "direction",
+      "justify",
+      "align",
+      "wrap",
+      "gap",
+      "height",
+      "margin",
+      "position",
+      "inset",
+      "transform",
+      "z",
+    ].includes(props),
+})<FlexWrapper>`
   display: flex;
   margin: ${(props) => props.margin || ""};
   min-height: ${(props) => props.height || "100%"};

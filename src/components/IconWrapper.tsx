@@ -16,7 +16,9 @@ export const IconStripeWrapper = ({ children, top, left, opacity }: IconStripeWr
   );
 };
 
-const IconWrapper = styled.div<Omit<IconStripeWrapper, "children">>`
+const IconWrapper = styled.div.withConfig({
+  shouldForwardProp: (props) => !["top", "left", "opacity"].includes(props),
+})<Omit<IconStripeWrapper, "children">>`
   position: absolute;
   overflow: hidden;
 

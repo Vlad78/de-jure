@@ -1136,7 +1136,7 @@ export const IconStripe = ({
           cy="26.000000"
           r="26.000000"
           fill="#FFFFFF"
-          fill-opacity="1.000000"
+          fillOpacity="1.000000"
         />
         <path
           id="Vector"
