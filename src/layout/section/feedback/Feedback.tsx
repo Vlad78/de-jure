@@ -58,6 +58,9 @@ const StyledFeedback = styled.section`
   @media ${theme.media.desktop} {
     margin-top: 150px;
   }
+  @media ${theme.media.mobile} {
+    margin-top: 100px;
+  }
 `;
 
 const Wrapper = styled.div`
@@ -94,7 +97,7 @@ const StyledCreds = styled.div`
     flex-shrink: 0;
   }
 
-  @media screen and (max-width: 900px) {
+  @media screen and (min-width: 577px) and (max-width: 900px) {
     flex-basis: 100%;
     flex-direction: row;
     min-height: unset;
@@ -112,6 +115,22 @@ const StyledCreds = styled.div`
       justify-content: space-between;
       gap: 40px;
       margin: 16px 0;
+    }
+  }
+
+  @media ${theme.media.mobile} {
+    min-height: 373px;
+    min-width: 100%;
+    padding: 35px 20px;
+
+    & > ${FlexWrapper}:nth-child(1) {
+      flex-grow: 1;
+      gap: 35px;
+    }
+
+    & > ${FlexWrapper}:nth-child(2) {
+      justify-content: space-evenly;
+      margin-top: 10px;
     }
   }
 `;

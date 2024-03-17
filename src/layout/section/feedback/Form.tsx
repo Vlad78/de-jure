@@ -4,7 +4,6 @@ import styled from 'styled-components';
 import { CustomButton } from '../../../components/CustomButton';
 import { FlexWrapper } from '../../../components/FlexWrapper';
 import { useMyStore } from '../../../store/store';
-import { font } from '../../../styles/FontSize';
 import { theme } from '../../../styles/Theme';
 
 
@@ -57,7 +56,7 @@ const StyledFrom = styled.form`
     border-bottom: 1px solid ${theme.colors.font};
     background-color: transparent;
 
-    font-size: ${font(14, 22)};
+    font-size: 22px;
     font-weight: 400;
     line-height: 150%;
     letter-spacing: 0.01em;
@@ -96,6 +95,18 @@ const StyledFrom = styled.form`
 
     button {
       margin-top: 60px;
+    }
+  }
+
+  @media ${theme.media.mobile} {
+    ${FlexWrapper} {
+      justify-content: center;
+    }
+
+    button {
+      margin-top: 10px;
+      width: 252px;
+      font-size: 28px;
     }
   }
 `;
