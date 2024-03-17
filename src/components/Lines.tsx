@@ -23,6 +23,10 @@ const Wrapper = styled.div`
   margin: 0 auto;
   display: flex;
 
+  @media ${theme.media.desktop} {
+    left: 100px;
+    right: 100px;
+  }
   @media ${theme.media.tablet} {
     left: 70px;
     right: 70px;
