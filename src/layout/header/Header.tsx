@@ -1,5 +1,6 @@
+import Link from 'next/link';
 import { useEffect, useState } from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 import { IconStripe } from '../../assets/IconStripe';
 import { Container } from '../../components/Container';
@@ -12,27 +13,40 @@ import { theme } from '../../styles/Theme';
 export const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
 
+  const [width, setWidth] = useState(1600);
+
   useEffect(() => {
     if (typeof window !== "undefined") {
       window.addEventListener("scroll", () => setIsScrolled(window.scrollY > 50));
       setIsScrolled(window.scrollY > 50);
+      setWidth(window.innerWidth);
     }
-
     return window.removeEventListener("scroll", () => setIsScrolled(window.scrollY > 50));
   }, []);
 
   return (
     <StyledHeader isScrolled={isScrolled}>
       <Container>
-        <OverflowWrapper>
-          <FlexWrapper justify="space-between" align="center">
-            <IconStripe iconId="logo" height="47px" fill={theme.colors.fontShaddy} />
-            <MenuWrapper>
-              <Menu icons="no" />
-              <LanguageSwitcher />
-            </MenuWrapper>
+        {width > 576 && (
+          <OverflowWrapper>
+            <FlexWrapper justify="space-between" align="center">
+              <IconStripe iconId="logo" height="47px" fill={theme.colors.fontShaddy} />
+              <MenuWrapper>
+                <Menu icons="no" />
+                <LanguageSwitcher />
+              </MenuWrapper>
+            </FlexWrapper>
+          </OverflowWrapper>
+        )}
+        {width <= 576 && (
+          <FlexWrapper justify="end">
+            <Link href={"/?modal=true&section=menu"} scroll={false}>
+              <Burger>
+                <div></div>
+              </Burger>
+            </Link>
           </FlexWrapper>
-        </OverflowWrapper>
+        )}
       </Container>
     </StyledHeader>
   );
@@ -59,6 +73,10 @@ const StyledHeader = styled.header<{ isScrolled: boolean }>`
     border-radius: 0px 0px 30px 30px;
     overflow: hidden;
     transition: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+
+    @media ${theme.media.mobile} {
+      background-color: transparent;
+    }
   }
 
   ${OverflowWrapper} > ${FlexWrapper}:nth-child(1) {
@@ -90,5 +108,39 @@ const MenuWrapper = styled.div`
   @media ${theme.media.tablet} {
     justify-content: flex-end;
     gap: 40px;
+  }
+`;
+
+const Burger = styled.button`
+  width: 40px;
+  height: 40px;
+  margin: 15px 15px 0 0;
+  background-color: transparent;
+
+  div {
+    width: 36px;
+    height: 2.5px;
+    background-color: ${theme.colors.font};
+    position: absolute;
+
+    &::before {
+      content: "";
+      display: block;
+      width: 36px;
+      height: 2.5px;
+      background-color: inherit;
+      position: absolute;
+      transform: translateY(-10px);
+    }
+
+    &::after {
+      content: "";
+      display: block;
+      width: 24px;
+      height: 2.5px;
+      background-color: inherit;
+      position: absolute;
+      transform: translateY(10px);
+    }
   }
 `;
