@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
 import { IconStripe } from '../../assets/IconStripe';
 import { Container } from '../../components/Container';
@@ -15,19 +15,41 @@ export const Header = () => {
 
   const [width, setWidth] = useState(0);
 
+  // TODO why it doesn't work?
+  // const scrollAction = () => {
+  //   setIsScrolled(window.scrollY > 50);
+  //   setWidth(window.innerWidth);
+  // };
+
   useEffect(() => {
     if (typeof window !== "undefined") {
-      window.addEventListener("scroll", () => setIsScrolled(window.scrollY > 50));
+      window.addEventListener("scroll", () => {
+        setIsScrolled(window.scrollY > 50);
+        setWidth(window.innerWidth);
+      });
       setIsScrolled(window.scrollY > 50);
       setWidth(window.innerWidth);
     }
-    return window.removeEventListener("scroll", () => setIsScrolled(window.scrollY > 50));
+
+    return window.removeEventListener("scroll", () => {
+      setIsScrolled(window.scrollY > 50);
+      setWidth(window.innerWidth);
+    });
   }, []);
 
   return (
     <StyledHeader isScrolled={isScrolled}>
       <Container>
         {width === 0 && <div></div>}
+        {width <= 576 && width !== 0 && (
+          <FlexWrapper justify="end">
+            <Link href={"/?modal=true&section=menu"} scroll={false}>
+              <Burger>
+                <div></div>
+              </Burger>
+            </Link>
+          </FlexWrapper>
+        )}
         {width > 576 && (
           <OverflowWrapper>
             <FlexWrapper justify="space-between" align="center">
@@ -38,15 +60,6 @@ export const Header = () => {
               </MenuWrapper>
             </FlexWrapper>
           </OverflowWrapper>
-        )}
-        {width <= 576 && (
-          <FlexWrapper justify="end">
-            <Link href={"/?modal=true&section=menu"} scroll={false}>
-              <Burger>
-                <div></div>
-              </Burger>
-            </Link>
-          </FlexWrapper>
         )}
       </Container>
     </StyledHeader>
@@ -74,10 +87,6 @@ const StyledHeader = styled.header<{ isScrolled: boolean }>`
     border-radius: 0px 0px 30px 30px;
     overflow: hidden;
     transition: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
-
-    @media ${theme.media.mobile} {
-      background-color: transparent;
-    }
   }
 
   ${OverflowWrapper} > ${FlexWrapper}:nth-child(1) {
@@ -113,9 +122,9 @@ const MenuWrapper = styled.div`
 `;
 
 const Burger = styled.button`
-  width: 40px;
-  height: 40px;
-  margin: 15px 15px 0 0;
+  width: 35px;
+  height: 35px;
+  margin: 12px 20px;
   background-color: transparent;
 
   div {

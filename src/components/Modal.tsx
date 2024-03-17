@@ -11,6 +11,7 @@ import { IconStripe } from '../assets/IconStripe';
 import { font } from '../styles/FontSize';
 import { theme } from '../styles/Theme';
 import { FlexWrapper } from './FlexWrapper';
+import LanguageSwitcher from './LanguageSwitcher';
 import { Menu } from './Menu';
 
 
@@ -50,6 +51,10 @@ export const Modal = () => {
               {section === "menu" ? (
                 <FlexWrapper direction="column" justify="space-between" gap="5%" align="start">
                   <Menu icons="circle" />
+                  <FlexWrapper>
+                    <IconStripe iconId="web" />
+                    <LanguageSwitcher />
+                  </FlexWrapper>
                 </FlexWrapper>
               ) : (
                 <>

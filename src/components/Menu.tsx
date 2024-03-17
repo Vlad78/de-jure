@@ -32,24 +32,24 @@ export const Menu = ({ icons }: Menu) => {
   return (
     <StyledMenu>
       <FlexWrapper align="center" height="unset">
-        <StyledA href={`mailto:${renderIconStripe("email")}`}>
+        <StyledLink href={`mailto:${renderIconStripe("email")}`}>
           {renderIconStripe("email")}
           <StyledText noForward={icons === "gray"}>{email}</StyledText>
-        </StyledA>
+        </StyledLink>
       </FlexWrapper>
 
       <FlexWrapper align="center" height="unset">
-        <StyledA href={`tel:${renderIconStripe("phone")}`}>
+        <StyledLink href={`tel:${renderIconStripe("phone")}`}>
           {renderIconStripe("phone")}
           <StyledText noForward={icons === "gray"}>{phone}</StyledText>
-        </StyledA>
+        </StyledLink>
       </FlexWrapper>
 
       <FlexWrapper align="center" height="unset">
-        <StyledA href={googleMap} target="_blank" rel="noreferrer noopener">
+        <StyledLink href={googleMap} target="_blank" rel="noreferrer noopener">
           {renderIconStripe("address")}
           <StyledText noForward={icons === "gray"}>{address}</StyledText>
-        </StyledA>
+        </StyledLink>
       </FlexWrapper>
     </StyledMenu>
   );
@@ -59,8 +59,12 @@ const StyledMenu = styled.div`
   display: contents;
 `;
 
-const StyledA = styled.a`
+const StyledLink = styled.a`
   display: contents;
+
+  svg {
+    flex-shrink: 0;
+  }
 `;
 
 const StyledText = styled.div<{ noForward: boolean }>`
