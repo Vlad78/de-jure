@@ -63,6 +63,26 @@ const StyledAboutContacts = styled.a`
     letter-spacing: 0.01em;
   }
 
+  @media ${theme.media.desktop} {
+    svg {
+      width: 85px;
+      height: 85px;
+    }
+  }
+  @media ${theme.media.tablet} {
+    svg {
+      width: 66px;
+      height: 66px;
+    }
+  }
+  @media ${theme.media.mobile} {
+    justify-content: center;
+    svg {
+      width: 57px;
+      height: 57px;
+    }
+  }
+
   @keyframes pulse {
     0% {
     }

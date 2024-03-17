@@ -49,4 +49,10 @@ const StyledButton = styled.button<Omit<Button, "text">>`
   @media ${theme.media.desktop} {
     width: 196px;
   }
+  @media ${theme.media.desktop} {
+    width: 185px;
+  }
+  @media ${theme.media.mobile} {
+    font-size: ${font(20, 28)};
+  }
 `;

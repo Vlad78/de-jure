@@ -22,7 +22,7 @@ export const AboutUs = () => {
         <IconStripeWrapper left="457px" top="-62px">
           <IconStripe iconId="pluses" />
         </IconStripeWrapper>
-        <FlexWrapper gap="6%" align="center" position="relative" z={1} wrap="wrap">
+        <FlexWrapper gap="6%" align="center" position="relative" z={1}>
           <FlexWrapper direction="column">
             <TitleSection>{t("title")}</TitleSection>
             <StyledMoto>{t("moto")}</StyledMoto>
@@ -39,10 +39,16 @@ export const AboutUs = () => {
 
 const StyledAboutUs = styled.section`
   margin-top: 348px;
-  min-height: 469px;
+  min-height: 270px;
 
   @media ${theme.media.desktop} {
     margin-top: 200px;
+  }
+  @media ${theme.media.tablet} {
+    margin-top: 150px;
+  }
+  @media ${theme.media.mobile} {
+    margin-top: 100px;
   }
 
   ${FlexWrapper} {
@@ -50,25 +56,38 @@ const StyledAboutUs = styled.section`
       flex-basis: 280px;
       flex-grow: 1;
       text-align: left;
+    }
+  }
 
-      ${TitleSection} {
-        font-size: ${font(25, 50)};
-        text-align: left;
-        margin: 0 0 33px 0;
-      }
+  ${TitleSection} {
+    font-size: ${font(25, 50)};
+    text-align: left;
+    margin: 0 0 33px 0;
+  }
+
+  @media ${theme.media.mobile} {
+    ${TitleSection} {
+      margin: 1em 0;
+      text-align: center;
+      font-size: ${font(40, 64)};
     }
   }
 `;
 
 const StyledMoto = styled.p`
-  font-size: ${font(14, 22)};
+  font-size: ${font(16, 22)};
+  letter-spacing: 0.02em;
+
+  @media ${theme.media.mobile} {
+    text-align: center;
+  }
 `;
 
 const ImageWrapper = styled.div`
   flex-basis: 51%;
   flex-grow: 1;
   max-height: 703px;
-  min-width: 379px;
+  min-width: 300px;
   overflow: hidden;
   background: ${theme.colors.bgPlug};
   border-radius: 0px 326.5px 0px 123px;
@@ -83,5 +102,9 @@ const ImageWrapper = styled.div`
     border-radius: 0px 250px 0px 120px;
   }
   @media ${theme.media.tablet} {
+    border-radius: 0px 170px 0px 100px;
+  }
+  @media screen and (max-width: 740px) {
+    display: none;
   }
 `;

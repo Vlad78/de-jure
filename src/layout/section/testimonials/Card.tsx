@@ -34,11 +34,11 @@ export const Card = ({ e }: { e: string }) => {
         <span>{t<any>(`testimonials.${e}.name`)}</span>
       </FlexWrapper>
       <Link href="#">
-        <div style={{ textAlign: "right" }}>
+        <Rating>
           {[...Array(parseInt(t<any>(`testimonials.${e}.rating`)))].map((_, i) => (
             <IconStripe iconId="star" key={i} />
           ))}
-        </div>
+        </Rating>
         <div>12 reviews at {t<any>(`testimonials.${e}.sourse`)}</div>
       </Link>
     </StyledCard>
@@ -57,13 +57,18 @@ export const ReviewText = styled.p<{ ref: RefObject<HTMLDivElement>; height: num
   }
 `;
 
+const Rating = styled.div`
+  text-align: right;
+  white-space: nowrap;
+`;
+
 const StyledCard = styled.div`
   max-width: 456px;
   min-height: 260px;
 
   position: relative;
   display: grid;
-  grid-template-columns: auto 164px;
+  grid-template-columns: auto auto;
   grid-template-rows: auto max-content;
   align-content: stretch;
   align-items: end;
@@ -138,6 +143,47 @@ const StyledCard = styled.div`
     svg {
       height: 14px;
       width: 14px;
+    }
+  }
+
+  @media ${theme.media.tablet} {
+    ${ReviewText} {
+      margin-bottom: 10px;
+    }
+  }
+  @media screen and (max-width: 850px) {
+    grid-template-columns: auto;
+    grid-template-rows: 1fr;
+    justify-items: start;
+    align-content: end;
+
+    ${ReviewText} {
+      grid-column: auto / span 1;
+      margin-bottom: 10px;
+
+      &::before {
+        display: none;
+      }
+    }
+
+    ${FlexWrapper} {
+      order: 3;
+    }
+
+    a {
+      order: 2;
+      margin-bottom: 15px;
+    }
+    ${Rating} {
+      text-align: left;
+    }
+  }
+
+  @media screen and (max-width: 500px) {
+    ${ReviewText} {
+      &::before {
+        display: none;
+      }
     }
   }
 `;

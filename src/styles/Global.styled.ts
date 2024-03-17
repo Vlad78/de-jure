@@ -1,7 +1,8 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from 'styled-components';
 
-import { font } from "./FontSize";
-import { theme } from "./Theme";
+import { font } from './FontSize';
+import { theme } from './Theme';
+
 
 export const GlobalStyle = createGlobalStyle`
 
@@ -14,7 +15,7 @@ export const GlobalStyle = createGlobalStyle`
 html,
 body {
   max-width: 100vw;
-  min-width: 480px;
+  min-width: 320px;
   overflow-x: hidden;
   color: ${theme.colors.font};
   background-color: ${theme.colors.bgPrimary};

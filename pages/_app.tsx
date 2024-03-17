@@ -1,5 +1,6 @@
 import type { AppProps } from "next/app";
 import { NextIntlClientProvider } from 'next-intl';
+import { getRequestConfig, getTimeZone } from 'next-intl/server';
 import { Inria_Serif, Spectral } from 'next/font/google';
 import { useRouter } from 'next/router';
 import { ThemeProvider } from 'styled-components';
@@ -14,6 +15,7 @@ import { theme } from '../src/styles/Theme';
 const inria = Inria_Serif({ weight: ["300", "400", "700"], subsets: ["latin"] });
 const spect = Spectral({ weight: ["300", "400", "600"], subsets: ["cyrillic"] });
 
+// TODO dynamic import
 // const dictionary = {
 //   en: () => import("../i18n/en.json").then((module) => module.default),
 //   pl: () => import("../i18n/pl.json").then((module) => module.default),
@@ -42,7 +44,11 @@ function App({ Component, pageProps }: AppProps) {
   // }, [locale]);
 
   return (
-    <NextIntlClientProvider locale={locale} messages={dictionary[locale]}>
+    <NextIntlClientProvider
+      locale={locale}
+      messages={dictionary[locale]}
+      timeZone={"Europe/Warsaw"}
+    >
       <ThemeProvider theme={theme}>
         <main
           className={locale === "ru" ? spect.className : inria.className}

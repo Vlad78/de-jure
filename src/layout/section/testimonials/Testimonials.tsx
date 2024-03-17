@@ -12,6 +12,7 @@ import { TitleSection } from '../../../components/TitleSection';
 import { useMessageTyped } from '../../../hooks/useMessage';
 import { gutters } from '../../../styles/FontSize';
 import { theme } from '../../../styles/Theme';
+import { getScreenWidth } from '../../../utils/getScreenWidth';
 import { Card, ReviewText } from './Card';
 
 
@@ -19,12 +20,6 @@ export const Testimonials = () => {
   const t = useTranslations("testimonials");
   const messages = useMessageTyped();
   const keys = Object.keys(messages.testimonials.testimonials);
-
-  const [width, setWidth] = useState(1600);
-
-  useEffect(() => {
-    if (typeof window !== "undefined") setWidth(window.innerWidth);
-  }, []);
 
   const [index, setIndex] = useState(1);
 
@@ -36,10 +31,10 @@ export const Testimonials = () => {
     slideToItem,
     useListenToCustomEvent,
   } = useSpringCarousel({
-    itemsPerSlide: 2,
+    itemsPerSlide: getScreenWidth() > 500 ? 2 : 1,
     withLoop: true,
     withThumbs: true,
-    gutter: gutters(20, 142, width),
+    gutter: gutters(10, 142),
     items: keys.map((e) => ({
       id: e,
       renderItem: <Card e={e} />,
@@ -76,7 +71,9 @@ export const Testimonials = () => {
   );
 };
 
-const StyledTestimonials = styled.section<{ index: number }>`
+const StyledTestimonials = styled.section.withConfig({
+  shouldForwardProp: (props) => !["index"].includes(props),
+})<{ index: number }>`
   margin-top: 215px;
   min-height: 377px;
 
@@ -130,7 +127,7 @@ const StyledTestimonials = styled.section<{ index: number }>`
         }
       }
 
-      &::after {
+      &::before {
         content: "";
         position: absolute;
         right: 0;
@@ -163,6 +160,37 @@ const StyledTestimonials = styled.section<{ index: number }>`
         }
       }
     }
+
+    @media screen and (max-width: 850px) {
+      &:nth-child(odd) {
+        border-radius: 8px 70px 15px 8px;
+        padding: 20px 26px 20px 38px;
+      }
+      &:nth-child(even) {
+        border-radius: 70px 8px 8px 15px;
+        padding: 20px 38px 20px 27px;
+      }
+    }
+
+    @media screen and (max-width: 500px) {
+      &:nth-child(odd) {
+        border-radius: 40px 40px 20px 20px;
+        padding: 20px 26px 20px 48px;
+
+        &::before {
+          width: 36px;
+        }
+      }
+
+      &:nth-child(even) {
+        border-radius: 40px 40px 20px 20px;
+        padding: 20px 48px 20px 27px;
+
+        &::before {
+          width: 36px;
+        }
+      }
+    }
   }
 
   .thumb-item {
@@ -179,10 +207,10 @@ const StyledTestimonials = styled.section<{ index: number }>`
 const CarouselWrapper = styled.div`
   display: flex;
   justify-content: center;
-  width: calc(100% + 40px);
-  padding: 20px;
+  width: calc(100% + 60px);
+  padding: 30px;
   position: relative;
-  left: -20px;
+  left: -30px;
   overflow: hidden;
 `;
 

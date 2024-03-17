@@ -1,13 +1,14 @@
-import { useTranslations } from "next-intl";
-import Image from "next/image";
-import Link from "next/link";
-import styled from "styled-components";
+import { useTranslations } from 'next-intl';
+import Image from 'next/image';
+import Link from 'next/link';
+import styled from 'styled-components';
 
-import { Container } from "../../../components/Container";
-import { TitleSection } from "../../../components/TitleSection";
-import { font } from "../../../styles/FontSize";
-import { theme } from "../../../styles/Theme";
-import data from "./data";
+import { Container } from '../../../components/Container';
+import { TitleSection } from '../../../components/TitleSection';
+import { font } from '../../../styles/FontSize';
+import { theme } from '../../../styles/Theme';
+import data from './data';
+
 
 export const Services = () => {
   const t = useTranslations("services");
@@ -25,8 +26,9 @@ export const Services = () => {
                   href={`/?modal=true&section=services&id=${e.id}`}
                   style={{ display: "contents" }}
                   scroll={false}
+                  key={e.id}
                 >
-                  <div key={e.id}>
+                  <div>
                     <ImgWrapperStyles
                       style={{
                         margin: `${0} ${e.right} ${0} ${e.left}`,
@@ -57,7 +59,7 @@ export const Services = () => {
 
 const StyledServices = styled.section`
   margin-top: 200px;
-  min-height: 933px;
+  min-height: 580px;
 
   @media ${theme.media.tablet} {
     margin-top: 100px;
@@ -67,10 +69,6 @@ const StyledServices = styled.section`
 const ImgWrapperStyles = styled.div`
   display: flex;
   flex-grow: 1;
-
-  @media screen and (max-width: 850px) {
-    width: 74%;
-  }
 `;
 
 const StyledGrid = styled.div`
@@ -100,17 +98,20 @@ const StyledGrid = styled.div`
     z-index: 2;
     transition: 0.3s;
 
-    &:hover {
-      text-decoration: none;
-      transform: scale(0.99);
-      transition: 0.25s;
-      box-shadow: 0px 0px 30px 0px rgba(38, 45, 118, 0.25);
+    ${ImgWrapperStyles} {
+      height: 0%;
     }
 
     h3 {
       line-height: 160%;
       font-size: ${font(10, 20)};
       margin: 0 30px 46px 35px;
+    }
+    &:hover {
+      text-decoration: none;
+      transform: scale(0.99);
+      transition: 0.25s;
+      box-shadow: 0px 0px 30px 0px rgba(38, 45, 118, 0.25);
     }
   }
 
@@ -121,26 +122,12 @@ const StyledGrid = styled.div`
     aspect-ratio: 636 / 688;
 
     h3 {
-      font-size: ${font(14, 40)};
+      font-size: ${font(12, 40)};
       margin: 0 60px 61px 61px;
     }
   }
 
-  a:nth-of-type(2) > div {
-    grid-column: auto / span 2;
-    grid-row: auto / span 1;
-    aspect-ratio: 636 / 330;
-    flex-direction: row;
-
-    h3 {
-      font-size: ${font(14, 30)};
-      flex-grow: 1;
-      align-self: flex-end;
-      margin-right: 45px;
-      margin-bottom: 32px;
-    }
-  }
-
+  a:nth-of-type(2) > div,
   a:nth-of-type(5) > div {
     grid-column: auto / span 2;
     grid-row: auto / span 1;
@@ -148,17 +135,22 @@ const StyledGrid = styled.div`
     flex-direction: row;
 
     ${ImgWrapperStyles} {
-      transform: scale(1.7) translate(24px, -17px);
+      height: unset;
     }
 
     h3 {
-      font-size: ${font(14, 30)};
+      font-size: ${font(12, 30)};
       flex-grow: 1;
-      margin: 0 30px 46px 0px;
       align-self: flex-end;
       margin-right: 45px;
       margin-bottom: 32px;
       z-index: 1;
+    }
+  }
+
+  a:nth-of-type(5) > div {
+    ${ImgWrapperStyles} {
+      transform: scale(1.7) translate(24px, -17px);
     }
   }
 
@@ -169,7 +161,7 @@ const StyledGrid = styled.div`
     aspect-ratio: 636 / 688;
 
     h3 {
-      font-size: ${font(14, 40)};
+      font-size: ${font(12, 40)};
       margin: 0 60px 61px 61px;
     }
   }
@@ -199,9 +191,35 @@ const StyledGrid = styled.div`
     grid-gap: 14px;
 
     a > div {
+      border-radius: 12px 12px 12px 12px;
+      ${ImgWrapperStyles} {
+        width: 74%;
+      }
       h3 {
         line-height: 120%;
-        font-size: ${font(10, 12)};
+        font-size: 11px;
+      }
+    }
+
+    a:nth-of-type(1) > div {
+      border-radius: 120px 12px 12px 12px;
+      h3 {
+        margin: 0 30px 40px 30px;
+      }
+    }
+
+    a:nth-of-type(2) > div,
+    a:nth-of-type(5) > div {
+      h3 {
+        margin-right: 20px;
+        margin-bottom: 16px;
+      }
+    }
+
+    a:nth-of-type(6) > div {
+      border-radius: 12px 12px 120px 12px;
+      h3 {
+        margin: 0 30px 40px 30px;
       }
     }
   }
@@ -211,26 +229,57 @@ const StyledGrid = styled.div`
     grid-template-rows: repeat(6, minmax(auto, 330px));
     aspect-ratio: 426 / 1404;
 
-    a:nth-of-type(1) > div {
-      border-radius: 20px 20px 20px 20px;
-      grid-column: auto / span 2;
-      grid-row: auto / span 1;
-      aspect-ratio: 636 / 330;
-
+    a > div {
+      border-radius: 0px;
       h3 {
-        font-size: ${font(14, 40)};
-        margin: 0 60px 61px 61px;
+        font-size: ${font(12, 60)};
+        line-height: 160%;
       }
     }
-    a:nth-of-type(6) > div {
-      border-radius: 20px 20px 20px 20px;
+
+    a:nth-of-type(1) > div {
+      border-radius: 30px 30px 0px 0px;
       grid-column: auto / span 2;
       grid-row: auto / span 1;
       aspect-ratio: 636 / 330;
 
+      ${ImgWrapperStyles} {
+        width: 54%;
+        margin: 0 56px 0 5% !important;
+      }
+
       h3 {
-        font-size: ${font(14, 40)};
-        margin: 0 60px 61px 61px;
+        font-size: ${font(16, 85)};
+        margin: 0px 30px 15px 30px;
+        text-align: right;
+      }
+    }
+
+    a:nth-of-type(2) > div,
+    a:nth-of-type(5) > div {
+      h3 {
+        font-size: ${font(16, 85)};
+        flex-basis: 75%;
+      }
+    }
+
+    a:nth-of-type(6) > div {
+      border-radius: 0px 0px 30px 30px;
+      grid-column: auto / span 2;
+      grid-row: auto / span 1;
+      aspect-ratio: 636 / 330;
+      order: 8;
+
+      ${ImgWrapperStyles} {
+        @media ${theme.media.mobile} {
+          width: 54%;
+        }
+      }
+
+      h3 {
+        font-size: ${font(16, 85)};
+        margin: 0px 30px 15px 30px;
+        text-align: right;
       }
     }
   }

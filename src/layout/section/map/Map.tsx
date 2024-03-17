@@ -48,6 +48,18 @@ const StyledMap = styled.section`
       gap: 82px;
     }
   }
+  @media ${theme.media.mobile} {
+    margin-top: 96px;
+
+    ${FlexWrapper} {
+      gap: 50px;
+    }
+
+    button {
+      width: 252px;
+      font-size: 28px;
+    }
+  }
 `;
 
 const IframeWrapper = styled.div`

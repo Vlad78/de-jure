@@ -24,7 +24,9 @@ export const Card = ({ i, e }: { i: number; e: string }) => {
   );
 };
 
-const StyledCard = styled.div<{ img: { default: StaticImageData } }>`
+const StyledCard = styled.div.withConfig({
+  shouldForwardProp: (props) => !["img"].includes(props),
+})<{ img: { default: StaticImageData } }>`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -42,6 +44,7 @@ const StyledCard = styled.div<{ img: { default: StaticImageData } }>`
     margin: 0 40px 40px 40px;
     color: ${theme.colors.colorLight};
     font-size: ${font(14, 40)};
+    text-align: center;
   }
 
   @media ${theme.media.desktop} {
@@ -50,5 +53,15 @@ const StyledCard = styled.div<{ img: { default: StaticImageData } }>`
 
   @media ${theme.media.tablet} {
     height: 234px;
+    h3 {
+      margin: 0 20px 20px 20px;
+    }
+  }
+  @media ${theme.media.mobile} {
+    height: 200px;
+
+    h3 {
+      font-size: ${font(22, 28)};
+    }
   }
 `;

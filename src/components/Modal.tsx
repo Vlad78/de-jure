@@ -10,12 +10,15 @@ import styled from 'styled-components';
 import { IconStripe } from '../assets/IconStripe';
 import { font } from '../styles/FontSize';
 import { theme } from '../styles/Theme';
+import { FlexWrapper } from './FlexWrapper';
+import LanguageSwitcher from './LanguageSwitcher';
+import { Menu } from './Menu';
 
 
 export const Modal = () => {
   const searchParams = useSearchParams();
   const modal = searchParams.get("modal");
-  const section = searchParams.get("section") as keyof IntlMessages;
+  const section = searchParams.get("section") as keyof IntlMessages & "menu";
   const id = searchParams.get("id");
 
   const pathname = usePathname();
@@ -45,8 +48,20 @@ export const Modal = () => {
               <IconStripe iconId="cross" />
             </Link>
             <Container>
-              <h3>{t<any>(`${section}.${id}.title`)}</h3>
-              <p>{t<any>(`${section}.${id}.text`)}</p>
+              {section === "menu" ? (
+                <FlexWrapper direction="column" justify="space-between" gap="5%" align="start">
+                  <Menu icons="circle" />
+                  <FlexWrapper>
+                    <IconStripe iconId="web" />
+                    <LanguageSwitcher />
+                  </FlexWrapper>
+                </FlexWrapper>
+              ) : (
+                <>
+                  <h3>{t<any>(`${section}.${id}.title`)}</h3>
+                  <p>{t<any>(`${section}.${id}.text`)}</p>
+                </>
+              )}
             </Container>
           </StyledModal>
         </StyledLayout>
@@ -81,7 +96,7 @@ const StyledModal = styled.div`
     display: contents;
   }
 
-  svg {
+  > a:first-child svg {
     position: absolute;
     right: 24px;
     top: 24px;
@@ -99,6 +114,11 @@ const StyledModal = styled.div`
     line-height: 180%;
     letter-spacing: 0.02em;
     text-align: left;
+  }
+
+  @media ${theme.media.mobile} {
+    padding: 32px 12px;
+    max-width: 90vw;
   }
 `;
 

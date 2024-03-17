@@ -32,24 +32,24 @@ export const Menu = ({ icons }: Menu) => {
   return (
     <StyledMenu>
       <FlexWrapper align="center" height="unset">
-        <StyledA href={`mailto:${renderIconStripe("email")}`}>
+        <StyledLink href={`mailto:${renderIconStripe("email")}`}>
           {renderIconStripe("email")}
-          <StyledText noForward={icons === "gray"}>{email}</StyledText>
-        </StyledA>
+          <StyledText $noForward={icons === "gray"}>{email}</StyledText>
+        </StyledLink>
       </FlexWrapper>
 
       <FlexWrapper align="center" height="unset">
-        <StyledA href={`tel:${renderIconStripe("phone")}`}>
+        <StyledLink href={`tel:${renderIconStripe("phone")}`}>
           {renderIconStripe("phone")}
-          <StyledText noForward={icons === "gray"}>{phone}</StyledText>
-        </StyledA>
+          <StyledText $noForward={icons === "gray"}>{phone}</StyledText>
+        </StyledLink>
       </FlexWrapper>
 
       <FlexWrapper align="center" height="unset">
-        <StyledA href={googleMap} target="_blank" rel="noreferrer noopener">
+        <StyledLink href={googleMap} target="_blank" rel="noreferrer noopener">
           {renderIconStripe("address")}
-          <StyledText noForward={icons === "gray"}>{address}</StyledText>
-        </StyledA>
+          <StyledText $noForward={icons === "gray"}>{address}</StyledText>
+        </StyledLink>
       </FlexWrapper>
     </StyledMenu>
   );
@@ -59,16 +59,20 @@ const StyledMenu = styled.div`
   display: contents;
 `;
 
-const StyledA = styled.a`
+const StyledLink = styled.a`
   display: contents;
+
+  svg {
+    flex-shrink: 0;
+  }
 `;
 
-const StyledText = styled.div<{ noForward: boolean }>`
+const StyledText = styled.div<{ $noForward: boolean }>`
   margin-left: 15px;
   font-size: ${font(14, 20)};
   font-weight: 400;
   line-height: 150%;
   letter-spacing: 0.01em;
   text-align: left;
-  white-space: ${(props) => (props.noForward ? "nowrap" : "unset")};
+  white-space: ${(props) => (props.$noForward ? "nowrap" : "unset")};
 `;

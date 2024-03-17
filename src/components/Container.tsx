@@ -13,7 +13,13 @@ export const Container = styled.div`
   margin: 0 auto;
   position: relative;
 
+  @media ${theme.media.desktop} {
+    padding: 0 100px;
+  }
   @media ${theme.media.tablet} {
     padding: 0 70px;
+  }
+  @media ${theme.media.mobile} {
+    padding: 0 10px;
   }
 `;
