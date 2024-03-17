@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+import { theme } from '../styles/Theme';
+
 
 export const Lines = () => {
   return (
@@ -20,6 +22,15 @@ const Wrapper = styled.div`
   max-width: 1300px;
   margin: 0 auto;
   display: flex;
+
+  @media ${theme.media.tablet} {
+    left: 70px;
+    right: 70px;
+  }
+  @media ${theme.media.mobile} {
+    left: 10px;
+    right: 10px;
+  }
 `;
 
 const StyledLines = styled.div`
