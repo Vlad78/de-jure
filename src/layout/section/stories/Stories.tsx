@@ -12,6 +12,7 @@ import { TitleSection } from '../../../components/TitleSection';
 import { useMessageTyped } from '../../../hooks/useMessage';
 import { gutters } from '../../../styles/FontSize';
 import { theme } from '../../../styles/Theme';
+import { getScreenWidth } from '../../../utils/getScreenWidth';
 import { Card } from './Card';
 
 
@@ -21,10 +22,6 @@ export const Stories = () => {
   const keys = Object.keys(messages.stories.stories);
 
   const [index, setIndex] = useState(1);
-  const [width, setWidth] = useState(1600);
-  useEffect(() => {
-    setWidth(window.innerWidth);
-  }, []);
 
   const {
     carouselFragment,
@@ -34,10 +31,10 @@ export const Stories = () => {
     slideToItem,
     useListenToCustomEvent,
   } = useSpringCarousel({
-    itemsPerSlide: 2,
+    itemsPerSlide: getScreenWidth() > 500 ? 2 : 1,
     withLoop: true,
     withThumbs: true,
-    gutter: gutters(20, 100, width),
+    gutter: gutters(20, 100),
     items: keys.map((e, i) => ({
       id: e,
       renderItem: <Card e={e} i={i} />,
@@ -123,6 +120,16 @@ const StyledStories = styled.section<{ index: number }>`
     ${FlexWrapper} {
       margin-top: 50px;
     }
+  }
+
+  @media screen and (max-width: 500px) {
+    .use-spring-carousel-item:nth-child(odd),
+    .use-spring-carousel-item:nth-child(even) {
+      border-radius: 70px 70px 10px 10px;
+    }
+    /* ${FlexWrapper} {
+      margin-top: 50px;
+    } */
   }
 `;
 
