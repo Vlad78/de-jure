@@ -1,8 +1,7 @@
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle } from "styled-components";
 
-import { font } from './FontSize';
-import { theme } from './Theme';
-
+import { font } from "./FontSize";
+import { theme } from "./Theme";
 
 export const GlobalStyle = createGlobalStyle`
 
@@ -12,11 +11,13 @@ export const GlobalStyle = createGlobalStyle`
     padding: 0;
 }
 
+
+
 html,
 body {
+    scrollbar-gutter: stable;
   max-width: 100vw;
   min-width: 320px;
-  overflow-x: hidden;
   color: ${theme.colors.font};
   background-color: ${theme.colors.bgPrimary};
 }
@@ -50,9 +51,9 @@ h3 {
 p {
     margin: 0 0 10px 0;
     font-size: ${font(16, 20)};
-font-weight: 400;
-line-height: 136.15%;
-color: ${theme.colors.fontShaddy};
+    font-weight: 400;
+    line-height: 136.15%;
+    color: ${theme.colors.fontShaddy};
 }
 
 a {
@@ -68,6 +69,12 @@ a {
 
 ul {
     list-style: none;
+    font-size: ${font(16, 20)};
+    font-weight: 400;
+    line-height: 136.15%;
+    font-family: inherit;
+    color: ${theme.colors.fontShaddy};
+
 }
 
 button {

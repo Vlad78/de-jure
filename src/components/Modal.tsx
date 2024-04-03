@@ -1,19 +1,16 @@
 "use client";
 
-import disableScroll from 'disable-scroll';
-import { useTranslations } from 'next-intl';
-import Link from 'next/link';
-import { usePathname, useRouter, useSearchParams } from 'next/navigation';
-import { MouseEventHandler, useEffect } from 'react';
-import styled from 'styled-components';
+import { useTranslations } from "next-intl";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { MouseEventHandler, useEffect } from "react";
+import styled from "styled-components";
 
-import { IconStripe } from '../assets/IconStripe';
-import { font } from '../styles/FontSize';
-import { theme } from '../styles/Theme';
-import { FlexWrapper } from './FlexWrapper';
-import LanguageSwitcher from './LanguageSwitcher';
-import { Menu } from './Menu';
-
+import { IconStripe } from "../assets/IconStripe";
+import { font } from "../styles/FontSize";
+import { theme } from "../styles/Theme";
+import { FlexWrapper } from "./FlexWrapper";
+import LanguageSwitcher from "./LanguageSwitcher";
+import { Menu } from "./Menu";
 
 export const Modal = () => {
   const searchParams = useSearchParams();
@@ -23,19 +20,32 @@ export const Modal = () => {
 
   const pathname = usePathname();
   const router = useRouter();
+  const closeModal = () => {
+    router.push(pathname, { scroll: false });
+  };
 
   const layoutOnClickHandler: MouseEventHandler<HTMLDialogElement> = (e) => {
-    e.currentTarget === e.target && router.push(pathname, { scroll: false });
+    e.currentTarget === e.target && closeModal();
   };
 
   useEffect(() => {
     if (modal) {
-      disableScroll.on();
+      document.body.style.overflow = "hidden";
     }
     return () => {
-      disableScroll.off();
+      document.body.style.overflow = "auto";
     };
   }, [modal]);
+
+  useEffect(() => {
+    const close = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        closeModal();
+      }
+    };
+    window.addEventListener("keydown", close);
+    return () => window.removeEventListener("keydown", close);
+  }, []);
 
   const t = useTranslations(section);
 
@@ -44,9 +54,9 @@ export const Modal = () => {
       {modal && (
         <StyledLayout onClick={layoutOnClickHandler}>
           <StyledModal>
-            <Link href={pathname} scroll={false}>
+            <div className="close-modal" onClick={closeModal}>
               <IconStripe iconId="cross" />
-            </Link>
+            </div>
             <Container>
               {section === "menu" ? (
                 <FlexWrapper direction="column" justify="space-between" gap="5%" align="start">
@@ -59,7 +69,10 @@ export const Modal = () => {
               ) : (
                 <>
                   <h3>{t<any>(`${section}.${id}.title`)}</h3>
-                  <p>{t<any>(`${section}.${id}.text`)}</p>
+                  <div
+                    className="Modal__Container-desc"
+                    dangerouslySetInnerHTML={{ __html: t<any>(`${section}.${id}.text`) }}
+                  ></div>
                 </>
               )}
             </Container>
@@ -78,50 +91,81 @@ const StyledLayout = styled.dialog`
   height: 100%;
   width: 100%;
   display: flex;
-  align-items: center;
   justify-content: center;
   border: none;
   z-index: 1000;
 `;
 
 const StyledModal = styled.div`
-  padding: 32px;
+  padding: ${font(32, 68)};
+  padding-bottom: 68px;
+  margin: 32px;
   border-radius: 20px;
   max-width: 75vw;
   min-width: 50vw;
+  height: fit-content;
   background: #ffffff;
   position: relative;
 
-  a {
+  .close-modal {
     display: contents;
-  }
+    cursor: pointer;
 
-  > a:first-child svg {
-    position: absolute;
-    right: 24px;
-    top: 24px;
+    svg {
+      position: absolute;
+      right: 24px;
+      top: 24px;
+    }
   }
 
   h3 {
-    margin: 31px 80px;
+    margin: 31px ${font(40, 80)};
     max-width: 683px;
-  }
-
-  p {
-    color: ${theme.colors.colorAltDark};
-    margin: 0 102px 120px;
-    font-size: ${font(16, 24)};
-    line-height: 180%;
-    letter-spacing: 0.02em;
-    text-align: left;
+    text-align: center;
   }
 
   @media ${theme.media.mobile} {
-    padding: 32px 12px;
+    padding: 32px 20px;
+    padding-bottom: 68px;
     max-width: 90vw;
   }
 `;
 
 const Container = styled.div`
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .Modal__Container-desc {
+    text-align: left;
+    max-height: inherit;
+    font-size: ${font(14, 20)};
+
+    p {
+      font-size: inherit;
+      line-height: 136.15%;
+      letter-spacing: 0em;
+      margin: ${font(18, 30)} 0;
+      /* font-size: ${font(16, 20)}; */
+      color: ${theme.colors.colorAltDark};
+    }
+    ul {
+      font-size: inherit;
+      color: ${theme.colors.colorAltDark};
+      margin: ${font(18, 30)} 0;
+      padding-left: ${font(18, 30)} 0;
+      list-style: disc;
+      margin-bottom: 35px;
+    }
+    ol {
+      font-size: inherit;
+      color: ${theme.colors.colorAltDark};
+      margin: ${font(18, 30)} 0;
+      padding-left: ${font(10, 24)} 0;
+      margin-bottom: 35px;
+    }
+    li {
+      margin-bottom: 8px;
+    }
+  }
 `;
