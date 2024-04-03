@@ -81,7 +81,7 @@ export const Modal = () => {
                   <h3>{t<any>(`${section}.${id}.title`)}</h3>
                   <div
                     className="Modal__Container-desc"
-                    dangerouslySetInnerHTML={{ __html: t<any>(`${section}.${id}.text`) }}
+                    dangerouslySetInnerHTML={{ __html: t.raw<any>(`${section}.${id}.text`) }}
                   ></div>
                 </>
               )}
