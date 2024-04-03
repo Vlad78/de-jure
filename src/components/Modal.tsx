@@ -17,6 +17,7 @@ export const Modal = () => {
   const modal = searchParams.get("modal");
   const section = searchParams.get("section") as keyof IntlMessages & "menu";
   const id = searchParams.get("id");
+  const status = searchParams.get("status");
 
   const pathname = usePathname();
   const router = useRouter();
@@ -66,6 +67,15 @@ export const Modal = () => {
                     <LanguageSwitcher />
                   </FlexWrapper>
                 </FlexWrapper>
+              ) : section === "feedback" ? (
+                <>
+                  {status === "ok" ? (
+                    <h3>{t<any>("feedbackReceived")}</h3>
+                  ) : (
+                    <h3>{t<any>("feedbackError")}</h3>
+                  )}
+                  {/* TODO здесь нужно написать ссылки на социальные сети */}
+                </>
               ) : (
                 <>
                   <h3>{t<any>(`${section}.${id}.title`)}</h3>
@@ -146,7 +156,6 @@ const Container = styled.div`
       line-height: 136.15%;
       letter-spacing: 0em;
       margin: ${font(18, 30)} 0;
-      /* font-size: ${font(16, 20)}; */
       color: ${theme.colors.colorAltDark};
     }
     ul {
