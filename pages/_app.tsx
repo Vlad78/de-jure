@@ -1,18 +1,16 @@
 import type { AppProps } from "next/app";
-import { NextIntlClientProvider } from 'next-intl';
-import { getRequestConfig, getTimeZone } from 'next-intl/server';
-import { Inria_Serif, Spectral } from 'next/font/google';
-import { useRouter } from 'next/router';
-import { ThemeProvider } from 'styled-components';
+import { NextIntlClientProvider } from "next-intl";
+import { Inria_Serif, Spectral } from "next/font/google";
+import { useRouter } from "next/router";
+import styled, { ThemeProvider } from "styled-components";
 
-import { SpeedInsights } from '@vercel/speed-insights/next';
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
-import en from '../i18n/en.json';
-import pl from '../i18n/pl.json';
-import ru from '../i18n/ru.json';
-import { GlobalStyle } from '../src/styles/Global.styled';
-import { theme } from '../src/styles/Theme';
-
+import en from "../i18n/en.json";
+import pl from "../i18n/pl.json";
+import ru from "../i18n/ru.json";
+import { GlobalStyle } from "../src/styles/Global.styled";
+import { theme } from "../src/styles/Theme";
 
 const inria = Inria_Serif({ weight: ["300", "400", "700"], subsets: ["latin"] });
 const spect = Spectral({ weight: ["300", "400", "600"], subsets: ["cyrillic"] });
@@ -52,16 +50,33 @@ function App({ Component, pageProps }: AppProps) {
       timeZone={"Europe/Warsaw"}
     >
       <ThemeProvider theme={theme}>
-        <main
-          className={locale === "ru" ? spect.className : inria.className}
-          style={{ position: "relative" }}
-        >
+        <StyledMain className={locale === "ru" ? spect.className : inria.className}>
           <GlobalStyle />
           <Component {...pageProps} />
-        </main>
+        </StyledMain>
         <SpeedInsights />
       </ThemeProvider>
     </NextIntlClientProvider>
   );
 }
 export default App;
+
+const StyledMain = styled.main`
+  position: relative;
+
+  &.${spect.className} {
+    letter-spacing: -0.02em;
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      letter-spacing: -0.02em;
+    }
+  }
+
+  &.${inria.className} {
+  }
+`;

@@ -1,9 +1,8 @@
-import { useRouter } from 'next/router';
-import styled from 'styled-components';
+import { useRouter } from "next/router";
+import styled from "styled-components";
 
-import { font } from '../styles/FontSize';
-import { theme } from '../styles/Theme';
-
+import { font } from "../styles/FontSize";
+import { theme } from "../styles/Theme";
 
 export default function LanguageSwitcher() {
   const router = useRouter();
@@ -39,6 +38,7 @@ const StyledSwitcher = styled.div`
     padding: 8px;
     font-size: inherit;
     line-height: inherit;
+    color: inherit;
     border: none;
     background-color: transparent;
     border-radius: 6px;
