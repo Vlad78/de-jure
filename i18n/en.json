@@ -4,28 +4,29 @@
     "send": "Send",
     "build a route": "Build a route",
     "callCondition": "Weekdays from 10 to 18",
-    "working hours": "from 10:00 to 17:00"
+    "working hours": "from 10:00 to 17:00",
+    "loading": "Loading.."
   },
   "header": {},
   "main": {
     "title": "Main",
-    "hero": "Finding Out the Truth, Arguing and Winning",
+    "hero": "Protecting client interests is our priority",
     "description": "You trusted lawer in Poland"
   },
   "advantages": {
     "title": "Advantages",
     "advantages": {
       "1": {
-        "title": "We'll keep you in the loop",
-        "desc": "On the other hand, socio-economic development requires us to analyze the forms of impact."
+        "title": "Solving complex cases",
+        "desc": "Dealing with complex criminal and administrative cases that look hopeless."
       },
       "2": {
-        "title": "Full custody of your legal affairs",
-        "desc": "On the other hand, socio-economic development requires us to analyze the forms of impact."
+        "title": "Custody of your legal affairs",
+        "desc": "We ensure effective interaction with government authorities: tax authorities, administration, law enforcement agencies, and border services."
       },
       "3": {
-        "title": "We take the tough cases",
-        "desc": "On the other hand, socio-economic development requires us to analyze the forms of impact."
+        "title": "Migration solutions",
+        "desc": "Comprehensive assistance in obtaining a residence card / citizenship. Filing an appeal."
       }
     }
   },
@@ -34,7 +35,7 @@
     "services": {
       "1": {
         "title": "Subscription service for legal entities",
-        "text": "",
+        "text": "<p>We offer comprehensive subscription-based legal services for organizations, ensuring ongoing compliance with legislation and effective management of legal matters.</p><p>Our services include:</p><ul><li><strong>Regular legal consultations. </strong>On all matters of compliance with legal norms related to the organization's activities.</li><li><strong>Establishment and reorganization of companies.</strong> Registration of new companies, including preparation of founding documents, amendments to existing founding documents to meet legal requirements.</li><li><strong>Contract Legal Due Diligence.</strong> Preparation, analysis, and expert review of contracts, including amendments and addenda.</li><li><strong>Interaction with government authorities.</strong> Submission of applications to registries, courts, tax authorities, and other government bodies on behalf of the organization.</li><li><strong>General Legal Advisory.</strong> Providing legal advice on all aspects of the organization's business activities.</li></ul><p>Advantages of subscription services:</p><ul><li><strong>Reduced legal risks:</strong> Ongoing consultations help organizations remain compliant with laws and avoid potential legal pitfalls.</li><li><strong>Cost optimization:</strong> Subscription service provides a fixed monthly fee, eliminating unforeseen legal expenses.</li><li><strong>Access to expertise:</strong> Our experienced lawyers are always ready to provide legal assistance when needed.</li><li><strong>Improved efficiency:</strong> Addressing legal issues at an early stage allows organizations to focus on their core activities.</li></ul><p>Contact us today, and we will tailor a customized solution that meets the needs of your business.</p>",
         "alt": "glasses",
         "left": "51px",
         "bottom": "261px",
@@ -52,7 +53,7 @@
       },
       "3": {
         "title": "Opening, liquidation of legal entities, bankruptcy",
-        "text": "",
+        "text": "<p>Navigating laws and legal processes can be a complex undertaking, especially when it comes to establishing and liquidating legal entities. Our lawyers provide a full range of services to successfully complete these processes:</p><p>Opening legal entities:</p><ul><li>Consultations on choosing the most suitable form of legal entity</li><li>Preparation of all necessary documents for registration</li><li>Assistance in organizing the charter capital and registration with tax authorities</li></ul><p>Liquidation of legal entities:</p><ul><li>Analysis of the current situation and preparation of a liquidation plan</li><li>Preparation of all necessary documents for liquidation</li><li>Representation of the client's interests before government bodies and regulatory authorities</li></ul><p>Whether you need to open a new legal entity or liquidate an existing one, our professionals will provide you with quality legal support at all stages. Contact us today to start your legal journey with confidence in success!</p>",
         "alt": "notebook",
         "left": "0px",
         "bottom": "0px",
@@ -60,8 +61,8 @@
         "position": ""
       },
       "4": {
-        "title": "Mediation on debt restructuring issues",
-        "text": "",
+        "title": "Legal support for transactions",
+        "text": "<p>When conducting any legally significant transactions, it is important to have reliable legal support. Our specialists provide comprehensive services in this area:</p><ol><li><p>Consultations on the legal aspects of transactions:</p><ul><li>Analysis of potential legal risks</li><li>Development of a strategy for the transaction</li></ul></li><li><p>Preparation and analysis of documentation:</p><ul><li>Drafting and reviewing contracts and agreements</li><li>Professional legal editing of documents</li></ul></li><li><p>Representation of the client's interests:</p><ul><li>Negotiations with counterparties</li><li>Protecting the client's rights when concluding and executing transactions</li></ul></li><li><p>Support of transactions at all stages:</p><ul><li>Organization of signing and approval of documents</li><li>Ensuring compliance with the terms of the transaction</li></ul></li></ol><p>Our team guarantees professional and efficient legal support for each transaction, ensuring the protection of the client's interests and risk minimization. Contact us for quality legal support in your business operations.</p>",
         "alt": "ledger",
         "left": "0px",
         "bottom": "0px",
@@ -69,8 +70,8 @@
         "position": ""
       },
       "5": {
-        "title": "Statement of claim",
-        "text": "",
+        "title": "Accompanying as plaintiff and defendant",
+        "text": "<p>Whether as a plaintiff or defendant in legal proceedings, it is important to have competent legal representation to protect your rights and interests. Our firm provides a full range of services for court representation:</p><p>For the plaintiff:</p><ol><li><p>Preliminary assessment of the situation:</p><ul><li>Analysis of gathered evidence and legal arguments</li><li>Determination of case strategy and tactics</li></ul></li><li><p>Preparation and filing of the lawsuit:</p><ul><li>Drafting the lawsuit taking into account all legal nuances</li><li>Preparation of necessary attachments and documents</li></ul></li><li><p>Representation of interests in court:</p><ul><li>Client representation at court hearings</li><li>Active defense of interests and principles of truth during the judicial process</li></ul></li></ol><p>For the defendant:</p><ol><li><p>Analysis of lawsuit materials:</p><ul><li>Thorough examination and analysis of the claims presented</li><li>Development of defense strategy and preparation of countermeasures</li></ul></li><li><p>Preparation of response documents:</p><ul><li>Preparation of a reasoned response to the lawsuit</li><li>Compilation of evidence and arguments in favor of the defendant</li></ul></li><li><p>Defense of interests in court:</p><ul><li>Representation of the defendant at court hearings</li><li>Active conduct of defense and protection of the defendant's rights and interests</li></ul></li></ol><p>Our team provides qualified legal representation for both plaintiffs and defendants, ensuring effective protection of rights and interests in legal proceedings. Contact us for professional legal assistance in your case.</p>",
         "alt": "file",
         "left": "0px",
         "bottom": "0px",
@@ -78,8 +79,8 @@
         "position": "center"
       },
       "6": {
-        "title": "Criminal, administrative proceedings related...",
-        "text": "",
+        "title": "Complex and regular issues of legalization of migrants",
+        "text": "<p>Our firm provides expert assistance and support in the following areas:</p><ol><li><p>Consultations on the legal status of migrants:</p><ul><li>Analysis of legal status and possible paths to legalization</li><li>Detailed familiarization with the requirements and procedures of immigration law</li></ul></li><li><p>Document preparation and residency arrangements:</p><ul><li>Preparation of necessary documents for various types of visas and work permits</li><li>Assistance in the registration procedures and obtaining temporary or permanent residency</li></ul></li><li><p>Protection of migrants' rights:</p><ul><li>Representation of migrants' interests in courts and government agencies</li><li>Provision of legal assistance in case of conflicts with immigration authorities or employers</li></ul></li></ol><p>Our team specializes in resolving complex issues related to migrant legalization and guarantees professional and efficient resolution of each case. Contact us for qualified assistance in immigration law matters.</p>",
         "alt": "pen",
         "left": "0px",
         "bottom": "0px",
@@ -87,8 +88,8 @@
         "position": ""
       },
       "7": {
-        "title": "Consulting on issues related to interaction...",
-        "text": "",
+        "title": "Debt Recovery from Employer.",
+        "text": "<p>If your employer fails to pay you wages or other due amounts, you can seek legal assistance to recover the debt. Our experienced lawyers will help you:</p><ul><li><strong>Determine the amount and justification of your debt:</strong>&nbsp;We will analyze the employment contract, pay slips, and other documents to determine the exact amount of the debt.</li><li><strong>Send a written demand for payment:</strong>&nbsp;We will send an official demand for payment to your employer, outlining your requirements and providing evidence.</li><li><strong>Conduct negotiations and mediation:</strong>&nbsp;If the employer refuses to pay, we will conduct negotiations and mediation to reach a mutually beneficial solution.</li><li><strong>File a lawsuit:</strong>&nbsp;If all other options are exhausted, we will file a lawsuit to recover the debt, interest, and any applicable court costs.</li></ul><p><strong>Our services include:</strong></p><ul><li>Consultations and case evaluation</li><li>Preparation and sending of written payment demands</li><li>Negotiation and mediation</li><li>Court representation</li></ul><p><strong>Why choose us:</strong></p><ul><li>Experience in labor law</li><li>High success rate</li><li>Clear and timely communication</li><li>Reasonable prices</li></ul><p>Don't let your employer withhold your money. Contact us today, and we will help you recover the debt and protect your rights.</p>",
         "alt": "sheet",
         "left": "0px",
         "bottom": "0px",
@@ -96,8 +97,8 @@
         "position": ""
       },
       "8": {
-        "title": "Complex issues of legalization of migrants",
-        "text": "",
+        "title": "Mediation on debt restructuring issues",
+        "text": "<p>If you are facing financial difficulties and are unable to repay your bank debts, mediation and debt restructuring may be effective options for you.</p><p><strong>Mediation with Banks</strong></p><p>Mediation is a process in which a neutral third party (mediator) helps you and your bank reach a mutually acceptable agreement regarding your debt. The mediator does not make decisions for you but acts as a facilitator, assisting the parties in finding a common solution.</p><p><strong>Debt Restructuring</strong></p><p>Debt restructuring involves modifying the terms of your debt to make it more manageable. This may include reducing interest rates, extending repayment terms, or decreasing the total amount of debt.</p><p><strong>Our Mediation and Debt Restructuring Services Include:</strong></p><ul><li>Consultations and case evaluation</li><li>Preparation for mediation</li><li>Representation at mediation</li><li>Negotiation and development of debt restructuring plan</li><li>Preparation and submission of necessary documents</li></ul><p><strong>Why Choose Us:</strong></p><ul><li>Experience in banking and financial law</li><li>High success rate in mediations and debt restructuring</li><li>Clear and timely communication</li><li>Reasonable prices</li></ul><p>If you are struggling with bank debts, don't wait until the situation worsens. Contact us today, and we will help you find a solution that meets your needs and protects your interests.</p>",
         "alt": "envelope",
         "left": "0px",
         "bottom": "0px",
@@ -105,7 +106,7 @@
         "position": ""
       },
       "9": {
-        "title": "",
+        "title": "Consulting on issues related to interaction...",
         "text": "",
         "alt": "pencils",
         "left": "0px",
@@ -173,7 +174,9 @@
     "title": "Feedback",
     "name": "Name",
     "phone": "Phone",
-    "introduction": "Hello I am Intrested in.."
+    "introduction": "Hello I am Intrested in..",
+    "feedbackReceived": "We have received your request and will contact you during business hours.",
+    "feedbackError": "Error submitting the form. Try contacting us by phone."
   },
   "map": {
     "title": "Map",

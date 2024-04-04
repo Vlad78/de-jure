@@ -4,7 +4,8 @@
     "send": "Send",
     "build a route": "Build a route",
     "callCondition": "Weekdays from 10 to 18",
-    "working hours": "from 10:00 to 17:00"
+    "working hours": "from 10:00 to 17:00",
+    "loading": "Loading..."
   },
   "header": {},
   "main": {
@@ -173,7 +174,9 @@
     "title": "Feedback",
     "name": "Name",
     "phone": "Phone",
-    "introduction": "Hello I am Intrested in.."
+    "introduction": "Hello I am Intrested in..",
+    "feedbackReceived": "We have received your request and will contact you during business hours.",
+    "feedbackError": "Error submitting the form. Try contacting us by phone."
   },
   "map": {
     "title": "Map",
