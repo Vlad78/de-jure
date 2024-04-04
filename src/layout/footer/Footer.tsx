@@ -1,15 +1,14 @@
-import { useTranslations } from 'next-intl';
-import styled from 'styled-components';
+import { useTranslations } from "next-intl";
+import styled from "styled-components";
 
-import creds from '../../assets/data/creds';
-import { IconStripe } from '../../assets/IconStripe';
-import { Container } from '../../components/Container';
-import { FlexWrapper } from '../../components/FlexWrapper';
-import { Menu } from '../../components/Menu';
-import { useMessageTyped } from '../../hooks/useMessage';
-import { font } from '../../styles/FontSize';
-import { theme } from '../../styles/Theme';
-
+import creds from "../../assets/data/creds";
+import { IconStripe } from "../../assets/IconStripe";
+import { Container } from "../../components/Container";
+import { FlexWrapper } from "../../components/FlexWrapper";
+import { Menu } from "../../components/Menu";
+import { useMessageTyped } from "../../hooks/useMessage";
+import { font } from "../../styles/FontSize";
+import { theme } from "../../styles/Theme";
 
 export const Footer = () => {
   const t = useTranslations("footer");
@@ -71,7 +70,7 @@ export const Footer = () => {
           <div className="copyright">
             {t("copyright")} {creds.company}
           </div>
-          <div className="design">Design by @sbangl</div>
+          <div className="design">Design by @sbangl / telegram</div>
         </FlexWrapper>
       </Container>
     </StyledFooter>
