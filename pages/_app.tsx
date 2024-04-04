@@ -2,6 +2,7 @@ import type { AppProps } from "next/app";
 import { NextIntlClientProvider } from "next-intl";
 import { Inria_Serif, Spectral } from "next/font/google";
 import { useRouter } from "next/router";
+import { ReactNode } from "react";
 import styled, { ThemeProvider } from "styled-components";
 
 import { SpeedInsights } from "@vercel/speed-insights/next";
@@ -30,6 +31,15 @@ const dictionary = {
   ru,
 };
 
+const defaultTranslationValues = {
+  div: (chunks: ReactNode) => `<div>${chunks}</div>`,
+  p: (chunks: ReactNode) => `<p>${chunks}</p>`,
+  strong: (chunks: ReactNode) => `<strong>${chunks}</strong>`,
+  ul: (chunks: ReactNode) => `<ul>${chunks}</ul>`,
+  ol: (chunks: ReactNode) => `<ol>${chunks}</ol>`,
+  li: (chunks: ReactNode) => `<li>${chunks}</li>`,
+};
+
 function App({ Component, pageProps }: AppProps) {
   const route = useRouter();
   const locale = route.locale;
@@ -48,6 +58,7 @@ function App({ Component, pageProps }: AppProps) {
       locale={locale}
       messages={dictionary[locale]}
       timeZone={"Europe/Warsaw"}
+      defaultTranslationValues={defaultTranslationValues}
     >
       <ThemeProvider theme={theme}>
         <StyledMain className={locale === "ru" ? spect.className : inria.className}>
