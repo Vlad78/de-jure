@@ -1,11 +1,10 @@
-import { useTranslations } from 'next-intl';
-import styled from 'styled-components';
+import { useTranslations } from "next-intl";
+import styled from "styled-components";
 
-import creds from '../../../assets/data/creds';
-import { IconStripe } from '../../../assets/IconStripe';
-import { font } from '../../../styles/FontSize';
-import { theme } from '../../../styles/Theme';
-
+import creds from "../../../assets/data/creds";
+import { IconStripe } from "../../../assets/IconStripe";
+import { font } from "../../../styles/FontSize";
+import { theme } from "../../../styles/Theme";
 
 export const AboutContacts = () => {
   const t = useTranslations("system");
@@ -26,9 +25,15 @@ const StyledAboutContacts = styled.a`
     "i p";
   grid-template-columns: min-content;
   color: ${theme.colors.fontShaddy};
+  border-radius: 20px;
+  background-color: transparent;
+  padding: 8px;
+  transition: 500ms;
 
   &:hover {
     text-decoration: none;
+    background-color: ${theme.colors.bgAlt}15;
+    transition: 500ms;
   }
 
   svg {

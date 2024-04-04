@@ -1,16 +1,15 @@
-import { useTranslations } from 'next-intl';
-import Image from 'next/image';
-import React from 'react';
-import styled from 'styled-components';
+import { useTranslations } from "next-intl";
+import Image from "next/image";
+import React from "react";
+import styled from "styled-components";
 
-import { IconStripe } from '../../../assets/IconStripe';
-import mainImage from '../../../assets/imgs/main.png';
-import { Container } from '../../../components/Container';
-import { CustomButton } from '../../../components/CustomButton';
-import { FlexWrapper } from '../../../components/FlexWrapper';
-import { font } from '../../../styles/FontSize';
-import { theme } from '../../../styles/Theme';
-
+import { IconStripe } from "../../../assets/IconStripe";
+import mainImage from "../../../assets/imgs/main.png";
+import { Container } from "../../../components/Container";
+import { CustomButton } from "../../../components/CustomButton";
+import { FlexWrapper } from "../../../components/FlexWrapper";
+import { font } from "../../../styles/FontSize";
+import { theme } from "../../../styles/Theme";
 
 export const Main = () => {
   const t = useTranslations("main");
@@ -45,14 +44,12 @@ const StyledMain = styled.section`
 
   .main-img {
     flex-grow: 1;
-    flex-basis: 60%;
-    max-width: 60%;
+    flex-basis: 50%;
+    max-width: 50%;
     object-fit: cover;
     object-position: left;
 
     @media ${theme.media.tablet} {
-      max-width: 55%;
-      flex-basis: 55%;
       transform: translateX(-30px);
       overflow: visible;
     }
@@ -93,6 +90,9 @@ const StyledHero = styled.h2`
   margin-top: 45px;
   line-height: 136.15%;
 
+  @media ${theme.media.tablet} {
+    font-size: ${font(28, 50)};
+  }
   @media ${theme.media.mobile} {
     margin-top: unset;
     text-align: center;
@@ -105,6 +105,12 @@ const Description = styled.h1`
   font-size: ${font(16, 24)};
   font-weight: 700;
   line-height: 136.15%;
+  hyphens: auto;
+
+  @media ${theme.media.tablet} {
+    width: 90%;
+    font-size: ${font(16, 22)};
+  }
 
   @media ${theme.media.mobile} {
     margin-top: unset;

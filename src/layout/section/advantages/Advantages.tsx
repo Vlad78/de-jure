@@ -1,16 +1,15 @@
-import { useTranslations } from 'next-intl';
-import { useSpringCarousel } from 'react-spring-carousel';
-import styled from 'styled-components';
+import { useTranslations } from "next-intl";
+import { useSpringCarousel } from "react-spring-carousel";
+import styled from "styled-components";
 
-import { IconStripe } from '../../../assets/IconStripe';
-import { Container } from '../../../components/Container';
-import { FlexWrapper } from '../../../components/FlexWrapper';
-import { IconStripeWrapper } from '../../../components/IconWrapper';
-import { TitleSection } from '../../../components/TitleSection';
-import { useMessageTyped } from '../../../hooks/useMessage';
-import { font } from '../../../styles/FontSize';
-import { theme } from '../../../styles/Theme';
-
+import { IconStripe } from "../../../assets/IconStripe";
+import { Container } from "../../../components/Container";
+import { FlexWrapper } from "../../../components/FlexWrapper";
+import { IconStripeWrapper } from "../../../components/IconWrapper";
+import { TitleSection } from "../../../components/TitleSection";
+import { useMessageTyped } from "../../../hooks/useMessage";
+import { font } from "../../../styles/FontSize";
+import { theme } from "../../../styles/Theme";
 
 const iconColors = ["#D3927E", "#FAC88B", "#7EA3D3"];
 
@@ -58,7 +57,10 @@ const StyledAdvantages = styled.section`
   }
 
   .use-spring-carousel-item {
-    flex: unset !important;
+    /* flex-grow: 1;
+    flex-shrink: 0;
+    flex-basis: min-content; */
+    flex: 1 0 min-content !important;
 
     &:last-child {
       margin-right: 0 !important;
@@ -123,6 +125,10 @@ const Card = styled.div`
   }
 
   @media ${theme.media.tablet} {
+    max-width: unset;
+    min-width: 210px;
+    hyphens: auto;
+
     ${FlexWrapper} {
       margin-top: 91px;
     }
@@ -142,10 +148,5 @@ const Card = styled.div`
       margin-top: 20px;
       font-size: 16px;
     }
-  }
-
-  @media ${theme.media.tablet} {
-    max-width: unset;
-    min-width: 200px;
   }
 `;

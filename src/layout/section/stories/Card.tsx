@@ -1,5 +1,5 @@
 import { useTranslations } from 'next-intl';
-import { StaticImageData } from 'next/image';
+import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import styled from 'styled-components';
 
@@ -17,16 +17,19 @@ export const Card = ({ i, e }: { i: number; e: string }) => {
   };
 
   return (
-    <StyledCard img={require(`../../../assets/imgs/stories/${i + 1}.jpeg`)} key={e}>
+    <StyledCard key={e}>
+      <Image
+        src={require(`../../../assets/imgs/stories/${i + 1}.jpeg`)}
+        alt={t<any>(`stories.${e}.title`)}
+        quality={100}
+      />
       <h3>{t<any>(`stories.${e}.title`)}</h3>
       <CustomButton option="transparent" text="readMore" onClick={handleClick} />
     </StyledCard>
   );
 };
 
-const StyledCard = styled.div.withConfig({
-  shouldForwardProp: (props) => !["img"].includes(props),
-})<{ img: { default: StaticImageData } }>`
+const StyledCard = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -35,16 +38,28 @@ const StyledCard = styled.div.withConfig({
   flex-basis: 650px;
   height: 400px;
   color: ${theme.colors.colorLight};
-  background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-    url(${(props) => props.img.default.src || "check"});
   background-size: cover;
   background-repeat: no-repeat;
+
+  img {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    inset: 0px;
+    object-fit: cover;
+    filter: brightness(0.4);
+  }
 
   h3 {
     margin: 0 40px 40px 40px;
     color: ${theme.colors.colorLight};
     font-size: ${font(14, 40)};
     text-align: center;
+    position: relative;
+  }
+
+  button {
+    position: relative;
   }
 
   @media ${theme.media.desktop} {

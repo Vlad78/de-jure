@@ -1,14 +1,13 @@
-import { useTranslations } from 'next-intl';
-import Image from 'next/image';
-import Link from 'next/link';
-import { RefObject, useEffect, useRef, useState } from 'react';
-import styled from 'styled-components';
+import { useTranslations } from "next-intl";
+import Image from "next/image";
+import Link from "next/link";
+import { RefObject, useEffect, useRef, useState } from "react";
+import styled from "styled-components";
 
-import { IconStripe } from '../../../assets/IconStripe';
-import { FlexWrapper } from '../../../components/FlexWrapper';
-import { font } from '../../../styles/FontSize';
-import { theme } from '../../../styles/Theme';
-
+import { IconStripe } from "../../../assets/IconStripe";
+import { FlexWrapper } from "../../../components/FlexWrapper";
+import { font } from "../../../styles/FontSize";
+import { theme } from "../../../styles/Theme";
 
 export const Card = ({ e }: { e: string }) => {
   const t = useTranslations("testimonials");
@@ -17,8 +16,22 @@ export const Card = ({ e }: { e: string }) => {
   const [height, setHeight] = useState(0);
 
   useEffect(() => {
-    setHeight(ref.current?.offsetHeight! + 3);
+    setHeight(ref.current?.offsetHeight! + 2);
   }, [ref]);
+
+  let img: JSX.Element;
+  try {
+    img = (
+      <Image
+        alt={t<any>(`testimonials.${e}.alt`)}
+        src={require(`../../../assets/imgs/reviews-photos/${e}.webp`)}
+        className="testimonial-img"
+        quality={1}
+      />
+    );
+  } catch (e) {
+    img = <IconStripe iconId="blank-avatar" />;
+  }
 
   return (
     <StyledCard key={e}>
@@ -26,11 +39,7 @@ export const Card = ({ e }: { e: string }) => {
         {t<any>(`testimonials.${e}.text`)}
       </ReviewText>
       <FlexWrapper align="center">
-        <Image
-          alt={t<any>(`testimonials.${e}.alt`)}
-          src={require(`../../../assets/imgs/reviews-photos/${e}.jpeg`)}
-          className="testimonial-img"
-        />
+        <Avatar>{img}</Avatar>
         <span>{t<any>(`testimonials.${e}.name`)}</span>
       </FlexWrapper>
       <Link href="#">
@@ -39,7 +48,8 @@ export const Card = ({ e }: { e: string }) => {
             <IconStripe iconId="star" key={i} id={"star_" + i} />
           ))}
         </Rating>
-        <div>12 reviews at {t<any>(`testimonials.${e}.sourse`)}</div>
+        <div> </div>
+        {/* <div>12 reviews at {t<any>(`testimonials.${e}.sourse`)}</div> */}
       </Link>
     </StyledCard>
   );
@@ -56,6 +66,20 @@ export const ReviewText = styled.p.withConfig({
     width: 2px;
     height: ${(props) => props.height}px;
     background-color: ${theme.colors.bgAlt};
+  }
+`;
+
+const Avatar = styled.div`
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+
+  svg,
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
   }
 `;
 
@@ -78,24 +102,20 @@ const StyledCard = styled.div`
 
   ${ReviewText} {
     grid-column: auto / span 2;
-    line-height: 180%;
+    line-height: 160%;
     margin-bottom: 40px;
     display: -webkit-box;
-    -webkit-line-clamp: 6;
+    -webkit-line-clamp: 7;
     -webkit-box-orient: vertical;
     text-overflow: ellipsis;
     overflow-y: clip;
     align-self: center;
+    hyphens: auto;
   }
 
   ${FlexWrapper} {
     justify-self: start;
     gap: 21px;
-
-    .testimonial-img {
-      height: 50px;
-      width: 50px;
-    }
   }
 
   span {
@@ -112,9 +132,11 @@ const StyledCard = styled.div`
     color: ${theme.colors.colorAltNotSoDark};
   }
 
-  svg {
-    height: 24px;
-    width: 24px;
+  ${Rating} {
+    svg {
+      height: 24px;
+      width: 24px;
+    }
   }
 
   @media ${theme.media.desktop} {
@@ -127,11 +149,11 @@ const StyledCard = styled.div`
 
     ${FlexWrapper} {
       gap: 10px;
+    }
 
-      .testimonial-img {
-        height: 29px;
-        width: 29px;
-      }
+    ${Avatar} {
+      height: 29px;
+      width: 29px;
     }
 
     span {
@@ -142,9 +164,11 @@ const StyledCard = styled.div`
       font-size: 12px;
     }
 
-    svg {
-      height: 14px;
-      width: 14px;
+    ${Rating} {
+      svg {
+        height: 14px;
+        width: 14px;
+      }
     }
   }
 
@@ -176,6 +200,7 @@ const StyledCard = styled.div`
       order: 2;
       margin-bottom: 15px;
     }
+
     ${Rating} {
       text-align: left;
     }

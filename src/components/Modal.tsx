@@ -1,52 +1,89 @@
 "use client";
 
-import disableScroll from 'disable-scroll';
-import { useTranslations } from 'next-intl';
-import Link from 'next/link';
-import { usePathname, useRouter, useSearchParams } from 'next/navigation';
-import { MouseEventHandler, useEffect } from 'react';
-import styled from 'styled-components';
+import { AnimatePresence, motion } from "framer-motion";
+import { useTranslations } from "next-intl";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { MouseEventHandler, useEffect } from "react";
+import styled from "styled-components";
 
-import { IconStripe } from '../assets/IconStripe';
-import { font } from '../styles/FontSize';
-import { theme } from '../styles/Theme';
-import { FlexWrapper } from './FlexWrapper';
-import LanguageSwitcher from './LanguageSwitcher';
-import { Menu } from './Menu';
-
+import { IconStripe } from "../assets/IconStripe";
+import { font } from "../styles/FontSize";
+import { theme } from "../styles/Theme";
+import { FlexWrapper } from "./FlexWrapper";
+import LanguageSwitcher from "./LanguageSwitcher";
+import { Menu } from "./Menu";
 
 export const Modal = () => {
   const searchParams = useSearchParams();
   const modal = searchParams.get("modal");
   const section = searchParams.get("section") as keyof IntlMessages & "menu";
   const id = searchParams.get("id");
+  const status = searchParams.get("status");
 
   const pathname = usePathname();
   const router = useRouter();
+  const closeModal = () => {
+    router.push(pathname, { scroll: false });
+  };
 
   const layoutOnClickHandler: MouseEventHandler<HTMLDialogElement> = (e) => {
-    e.currentTarget === e.target && router.push(pathname, { scroll: false });
+    e.currentTarget === e.target && closeModal();
+  };
+
+  const addRightPadding = (scrollBarWidth: number) => {
+    document.body.style.paddingRight = `${scrollBarWidth}px`;
+
+    const headerElement = document.querySelector("header");
+    if (headerElement) {
+      headerElement.style.right = `${scrollBarWidth}px`;
+    }
   };
 
   useEffect(() => {
     if (modal) {
-      disableScroll.on();
+      const scrollBarWidth = window.innerWidth - document.documentElement.clientWidth;
+      addRightPadding(scrollBarWidth);
+      document.body.style.overflowY = "hidden";
     }
-    return () => {
-      disableScroll.off();
-    };
   }, [modal]);
+
+  useEffect(() => {
+    const close = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        closeModal();
+      }
+    };
+    window.addEventListener("keydown", close);
+    return () => window.removeEventListener("keydown", close);
+  }, []);
 
   const t = useTranslations(section);
 
+  const backDrop = {
+    visible: { opacity: 1 },
+    hidden: { opacity: 0 },
+  };
+
   return (
-    <>
+    <AnimatePresence
+      mode="wait"
+      onExitComplete={() => {
+        document.body.style.overflowY = "auto";
+        addRightPadding(0);
+      }}
+    >
       {modal && (
-        <StyledLayout onClick={layoutOnClickHandler}>
+        <StyledLayout
+          onClick={layoutOnClickHandler}
+          variants={backDrop}
+          initial="hidden"
+          animate="visible"
+          exit="hidden"
+        >
           <StyledModal>
-            <Link href={pathname} scroll={false}>
+            <div className="close-modal" onClick={closeModal}>
               <IconStripe iconId="cross" />
-            </Link>
+            </div>
             <Container>
               {section === "menu" ? (
                 <FlexWrapper direction="column" justify="space-between" gap="5%" align="start">
@@ -56,21 +93,33 @@ export const Modal = () => {
                     <LanguageSwitcher />
                   </FlexWrapper>
                 </FlexWrapper>
+              ) : section === "feedback" ? (
+                <>
+                  {status === "ok" ? (
+                    <h3>{t<any>("feedbackReceived")}</h3>
+                  ) : (
+                    <h3>{t<any>("feedbackError")}</h3>
+                  )}
+                  {/* TODO здесь нужно написать ссылки на социальные сети */}
+                </>
               ) : (
                 <>
                   <h3>{t<any>(`${section}.${id}.title`)}</h3>
-                  <p>{t<any>(`${section}.${id}.text`)}</p>
+                  <div
+                    className="Modal__Container-desc"
+                    dangerouslySetInnerHTML={{ __html: t.raw<any>(`${section}.${id}.text`) }}
+                  ></div>
                 </>
               )}
             </Container>
           </StyledModal>
         </StyledLayout>
       )}
-    </>
+    </AnimatePresence>
   );
 };
 
-const StyledLayout = styled.dialog`
+const StyledLayout = styled(motion.dialog)`
   position: fixed;
   inset: 0;
   background-color: ${theme.colors["bgShaddy50%Op"]};
@@ -78,50 +127,85 @@ const StyledLayout = styled.dialog`
   height: 100%;
   width: 100%;
   display: flex;
-  align-items: center;
   justify-content: center;
   border: none;
   z-index: 1000;
+
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
 `;
 
 const StyledModal = styled.div`
-  padding: 32px;
+  padding: ${font(32, 68)};
+  padding-bottom: 68px;
+  margin: 32px;
   border-radius: 20px;
   max-width: 75vw;
   min-width: 50vw;
+  height: fit-content;
   background: #ffffff;
   position: relative;
 
-  a {
+  .close-modal {
     display: contents;
-  }
+    cursor: pointer;
 
-  > a:first-child svg {
-    position: absolute;
-    right: 24px;
-    top: 24px;
+    svg {
+      position: absolute;
+      right: 24px;
+      top: 24px;
+    }
   }
 
   h3 {
-    margin: 31px 80px;
+    margin: 31px ${font(40, 80)};
     max-width: 683px;
-  }
-
-  p {
-    color: ${theme.colors.colorAltDark};
-    margin: 0 102px 120px;
-    font-size: ${font(16, 24)};
-    line-height: 180%;
-    letter-spacing: 0.02em;
-    text-align: left;
+    text-align: center;
   }
 
   @media ${theme.media.mobile} {
-    padding: 32px 12px;
+    padding: 32px 20px;
+    padding-bottom: 68px;
     max-width: 90vw;
   }
 `;
 
 const Container = styled.div`
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .Modal__Container-desc {
+    text-align: left;
+    max-height: inherit;
+    font-size: ${font(14, 20)};
+
+    p {
+      font-size: inherit;
+      line-height: 136.15%;
+      letter-spacing: 0em;
+      margin: ${font(18, 30)} 0;
+      color: ${theme.colors.colorAltDark};
+    }
+    ul {
+      font-size: inherit;
+      color: ${theme.colors.colorAltDark};
+      margin: ${font(18, 30)} 0;
+      padding-left: ${font(18, 30)} 0;
+      list-style: disc;
+      margin-bottom: 35px;
+    }
+    ol {
+      font-size: inherit;
+      color: ${theme.colors.colorAltDark};
+      margin: ${font(18, 30)} 0;
+      padding-left: ${font(10, 24)} 0;
+      margin-bottom: 35px;
+    }
+    li {
+      margin-bottom: 8px;
+    }
+  }
 `;
