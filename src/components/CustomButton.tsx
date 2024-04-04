@@ -8,7 +8,7 @@ import { theme } from "../styles/Theme";
 type Button = {
   option?: "transparent";
   text: "readMore" | "send" | "build a route" | "loading";
-  disabled: boolean;
+  disabled?: boolean;
   onClick?: (e: MouseEvent<HTMLButtonElement>) => void;
 };
 
