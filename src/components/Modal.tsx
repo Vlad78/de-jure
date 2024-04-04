@@ -1,5 +1,6 @@
 "use client";
 
+import { AnimatePresence, motion } from "framer-motion";
 import { useTranslations } from "next-intl";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { MouseEventHandler, useEffect } from "react";
@@ -29,13 +30,21 @@ export const Modal = () => {
     e.currentTarget === e.target && closeModal();
   };
 
+  const addRightPadding = (scrollBarWidth: number) => {
+    document.body.style.paddingRight = `${scrollBarWidth}px`;
+
+    const headerElement = document.querySelector("header");
+    if (headerElement) {
+      headerElement.style.right = `${scrollBarWidth}px`;
+    }
+  };
+
   useEffect(() => {
     if (modal) {
-      document.body.style.overflow = "hidden";
+      const scrollBarWidth = window.innerWidth - document.documentElement.clientWidth;
+      addRightPadding(scrollBarWidth);
+      document.body.style.overflowY = "hidden";
     }
-    return () => {
-      document.body.style.overflow = "auto";
-    };
   }, [modal]);
 
   useEffect(() => {
@@ -50,10 +59,27 @@ export const Modal = () => {
 
   const t = useTranslations(section);
 
+  const backDrop = {
+    visible: { opacity: 1 },
+    hidden: { opacity: 0 },
+  };
+
   return (
-    <>
+    <AnimatePresence
+      mode="wait"
+      onExitComplete={() => {
+        document.body.style.overflowY = "auto";
+        addRightPadding(0);
+      }}
+    >
       {modal && (
-        <StyledLayout onClick={layoutOnClickHandler}>
+        <StyledLayout
+          onClick={layoutOnClickHandler}
+          variants={backDrop}
+          initial="hidden"
+          animate="visible"
+          exit="hidden"
+        >
           <StyledModal>
             <div className="close-modal" onClick={closeModal}>
               <IconStripe iconId="cross" />
@@ -89,11 +115,11 @@ export const Modal = () => {
           </StyledModal>
         </StyledLayout>
       )}
-    </>
+    </AnimatePresence>
   );
 };
 
-const StyledLayout = styled.dialog`
+const StyledLayout = styled(motion.dialog)`
   position: fixed;
   inset: 0;
   background-color: ${theme.colors["bgShaddy50%Op"]};
@@ -104,6 +130,11 @@ const StyledLayout = styled.dialog`
   justify-content: center;
   border: none;
   z-index: 1000;
+
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
 `;
 
 const StyledModal = styled.div`

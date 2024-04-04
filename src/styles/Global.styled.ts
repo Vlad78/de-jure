@@ -13,17 +13,16 @@ export const GlobalStyle = createGlobalStyle`
 
 
 
-html,
+html {
+
+}
 body {
-    scrollbar-gutter: stable;
   max-width: 100vw;
   min-width: 320px;
   color: ${theme.colors.font};
   background-color: ${theme.colors.bgPrimary};
-}
-
-body {
-    -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
 

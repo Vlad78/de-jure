@@ -1,15 +1,14 @@
-import { motion, useMotionValueEvent, useScroll } from 'framer-motion';
-import Link from 'next/link';
-import { useEffect, useState } from 'react';
-import styled from 'styled-components';
+import { motion, useMotionValueEvent, useScroll } from "framer-motion";
+import Link from "next/link";
+import { useEffect, useState } from "react";
+import styled from "styled-components";
 
-import { IconStripe } from '../../assets/IconStripe';
-import { Container } from '../../components/Container';
-import { FlexWrapper } from '../../components/FlexWrapper';
-import LanguageSwitcher from '../../components/LanguageSwitcher';
-import { Menu } from '../../components/Menu';
-import { theme } from '../../styles/Theme';
-
+import { IconStripe } from "../../assets/IconStripe";
+import { Container } from "../../components/Container";
+import { FlexWrapper } from "../../components/FlexWrapper";
+import LanguageSwitcher from "../../components/LanguageSwitcher";
+import { Menu } from "../../components/Menu";
+import { theme } from "../../styles/Theme";
 
 export const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -75,7 +74,9 @@ const OverflowWrapper = styled.div`
 
 const StyledHeader = styled(motion.header)<{ $isScrolled: boolean }>`
   position: fixed;
-  width: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
   color: ${(props) => (props.$isScrolled ? theme.colors.fontShaddy : theme.colors.font)};
   font-size: 20px;
   font-weight: 400;
