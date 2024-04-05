@@ -59,11 +59,6 @@ export const Modal = () => {
 
   const t = useTranslations(section);
 
-  const backDrop = {
-    visible: { opacity: 1 },
-    hidden: { opacity: 0 },
-  };
-
   return (
     <AnimatePresence
       mode="wait"
@@ -75,15 +70,23 @@ export const Modal = () => {
       {modal && (
         <StyledLayout
           onClick={layoutOnClickHandler}
-          variants={backDrop}
+          variants={{
+            visible: { opacity: 1 },
+            hidden: { opacity: 0 },
+          }}
           initial="hidden"
           animate="visible"
           exit="hidden"
+          transition={{
+            duration: 0.3,
+            ease: "backInOut",
+          }}
         >
           <StyledModal>
             <div className="close-modal" onClick={closeModal}>
               <IconStripe iconId="cross" />
             </div>
+
             <Container>
               {section === "menu" ? (
                 <FlexWrapper direction="column" justify="space-between" gap="5%" align="start">
@@ -105,10 +108,15 @@ export const Modal = () => {
               ) : (
                 <>
                   <h3>{t<any>(`${section}.${id}.title`)}</h3>
-                  <div
-                    className="Modal__Container-desc"
-                    dangerouslySetInnerHTML={{ __html: t.raw<any>(`${section}.${id}.text`) }}
-                  ></div>
+                  <div className="Modal__Container-desc">
+                    {t.rich<any>(`${section}.${id}.text`, {
+                      ol: (chunk) => <ol>{chunk}</ol>,
+                      li: (chunk) => <li>{chunk}</li>,
+                      ul: (chunk) => <ul>{chunk}</ul>,
+                      strong: (chunk) => <strong>{chunk}</strong>,
+                      p: (chunk) => <p>{chunk}</p>,
+                    })}
+                  </div>
                 </>
               )}
             </Container>

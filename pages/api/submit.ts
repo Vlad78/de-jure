@@ -2,8 +2,9 @@ import type { NextApiRequest, NextApiResponse } from "next";
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   const data = await JSON.parse(req.body);
+  console.log("data:", data);
   const text = `Message: ${data.message}\nName: ${data.name}\nPhone: ${data.phone}`;
-  const response = await fetch(
+  const fetchResponse = await fetch(
     "https://api.telegram.org/bot6904871526:AAEDV9UKkWprJOX8JspNuq37SC66Z9tcwAk/sendMessage",
     {
       method: "POST",
@@ -14,5 +15,5 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     }
   );
 
-  res.status(response.status).json({ status: response.status !== 200 ? "error" : "ok" });
+  res.status(fetchResponse.status).json({ status: fetchResponse.status !== 200 ? "error" : "ok" });
 }
