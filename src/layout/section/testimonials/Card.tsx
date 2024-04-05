@@ -143,7 +143,7 @@ const StyledCard = styled.div`
     min-height: 163px;
 
     ${ReviewText} {
-      font-size: 11px;
+      font-size: 12px;
       margin-bottom: 26px;
     }
 

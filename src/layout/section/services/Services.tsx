@@ -1,14 +1,13 @@
-import { useTranslations } from 'next-intl';
-import Image from 'next/image';
-import Link from 'next/link';
-import styled from 'styled-components';
+import { useTranslations } from "next-intl";
+import Image from "next/image";
+import Link from "next/link";
+import styled from "styled-components";
 
-import { Container } from '../../../components/Container';
-import { TitleSection } from '../../../components/TitleSection';
-import { font } from '../../../styles/FontSize';
-import { theme } from '../../../styles/Theme';
-import data from './data';
-
+import { Container } from "../../../components/Container";
+import { TitleSection } from "../../../components/TitleSection";
+import { font } from "../../../styles/FontSize";
+import { theme } from "../../../styles/Theme";
+import data from "./data";
 
 export const Services = () => {
   const t = useTranslations("services");
@@ -104,7 +103,7 @@ const StyledGrid = styled.div`
 
     h3 {
       line-height: 160%;
-      font-size: ${font(10, 20)};
+      font-size: ${font(12, 20)};
       margin: 0 30px 46px 35px;
     }
     &:hover {
@@ -197,7 +196,7 @@ const StyledGrid = styled.div`
       }
       h3 {
         line-height: 120%;
-        font-size: 11px;
+        font-size: 12px;
       }
     }
 
