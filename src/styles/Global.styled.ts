@@ -14,7 +14,7 @@ export const GlobalStyle = createGlobalStyle`
 
 
 html {
-
+    overflow-y: auto;
 }
 body {
   max-width: 100vw;
